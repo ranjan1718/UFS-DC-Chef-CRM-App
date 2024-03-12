@@ -27,17 +27,17 @@
       }
     },
     {
-      "Kind": "default.cds_new_contact_forms",
-      "Namespace": "Contacts_1 (Forms)",
-      "Values": {
-        "Information": "8c1e9f89-2ea7-4c0d-bd18-f19c0b946f4d"
-      }
-    },
-    {
       "Kind": "default.cds_ulchef_contact_forms",
       "Namespace": "Contacts (Forms)",
       "Values": {
         "Information": "96871954-fa60-4d10-9d1d-d2efc8fb8948"
+      }
+    },
+    {
+      "Kind": "default.cds_new_contact_forms",
+      "Namespace": "Contacts_1 (Forms)",
+      "Values": {
+        "Information": "8c1e9f89-2ea7-4c0d-bd18-f19c0b946f4d"
       }
     },
     {
