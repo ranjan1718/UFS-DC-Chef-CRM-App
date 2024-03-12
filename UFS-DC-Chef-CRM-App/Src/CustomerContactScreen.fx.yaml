@@ -601,7 +601,7 @@
                                         Set(var_Sales,false);
                                         Set(var_primaryContact,false);
                                         Set(Var_viewCustomerdetails,false);
-                                        
+                                        UpdateContext({_V_CollapseExpand:!_V_CollapseExpand});
                                         Reset(AddMediaButton1_33);
                                         
                                                             Reset('Customer Name Input_5');
@@ -2430,11 +2430,182 @@
                                                 UpdateContext({
                                                     _V_Customer_New: false
                                                 });
-                                                 
+                                                 UpdateContext({_V_CollapseExpand:!_V_CollapseExpand})
                                                 
-                                            Visible: =var_editCustomerInfo||_V_Customer_New
+                                            Visible: |-
+                                                =//var_editCustomerInfo||_V_Customer_New
+                                                false
                                             Width: =30
                                             ZIndex: =5
+
+                                        Cancel As icon.CancelBadge:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =var_CancelColor
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(244, 244, 244, 1)
+                                            Height: =Parent.Height-5
+                                            Icon: =Icon.CancelBadge
+                                            OnSelect: |-
+                                                =UpdateContext({_V_CollapseExpand:!_V_CollapseExpand});
+                                                UpdateContext({
+                                                    _V_Customer_New: false
+                                                });
+                                                
+                                                Set(
+                                                    var_editCustomerInfo,
+                                                    false
+                                                );
+                                                Set(var_editAccountBehaviour, false);
+                                                Set(var_General,false);
+                                                Set(var_Account,false);
+                                                Set(var_Sales,false);
+                                                Set(var_primaryContact,false);
+                                            Visible: =var_editCustomerInfo||_V_Customer_New
+                                            ZIndex: =8
+
+                                        Save As icon.CheckBadge:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =var_SaveColor
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(244, 244, 244, 1)
+                                            Height: =Parent.Height-5
+                                            Icon: =Icon.CheckBadge
+                                            OnSelect: |+
+                                                =
+                                                Set(
+                                                    var_editCustomerInfo,
+                                                    false
+                                                );
+                                                //UpdateContext( { Name: "var_CustomerGallerySelectedID", Value: Customers_Gallery.Selected.Customer });
+                                                
+                                                
+                                                    //Online 
+                                                     If(_V_Customer_New, Patch(
+                                                                Customers,
+                                                                Defaults(Customers),
+                                                                {
+                                                                    'Profile Image': UploadedImage1_15.Image,
+                                                                    Name: 'Customer Name Input_5'.Text,
+                                                                    'Customer Code': 'Customer Code Input_5'.Text,
+                                                                    'Armstrong Code': 'Armstrong Code Input_5'.Text,
+                                                                    Area: 'Area ComboBox_5'.Selected.Value,
+                                                                    City: 'City Input_7'.Text,
+                                                                    'LE City': 'LE City Input_7'.Text,
+                                                                    'LE Address': 'LE Address Input_7'.Text,
+                                                                    Distributor: Distributor_ComboBox_7.Selected,
+                                                                    'Mother Group (ulchef_mothergroupslt)':TextInput3_152.Text,
+                                                                    //DC Chef Teritory
+                                                                    'Primary Contact': 'Primary Contact ComboBox_7'.Selected,
+                                                                    //Menu:Menu
+                                                                    'Type of Engagement': 'Type of Engagement ComboBox_4'.Selected.Value,
+                                                                    Ordering: 'Ordering ComboBox_4'.Selected.Value,
+                                                                    'Invoice To': 'Invoice To ComboBox_4'.Selected.Value,
+                                                                    Delivery: 'Delivery ComboBox_4'.Selected.Value,
+                                                                    Approval: 'Approval ComboBox_4'.Selected.Value,
+                                                                    'Average Monthly Sales': Value('Average Monthly Sales Input_4'.Text),
+                                                                    'Seating Capacity': Value('Seating Capacity Input_4'.Text),
+                                                                    '# of Chairs': Value('# of Chairs Input_4'.Text),
+                                                                    '# of Tables': Value('# of Tables Input_4'.Text),
+                                                                    'Operating Hours': Value('Operating Hours Input_4'.Text),
+                                                                    '# of takeaway food per day': Value('# of takeaway food per Input_4'.Text),
+                                                                    'Manu Image 1': MenuImage1_4.Image,
+                                                                    'Manu Image 2': MenuImage2_4.Image,
+                                                                    'Manu Image 3': MenuImage3_4.Image,
+                                                                    'Manu Image 4': MenuImage4_4.Image,
+                                                                    'Manu Image 5': MenuImage5_4.Image}),
+                                                      
+                                                            Patch(
+                                                                Customers,
+                                                                {Customer: _V_SelectedCustomerInCustModule.Customer},
+                                                                {
+                                                                    'Profile Image': UploadedImage1_15.Image,
+                                                                    Name: 'Customer Name Input_5'.Text,
+                                                                    'Customer Code': 'Customer Code Input_5'.Text,
+                                                                    'Armstrong Code': 'Armstrong Code Input_5'.Text,
+                                                                    Area: 'Area ComboBox_5'.Selected.Value,
+                                                                    City: 'City Input_7'.Text,
+                                                                    'LE City': 'LE City Input_7'.Text,
+                                                                    'LE Address': 'LE Address Input_7'.Text,
+                                                                    Distributor: Distributor_ComboBox_7.Selected,
+                                                                    'Mother Group (ulchef_mothergroupslt)':TextInput3_152.Text,
+                                                                    //DC Chef Teritory
+                                                                    'Primary Contact': 'Primary Contact ComboBox_7'.Selected,
+                                                                    //Menu:Menu
+                                                                    'Type of Engagement': 'Type of Engagement ComboBox_4'.Selected.Value,
+                                                                    Ordering: 'Ordering ComboBox_4'.Selected.Value,
+                                                                    'Invoice To': 'Invoice To ComboBox_4'.Selected.Value,
+                                                                    Delivery: 'Delivery ComboBox_4'.Selected.Value,
+                                                                    Approval: 'Approval ComboBox_4'.Selected.Value,
+                                                                    'Average Monthly Sales': Value('Average Monthly Sales Input_4'.Text),
+                                                                    'Seating Capacity': Value('Seating Capacity Input_4'.Text),
+                                                                    '# of Chairs': Value('# of Chairs Input_4'.Text),
+                                                                    '# of Tables': Value('# of Tables Input_4'.Text),
+                                                                    'Operating Hours': Value('Operating Hours Input_4'.Text),
+                                                                    '# of takeaway food per day': Value('# of takeaway food per Input_4'.Text),
+                                                                    'Manu Image 1': MenuImage1_4.Image,
+                                                                    'Manu Image 2': MenuImage2_4.Image,
+                                                                    'Manu Image 3': MenuImage3_4.Image,
+                                                                    'Manu Image 4': MenuImage4_4.Image,
+                                                                    'Manu Image 5': MenuImage5_4.Image
+                                                                }
+                                                            );Set(
+                                                    _V_PrimaryContact,
+                                                    LookUp(
+                                                        _C_Contacts, Contact=_V_SelectedCustomerInCustModule.'Primary Contact'.Contact
+                                                    )
+                                                );
+                                                Set(_V_SelectedContactInCust,_V_PrimaryContact););
+                                                             Refresh(Customers);
+                                                        Set(_V_SelectedCustomerInCustModule,LookUp(Customers,Customer=_V_SelectedCustomerInCustModule.Customer));
+                                                
+                                                        Patch(
+                                                            _C_Customers,
+                                                            {Customer:_V_SelectedCustomerInCustModule.Customer},
+                                                            _V_SelectedCustomerInCustModule
+                                                        )
+                                                    ;
+                                                    Refresh(Customers);
+                                                    Concurrent(
+                                                        ClearCollect(
+                                                            _C_Customers,
+                                                            AddColumns(AddColumns(Customers, "createofflineRequired", false), "updateofflineRequired", false)
+                                                        ),
+                                                        ClearCollect(
+                                                            _C_Contacts,
+                                                            AddColumns(AddColumns(AddColumns(Contacts, "createofflineRequired", false), "updateofflineRequired", false), "removeofflineRequired", false)
+                                                        ),
+                                                        ClearCollect(
+                                                            _C_Concepts,
+                                                            AddColumns(AddColumns(AddColumns(Concepts, "createofflineRequired", false), "updateofflineRequired", false), "removeofflineRequired", false)
+                                                        )
+                                                    );
+                                                    
+                                                    /*ClearData("_Offline_Concept");
+                                                    ClearData("_Offline_Contact");
+                                                    ClearData("_Offline_Customer");
+                                                
+                                                    SaveData(_C_Concepts, "_Offline_Concept");
+                                                    SaveData(_C_Contacts, "_Offline_Contact");
+                                                    SaveData(_C_Customers, "_Offline_Customer");*/
+                                                    
+                                                
+                                                Set(
+                                                    var_editCustomerInfo,
+                                                    false
+                                                );
+                                                Set(var_editAccountBehaviour, false);
+                                                Set(var_General,false);
+                                                Set(var_Account,false);
+                                                Set(var_Sales,false);
+                                                Set(var_primaryContact,false);
+                                                
+                                                UpdateContext({
+                                                    _V_Customer_New: false
+                                                });
+                                                 UpdateContext({_V_CollapseExpand:!_V_CollapseExpand})
+                                                
+                                            Visible: =var_editCustomerInfo||_V_Customer_New
+                                            ZIndex: =9
 
                                     BottomContainer As groupContainer.horizontalAutoLayoutContainer:
                                         DropShadow: =DropShadow.Light
