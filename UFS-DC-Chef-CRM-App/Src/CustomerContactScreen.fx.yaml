@@ -2446,7 +2446,9 @@
                                             Height: =Parent.Height-5
                                             Icon: =Icon.CancelBadge
                                             OnSelect: |-
-                                                =UpdateContext({_V_CollapseExpand:!_V_CollapseExpand});
+                                                =
+                                                
+                                                If(_V_Customer_New,UpdateContext({_V_CollapseExpand:!_V_CollapseExpand});
                                                 UpdateContext({
                                                     _V_Customer_New: false
                                                 });
@@ -2459,7 +2461,16 @@
                                                 Set(var_General,false);
                                                 Set(var_Account,false);
                                                 Set(var_Sales,false);
-                                                Set(var_primaryContact,false);
+                                                Set(var_primaryContact,false),
+                                                Set(
+                                                    var_editCustomerInfo,
+                                                    false
+                                                );
+                                                Set(var_editAccountBehaviour, false);
+                                                Set(var_General,false);
+                                                Set(var_Account,false);
+                                                Set(var_Sales,false);
+                                                Set(var_primaryContact,false);)
                                             Visible: =var_editCustomerInfo||_V_Customer_New
                                             ZIndex: =8
 
@@ -2512,7 +2523,7 @@
                                                                     'Manu Image 2': MenuImage2_4.Image,
                                                                     'Manu Image 3': MenuImage3_4.Image,
                                                                     'Manu Image 4': MenuImage4_4.Image,
-                                                                    'Manu Image 5': MenuImage5_4.Image}),
+                                                                    'Manu Image 5': MenuImage5_4.Image}); UpdateContext({_V_CollapseExpand:!_V_CollapseExpand}),
                                                       
                                                             Patch(
                                                                 Customers,
@@ -2602,7 +2613,7 @@
                                                 UpdateContext({
                                                     _V_Customer_New: false
                                                 });
-                                                 UpdateContext({_V_CollapseExpand:!_V_CollapseExpand})
+                                                
                                                 
                                             Visible: =var_editCustomerInfo||_V_Customer_New
                                             ZIndex: =9
