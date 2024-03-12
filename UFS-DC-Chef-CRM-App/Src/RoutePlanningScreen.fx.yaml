@@ -5,6 +5,8 @@
     OnVisible: |-
         =/*If(
             gblLastScreen <> "RoutePlanEditScheduleCall",Set(var_ClickIncall,false));
+        
+        */
         Set(
             varFirstDayOfMonth,
             Date(
@@ -13,7 +15,7 @@
                 1
             )
         );
-        */
+        
         //Reset(Dropdown1_1);
         Set(
             var_month,
