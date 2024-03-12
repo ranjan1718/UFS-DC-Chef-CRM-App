@@ -42,7 +42,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 4148,
+            "PublishOrderIndex": 4145,
             "Rules": [
               {
                 "Category": "Design",
@@ -219,7 +219,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 4149,
+            "PublishOrderIndex": 4146,
             "Rules": [
               {
                 "Category": "Data",
@@ -608,7 +608,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 4150,
+            "PublishOrderIndex": 4147,
             "Rules": [
               {
                 "Category": "Data",
@@ -971,7 +971,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 4151,
+            "PublishOrderIndex": 4148,
             "Rules": [
               {
                 "Category": "Data",
@@ -1315,7 +1315,7 @@
             "OptimizeForDevices": "Off",
             "Parent": "Gallery2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 4152,
+            "PublishOrderIndex": 4149,
             "Rules": [
               {
                 "Category": "Design",
@@ -1578,7 +1578,7 @@
         "OptimizeForDevices": "Off",
         "Parent": "Side Bar Component",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 4147,
+        "PublishOrderIndex": 4144,
         "Rules": [
           {
             "Category": "Data",
