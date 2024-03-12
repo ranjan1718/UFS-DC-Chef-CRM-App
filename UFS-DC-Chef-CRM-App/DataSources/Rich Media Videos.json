@@ -6,7 +6,6 @@
     "IsSampleData": false,
     "IsWritable": true,
     "LogicalName": "ulchef_richmediavideos",
-    "MaxGetRowsCount": 2000,
     "Name": "Rich Media Videos",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",

@@ -3,8 +3,10 @@
     LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
     OnHidden: =//Set(gblLastScreen,"Route Planning Screen");
     OnVisible: |-
-        =If(
+        =/*If(
             gblLastScreen <> "RoutePlanEditScheduleCall",Set(var_ClickIncall,false));
+        
+        */
         Set(
             varFirstDayOfMonth,
             Date(
@@ -13,6 +15,7 @@
                 1
             )
         );
+        
         //Reset(Dropdown1_1);
         Set(
             var_month,
