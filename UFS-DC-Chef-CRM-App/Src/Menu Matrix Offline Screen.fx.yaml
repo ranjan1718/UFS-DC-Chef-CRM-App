@@ -1219,14 +1219,14 @@
                                             PaddingLeft: =12
                                             Size: =10
                                             Text: |-
-                                                =If(!IsBlank(_V_SelectedCustomer),CountRows(
+                                                =If(!IsBlank(_V_SelectedCustomer),CountRows(Distinct(
                                                     Filter(
                                                         'Related SKUS',
                                                         'Related Dish'.'Related Dish' in Filter(
                                                             'Related Dishes',
                                                             Customer.Name = _V_SelectedCustomer.Name
                                                         ).'Related Dish'
-                                                    )
+                                                    ),Name)
                                                 ))
                                             Visible: =!_V_editMenu
                                             Width: =Parent.Width/2-20
@@ -6225,12 +6225,19 @@
                                         FillPortions: =0
                                         Height: =Parent.Height/5
                                         Items: |-
-                                            =Filter(
+                                            =/*Filter(
                                                     'Related SKUS',
                                                     'Related Dish'.'Related Dish' in Filter(
-                                                        /*_C_RDishes*/'Related Dishes',
+                                                        'Related Dishes',
                                                         Customer.Name = _V_SelectedCustomer.Name
-                                                    ).'Related Dish')
+                                                    ).'Related Dish')*/
+                                            
+                                            Distinct(Filter(
+                                                    'Related SKUS',
+                                                    'Related Dish'.'Related Dish' in Filter(
+                                                        'Related Dishes',
+                                                        Customer.Name = _V_SelectedCustomer.Name
+                                                    ).'Related Dish'),Name)
                                         LayoutMinHeight: =287
                                         LayoutMinWidth: =0
                                         LoadingSpinner: =LoadingSpinner.Data
@@ -6250,7 +6257,7 @@
                                             Image: |-
                                                 =//ThisItem.Photo 
                                                 //SampleImage
-                                                LookUp(SKUS,Name=ThisItem.Name).SKU_Image
+                                                LookUp(SKUS,Name=ThisItem.Value).SKU_Image
                                             OnSelect: =Select(Parent)
                                             Width: =Parent.TemplateWidth
                                             ZIndex: =1
@@ -6266,7 +6273,7 @@
                                             PaddingBottom: =0
                                             PaddingTop: =0
                                             Size: =7
-                                            Text: =ThisItem.Name
+                                            Text: =ThisItem.Value
                                             Width: =100
                                             Y: =Image11_10.Height+Image11_10.Y
                                             ZIndex: =2
@@ -6277,7 +6284,7 @@
                                         BorderStyle: =BorderStyle.None
                                         BorderThickness: =0.01
                                         DelayItemLoading: =true
-                                        Items: =Filter(/*_C_RDishes*/'Related Dishes',Customer.Customer=_V_SelectedCustomer.Customer)
+                                        Items: =Filter('Related Dishes',Customer.Customer=_V_SelectedCustomer.Customer)
                                         Layout: =Layout.Vertical
                                         LayoutMinHeight: =0
                                         LayoutMinWidth: =0
@@ -6294,12 +6301,19 @@
                                             Height: =Parent.TemplateHeight
                                             Items: |+
                                                 =
-                                                AddColumns(Filter(
+                                                /*AddColumns(Filter(
                                                         'Related SKUS',
                                                         'Related Dish'.'Related Dish' in Filter(
                                                             _C_RDishes,
                                                             Customer.Name = _V_SelectedCustomer.Name
-                                                        ).'Related Dish'),"Dish_1",ThisItem)
+                                                        ).'Related Dish'),"Dish_1",ThisItem)*/
+                                                
+                                                Distinct(Filter(
+                                                        'Related SKUS',
+                                                        'Related Dish'.'Related Dish' in Filter(
+                                                            'Related Dishes',
+                                                            Customer.Name = _V_SelectedCustomer.Name
+                                                        ).'Related Dish'),Name)
                                                 
                                             LoadingSpinner: =LoadingSpinner.Data
                                             ShowScrollbar: =false
@@ -6328,8 +6342,13 @@
                                                     DisabledFill: =Self.Fill
                                                     DisplayMode: |
                                                         =DisplayMode.Disabled
-                                                    Fill: |
-                                                        =If(ThisItem.IsPenetrated='IsPenetrated (Related SKUS)'.Yes && ThisItem.'Related Dish'.'Related Dish'=ThisItem.Dish_1.'Related Dish',Color.Green , RGBA(122, 138, 143, 0.4))
+                                                    Fill: |+
+                                                        =/*If(ThisItem.IsPenetrated='IsPenetrated (Related SKUS)'.Yes && ThisItem.'Related Dish'.'Related Dish'=ThisItem.Dish_1.'Related Dish',Color.Green , RGBA(122, 138, 143, 0.4))*/
+                                                        
+                                                        If(LookUp('Related SKUS',Name=ThisItem.Value && Customer.Customer = _V_SelectedCustomer.Customer && 'Related Dish'.'Dish Name'=Label3.Text).IsPenetrated= 'IsPenetrated (Related SKUS)'.Yes /*&& LookUp('Related SKUS',Name=ThisItem.Value).'Related Dish'.'Dish Name'=ThisItem.Dish_1.'Dish Name'*/ ,Color.Green, RGBA(122, 138, 143, 0.4))
+                                                        
+                                                        //(Related SKUS)'.Yes && ThisItem.Value=ThisItem.Dish_1.'Dish Name',Color.Green , RGBA(122, 138, 143, 0.4))
+                                                        
                                                     Font: ="'Unilever Shilling Regular','Open Sans'"
                                                     FontWeight: =FontWeight.Semibold
                                                     Height: =20
@@ -6344,6 +6363,17 @@
                                                     Text: =""
                                                     Width: =20
                                                     ZIndex: =1
+
+                                        Label3 As label:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            OnSelect: =Select(Parent)
+                                            Size: =13
+                                            Text: =ThisItem.'Dish Name'
+                                            Visible: =false
+                                            X: =352
+                                            ZIndex: =2
 
                         "'Save Button Container_16' As groupContainer.horizontalAutoLayoutContainer":
                             FillPortions: =0
