@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Col_NumberOfAddedDish_1",
+    "Type": "CollectionDataSourceInfo"
+  }
+]

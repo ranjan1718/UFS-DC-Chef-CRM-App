@@ -1,0 +1,240 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |-
+        =fxInCallFromCustomer = 'Side Bar Component_8'.OnSelect;
+        fxScreenName = 'Side Bar Component_8'.ScreenName;
+    OnStart: |
+        =ClearCollect(
+            colTabs,
+            {
+                ID: 1,
+                Name: "All Dishes"
+            },
+            {
+                ID: 2,
+                Name: "SKU Penetration per Dish"
+            }
+        );
+        Clear(_C_SKUs);
+        Set(
+            varSKUTabSelected,
+            2
+        );
+        // Reset All gbl_Variables
+        /*Concurrent(
+            Set(
+                _V_SelectedContactInCust,
+                Blank()
+            ),
+            Set(
+                _V_PrimaryContact1,
+                Blank()
+            )
+        );*/
+        Set(
+            _C_AllColors,
+            {
+                MainHeaders: RGBA(
+                    0,
+                    0,
+                    0,
+                    0
+                ),
+                SubHeaders: RGBA(
+                    0,
+                    0,
+                    0,
+                    0
+                ),
+                BodyLight: Color.White,
+                BodyDark: ColorFade(
+                    Color.DarkGray,
+                    -20%
+                ),
+                GalleryBody: ColorFade(
+                    Color.DarkGray,
+                    -20%
+                ),
+                FontLight: Color.White,
+                FontDark: ColorFade(
+                    Color.DarkGray,
+                    -20%
+                )
+            }
+        );
+        If(
+            Connection.Connected,
+            Concurrent(
+                ClearCollect(
+                    _C_Customers,
+                    Customers
+                ),
+                ClearCollect(
+                    _C_Contacts,
+                    Contacts
+                ),
+                ClearCollect(
+                    _C_Dishes,
+                    Dishes
+                ),
+                ClearCollect(
+                    _C_RSKUs,
+                    Table()
+                );
+                ForAll(
+                    'Related SKUS',
+                    Collect(
+                        _C_RSKUs,
+                        AddColumns(
+                            ThisRecord,
+                            "ID",
+                            Last(_C_RSKUs).ID + 1
+                        )
+                    )
+                ),
+                ClearCollect(
+                    _C_RDishes,
+                    'Related Dishes'
+                ),
+                ClearCollect(
+                    _C_Menus,
+                    Menus
+                ),
+                ForAll(
+                    SKUS,
+                    Collect(
+                        _C_SKUs,
+                        AddColumns(
+                            ThisRecord,
+                            "ID",
+                            Last(_C_SKUs).ID + 1
+                        )
+                    )
+                );
+                ClearCollect(
+                    _C_Concepts,
+                    Concepts
+                )
+            );
+            ClearCollect(
+                _C_AllContacts_Customers,
+                {
+                    Contacts: _C_Contacts,
+                    Customers: _C_Customers,
+                    Concepts: _C_Concepts
+                    //Menus:_C_Menus,
+        //SKUs:_C_SKUs,
+        //Related Dishes:_C_RDishes
+                }
+            );
+            ClearCollect(
+                _C_AllMenuMatrix,
+                Table()
+            );
+            ClearCollect(
+                _C_All_Incalls,
+                InCalls
+            );
+            ClearCollect(
+                _C_All_Special_Events,
+                'Special Events'
+            );
+            ClearCollect(
+                _C_All_Related_Dishes,
+                'Related Dishes'
+            );
+            ClearCollect(
+                _C_All_Related_SKUS,
+                'Related SKUS'
+            );
+            ClearCollect(
+                _C_All_User,
+                Users
+            );
+            ClearCollect(
+                _C_AllRoutePlanning,
+                Table()
+            );
+            
+        );
+        ClearCollect(
+            _C_AllMasterSKUs,
+            SKUS
+        );
+        Set(
+            var_ModuleHeaderColor,
+            RGBA(
+                255,
+                90,
+                0,
+                255
+            )
+        );
+        Set(
+            var_ModuleBodyColor,
+            RGBA(
+                132,
+                60,
+                12,
+                255
+            )
+        );
+        Set(
+            var_SaveColor,
+            RGBA(
+                0,
+                176,
+                80,
+                255
+            )
+        );
+        Set(
+            var_CancelColor,
+            RGBA(
+                127,
+                127,
+                127,
+                255
+            )
+        );
+        Set(
+            var_whiteColor,
+            RGBA(
+                255,
+                255,
+                255,
+                1
+            )
+        );
+        Set(
+            var_EditColor,
+            RGBA(
+                46,
+                117,
+                182,
+                255
+            )
+        );
+        Set(
+            var_DeleteColor,
+            RGBA(
+                192,
+                0,
+                0,
+                255
+            )
+        );
+        Set(var_ClickIncall,false);
+        Set(Var_viewCustomerdetails,false);
+        Set(var_routeplannerloaderspinner,true);
+        Set(var_routescreen,false)
+    StartScreen: ='Home Page'
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

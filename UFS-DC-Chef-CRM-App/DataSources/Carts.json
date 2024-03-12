@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "ulchef_carts",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "ulchef_cart",
+    "MaxGetRowsCount": 2000,
+    "Name": "Carts",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "ulchef_cart_AsyncOperations": "System Jobs",
+      "ulchef_cart_BulkDeleteFailures": "Bulk Delete Failures",
+      "ulchef_cart_DuplicateBaseRecord": "Duplicate Records (ulchef_cart_DuplicateBaseRecord)",
+      "ulchef_cart_DuplicateMatchingRecord": "Duplicate Records (ulchef_cart_DuplicateMatchingRecord)",
+      "ulchef_cart_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "ulchef_cart_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "ulchef_cart_ProcessSession": "Process Sessions",
+      "ulchef_cart_SyncErrors": "Sync Errors",
+      "ulchef_cartid": "Cart",
+      "ulchef_Customer": "Customer",
+      "ulchef_date": "Date",
+      "ulchef_name": "Name",
+      "ulchef_subcart_Cart_ulchef_cart": "Sub-Carts",
+      "ulchef_totalprice": "Total Price",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Carts",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Carts (Views)",
+    "Name": "_ulchef_cart_views",
+    "RelatedEntityName": "Carts",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "37445bdb-f73d-4d15-b959-65563205614e": "Active Carts",
+      "44662539-c402-4b5d-81a1-0eb0e122d8ec": "Cart Associated View",
+      "49ffdb9d-975b-4f44-a96f-028f26b4299b": "Cart Lookup View",
+      "4d1f908f-72e4-44df-b417-4b405131530d": "Cart Advanced Find View",
+      "f6acb881-3f5b-4834-b7eb-04783355f2cb": "Inactive Carts"
+    }
+  },
+  {
+    "DisplayName": "Status (Carts)",
+    "Name": "ulchef_cart_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Carts"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Carts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Carts)",
+    "Name": "ulchef_cart_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Carts"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Carts",
+    "Type": "OptionSetInfo"
+  }
+]

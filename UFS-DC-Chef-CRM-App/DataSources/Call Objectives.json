@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "ulchef_callobjectives",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "ulchef_callobjective",
+    "MaxGetRowsCount": 2000,
+    "Name": "Call Objectives",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "ulchef_callassessment": "Call Assessment",
+      "ulchef_callobjective_AsyncOperations": "System Jobs",
+      "ulchef_callobjective_BulkDeleteFailures": "Bulk Delete Failures",
+      "ulchef_callobjective_DuplicateBaseRecord": "Duplicate Records (ulchef_callobjective_DuplicateBaseRecord)",
+      "ulchef_callobjective_DuplicateMatchingRecord": "Duplicate Records (ulchef_callobjective_DuplicateMatchingRecord)",
+      "ulchef_callobjective_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "ulchef_callobjective_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "ulchef_callobjective_ProcessSession": "Process Sessions",
+      "ulchef_callobjective_SyncErrors": "Sync Errors",
+      "ulchef_callobjectiveid": "Call Objective",
+      "ulchef_Customer": "Customer",
+      "ulchef_InCall": "In Call",
+      "ulchef_name": "Name",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Call Objectives",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Call Objectives (Views)",
+    "Name": "_ulchef_callobjective_views",
+    "RelatedEntityName": "Call Objectives",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "16ac263a-7e2a-4d39-897a-d08a32604464": "Call Objective Associated View",
+      "2c5adfaa-3612-4638-b98a-83623363b662": "Active Call Objectives",
+      "2fed73b0-949e-4036-8405-a274c793bb06": "Call Objective Advanced Find View",
+      "46831d38-73e0-4b4b-82b0-768ed7d156da": "Call Objective Lookup View",
+      "fe7628e8-b0ec-4f40-96f7-3e49db50b628": "Inactive Call Objectives"
+    }
+  },
+  {
+    "DisplayName": "Status (Call Objectives)",
+    "Name": "ulchef_callobjective_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Call Objectives"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Call Objectives",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Call Objectives)",
+    "Name": "ulchef_callobjective_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Call Objectives"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Call Objectives",
+    "Type": "OptionSetInfo"
+  }
+]

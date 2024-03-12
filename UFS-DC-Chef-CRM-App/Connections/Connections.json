@@ -1,0 +1,58 @@
+{
+  "196fe132-03d1-4ba9-bcfd-05ab83d45449": {
+    "appActions": [
+      "SendEmailV2"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "196fe132-03d1-4ba9-bcfd-05ab83d45449"
+  },
+  "436add2e-69d1-4e29-b3b9-2f1b66af01ad": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/alexsp/sporelease/1.0.1682.3673/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://unilever.sharepoint.com/sites/UFSDemandCreationDCChef_ulcq_CQ_SharepointSite": {
+        "datasetOverride": {
+          "environmentVariableName": "ulcq_CQ_SharepointSite",
+          "name": "https://unilever.sharepoint.com/sites/UFSDemandCreationDCChef"
+        },
+        "dataSources": {
+          "PromotionRichMedia_Test_Library": {
+            "tableName": "123da406-1127-46c9-af1d-f4de6a7af8da",
+            "tableNameOverride": {
+              "environmentVariableName": "ulchef_shared_sharepointonline_fddb95dfe6e94fc0ae293beb60d08b49",
+              "name": "123da406-1127-46c9-af1d-f4de6a7af8da"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "PromotionRichMedia_Test_Library"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "436add2e-69d1-4e29-b3b9-2f1b66af01ad"
+  }
+}

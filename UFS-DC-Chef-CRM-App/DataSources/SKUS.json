@@ -1,0 +1,207 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "ulchef_skus",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "ulchef_sku",
+    "MaxGetRowsCount": 2000,
+    "Name": "SKUS",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "ulchef_barcode": "Barcode",
+      "ulchef_brandsid": "Brands Id",
+      "ulchef_caseprice": "Case Price",
+      "ulchef_categoriesnamenew": "Categories Name New",
+      "ulchef_date": "Date",
+      "ulchef_description": "Description",
+      "ulchef_Dish": "Dish",
+      "ulchef_dishapplication": "Dish Application",
+      "ulchef_feedback": "Feedback",
+      "ulchef_gdishday": "G/dish/day",
+      "ulchef_glob_pro_hierarchy": "glob_pro_hierarchy",
+      "ulchef_InCall": "InCall",
+      "ulchef_ingredients": "Ingredients",
+      "ulchef_is_top_ten": "is_top_ten",
+      "ulchef_ispenetrated": "IsPenetrated",
+      "ulchef_mainsku": "Main SKU",
+      "ulchef_markets_name": "markets_name",
+      "ulchef_name": "Name",
+      "ulchef_nutrition_name": "nutrition_name",
+      "ulchef_packingsize": "Packing Size",
+      "ulchef_packsize": "Pack Size",
+      "ulchef_pdf_fdacertificate": "PDF_FDACertificate",
+      "ulchef_pdf_halalcertificate": "PDF_HalalCertificate",
+      "ulchef_pdf_sellingstory": "PDF_SellingStory",
+      "ulchef_pdf_specs": "PDF_Specs",
+      "ulchef_photo": "Photo",
+      "ulchef_photoid": "ulchef_PhotoId",
+      "ulchef_pieceprice": "Piece Price",
+      "ulchef_potentialopportunitypergm": "Potential Opportunity per gm",
+      "ulchef_price": "Price",
+      "ulchef_pro_claims": "pro_claims",
+      "ulchef_products_cat_web_id": "products_cat_web_id",
+      "ulchef_products_cat_web_name": "products_cat_web_name",
+      "ulchef_productsid": "Products ID",
+      "ulchef_quantity": "Quantity",
+      "ulchef_quantitycase": "Quantity Case",
+      "ulchef_remarks": "Remarks",
+      "ulchef_sectors_name": "sectors_name",
+      "ulchef_shelf_life": "shelf_life",
+      "ulchef_sku_AsyncOperations": "System Jobs",
+      "ulchef_sku_BulkDeleteFailures": "Bulk Delete Failures",
+      "ulchef_sku_DuplicateBaseRecord": "Duplicate Records (ulchef_sku_DuplicateBaseRecord)",
+      "ulchef_sku_DuplicateMatchingRecord": "Duplicate Records (ulchef_sku_DuplicateMatchingRecord)",
+      "ulchef_sku_FileAttachments": "FileAttachments",
+      "ulchef_sku_image": "SKU_Image",
+      "ulchef_sku_imageid": "ulchef_SKU_ImageId",
+      "ulchef_sku_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "ulchef_sku_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "ulchef_sku_ProcessSession": "Process Sessions",
+      "ulchef_sku_SyncErrors": "Sync Errors",
+      "ulchef_skuid": "SKU",
+      "ulchef_skuincall_SKU_ulchef_sku": "Related SKUS",
+      "ulchef_skunumber": "SKU Number",
+      "ulchef_sub_sectors_name": "sub_sectors_name",
+      "ulchef_total_recipes_use_product": "total_recipes_use_product",
+      "ulchef_type": "Type",
+      "ulchef_video": "Video",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "SKUS",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "SKUS (Views)",
+    "Name": "_ulchef_sku_views",
+    "RelatedEntityName": "SKUS",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "080dd618-9f1a-4a4a-8e22-becf37d22a7e": "Inactive SKUS",
+      "72390539-bc25-4bf7-972c-ced2a4c0b745": "SKU Advanced Find View",
+      "eeae0363-f3c0-413d-9954-68f73af5ecc7": "SKU Associated View",
+      "f33c9df1-93af-4455-8749-34e1b13f2ae9": "Active SKUS",
+      "f80400fe-6df4-413d-b022-494648a2761c": "SKU Lookup View"
+    }
+  },
+  {
+    "DisplayName": "categories_name_Choice",
+    "Name": "ulchef_categories_name_choice",
+    "OptionSetInfoNameMapping": {
+      "444670000": "Dressings",
+      "444670001": "Baking Cooking & Spreading",
+      "444670002": "Other Foods",
+      "444670003": "Plant Based Meat",
+      "444670004": "Savoury"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ulchef_categoriesnamenew",
+        "OptionSetReferenceEntityName": "SKUS"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "ulchef_categoriesnamenew",
+    "RelatedEntityName": "SKUS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (SKUS)",
+    "Name": "ulchef_sku_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "SKUS"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "SKUS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (SKUS)",
+    "Name": "ulchef_sku_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "SKUS"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "SKUS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "is_top_ten (SKUS)",
+    "Name": "ulchef_sku_ulchef_is_top_ten",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ulchef_is_top_ten",
+        "OptionSetReferenceEntityName": "SKUS"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ulchef_is_top_ten",
+    "RelatedEntityName": "SKUS",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IsPenetrated (SKUS)",
+    "Name": "ulchef_sku_ulchef_ispenetrated",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ulchef_ispenetrated",
+        "OptionSetReferenceEntityName": "SKUS"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ulchef_ispenetrated",
+    "RelatedEntityName": "SKUS",
+    "Type": "OptionSetInfo"
+  }
+]

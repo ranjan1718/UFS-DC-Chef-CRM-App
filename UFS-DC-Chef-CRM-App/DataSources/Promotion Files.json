@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "ulchef_promotionfileses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "ulchef_promotionfiles",
+    "MaxGetRowsCount": 2000,
+    "Name": "Promotion Files",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "ulchef_Author": "Author",
+      "ulchef_description": "Description",
+      "ulchef_file": "File",
+      "ulchef_name": "Name",
+      "ulchef_promotionfiles_AsyncOperations": "System Jobs",
+      "ulchef_promotionfiles_BulkDeleteFailures": "Bulk Delete Failures",
+      "ulchef_promotionfiles_DuplicateBaseRecord": "Duplicate Records (ulchef_promotionfiles_DuplicateBaseRecord)",
+      "ulchef_promotionfiles_DuplicateMatchingRecord": "Duplicate Records (ulchef_promotionfiles_DuplicateMatchingRecord)",
+      "ulchef_promotionfiles_FileAttachments": "FileAttachments",
+      "ulchef_promotionfiles_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "ulchef_promotionfiles_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "ulchef_promotionfiles_ProcessSession": "Process Sessions",
+      "ulchef_promotionfiles_SyncErrors": "Sync Errors",
+      "ulchef_promotionfilesid": "Promotion Files",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Promotion Files",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Promotion Files (Views)",
+    "Name": "_ulchef_promotionfiles_views",
+    "RelatedEntityName": "Promotion Files",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "107dc9a3-9517-44ae-858b-af50081804b4": "Promotion Files Lookup View",
+      "2ce587e5-79c3-4c62-9037-1366bd46c2d8": "Promotion Files Advanced Find View",
+      "ad845817-4c09-4219-a3b4-93a5c85bd840": "Promotion Files Associated View",
+      "d7bb124c-1e7a-4c9b-9072-f5ce7bd14585": "Active Promotion Files",
+      "ef4cf787-82ad-4d0a-8a38-aff8dd597027": "Inactive Promotion Files"
+    }
+  },
+  {
+    "DisplayName": "Status (Promotion Files)",
+    "Name": "ulchef_promotionfiles_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Promotion Files"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Promotion Files",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Promotion Files)",
+    "Name": "ulchef_promotionfiles_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Promotion Files"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Promotion Files",
+    "Type": "OptionSetInfo"
+  }
+]

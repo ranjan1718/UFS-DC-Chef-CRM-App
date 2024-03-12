@@ -1,0 +1,1111 @@
+"'Cart Screen' As screen.'layout_Offline_ver1.0'":
+    Fill: =RGBA(255,255,255,1)
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+    OnHidden: =Set(gblLastScreen,"Cart Screen");
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =75
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =16
+            PaddingRight: =16
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =false
+            ZIndex: =2
+
+            AppName1 As label:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                ContentLanguage: ="Add the name of your app"
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Lighter
+                Height: =75
+                LayoutMinWidth: =280
+                PaddingLeft: =10
+                Size: =16
+                Text: ="Add the name of your app"
+                Tooltip: ="Add the name of your app"
+                Width: =280
+                X: =1
+                ZIndex: =3
+
+            "'Offline sync Icon1' As icon.Globe":
+                AccessibleLabel: ="Offline sync status icon"
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(131, 24, 75, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Icon: |-
+                    =Switch(Connection.Sync,
+                       ConnectionSync.Connected, Icon.Globe, 
+                       ConnectionSync.ConnectedWithWarning, Icon.GlobeWarning,
+                       ConnectionSync.ConnectedPendingUpsync, Icon.GlobeChangesPending,
+                       ConnectionSync.ConnectedError, Icon.GlobeError,
+                       ConnectionSync.ConnectedRefresh, Icon.GlobeRefresh,
+                       ConnectionSync.NotConnected, Icon.GlobeNotConnected, 
+                       ConnectionSync.NotConnectedWithWarning, Icon.GlobeWarning,
+                       ConnectionSync.NotConnectedPendingUpsync, Icon.GlobeChangesPending,
+                       ConnectionSync.NotConnectedSyncError, Icon.GlobeError)
+                LayoutMinHeight: =32
+                OnSelect: |-
+                    =Switch(Connection.Sync,
+                       ConnectionSync.Connected, Notify("Your device is connected to the network, and your app is ready to work offline.",NotificationType.Success), 
+                       ConnectionSync.ConnectedWithWarning, Notify(Connection.LastSyncMessage,NotificationType.Warning),
+                       ConnectionSync.ConnectedPendingUpsync, Notify("Some data on your device must be synchronized with the server.",NotificationType.Warning),
+                       ConnectionSync.ConnectedError, Notify(Connection.LastSyncMessage,NotificationType.Error),
+                       ConnectionSync.ConnectedRefresh, Notify("Your app is currently synchronizing data with the server.",NotificationType.Information),
+                       ConnectionSync.NotConnected, Notify("Your device is not connected to the network, but you can keep using this app.",NotificationType.Success), 
+                       ConnectionSync.NotConnectedWithWarning, Notify(Connection.LastSyncMessage,NotificationType.Warning),
+                       ConnectionSync.NotConnectedPendingUpsync, Notify("Some data on your device must be synchronized with the server. Reconnect to the network to synchronize.",NotificationType.Warning),
+                       ConnectionSync.NotConnectedSyncError, Notify(Connection.LastSyncMessage,NotificationType.Error))
+                TabIndex: =0
+                Tooltip: =If(Connection.Connected,"Connected","Offline")
+                Width: =32
+                ZIndex: =4
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =20
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =5
+
+            "'Main Header_7' As 'Main Header'":
+                Header: ="Cart"
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =Parent.Width
+
+            Container1 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Start
+                DropShadow: =DropShadow.Light
+                LayoutGap: =6
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =2
+
+                "'Side Bar Component_2' As 'Side Bar Component'":
+                    Height: =Parent.Height
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    Width: =140
+
+                Customer_List_Container_6 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingTop: =5
+                    Width: =If(_V_CollapseExpand && 'Cart Screen'.Size >3,180,'Cart Screen'.Size <4 && _V_CollapseExpand,140,!_V_CollapseExpand,30,35)
+                    ZIndex: =2
+
+                    Icon15_1 As icon.Hamburger:
+                        BorderColor: =RGBA(131, 24, 75, 1)
+                        Color: =RGBA(240, 98, 15, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Icon: =Icon.Hamburger
+                        OnSelect: |-
+                            =UpdateContext({_V_CollapseExpand:!_V_CollapseExpand})
+                        PaddingLeft: =5
+                        Width: =30
+                        ZIndex: =1
+
+                    Icon6_3 As icon.OptionsList:
+                        BorderColor: =RGBA(131, 24, 75, 1)
+                        Color: =RGBA(131, 24, 75, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Icon: =Icon.OptionsList
+                        OnSelect: |-
+                            =UpdateContext({_V_CollapseExpand:!_V_CollapseExpand})
+                        PaddingLeft: =5
+                        Visible: =false
+                        Width: =30
+                        ZIndex: =2
+
+                    SearchBar_Container_6 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =Parent.Height/15
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =0
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =_V_CollapseExpand
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                        Component1_8 As Component1:
+                            DefaultText: =""
+                            Height: =Parent.Height
+                            HintText: ="Find Customer"
+                            LayoutMinHeight: =640
+                            LayoutMinWidth: =640
+                            Width: =Parent.Width
+
+                    Container2_19 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.Regular
+                        Height: =Parent.Height*14/15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =0
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =5
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =_V_CollapseExpand
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                        Customers_Gallery_6 As gallery.variableTemplateHeightGallery:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DelayItemLoading: =true
+                            Items: =Filter(Customers, Component1_8.TypedText in Name)
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LoadingSpinner: =LoadingSpinner.Data
+                            OnSelect: |-
+                                =Set(
+                                    _V_SelectedCustomer_1, ThisItem
+                                );
+                                
+                                //ClearCollect(_V_SelectedCustomer,ThisItem);
+                            TemplatePadding: =4
+                            TemplateSize: =70
+                            ZIndex: =1
+
+                            Template_Container_6 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Semilight
+                                Fill: =If(ThisItem.IsSelected, RGBA(127, 127, 127, 1),RGBA(255, 255, 255, 1))
+                                Height: =Customer_Name_6.Height+'Customer Name_6'.Height
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =4
+                                PaddingTop: =4
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.TemplateWidth-12
+                                X: =3
+                                ZIndex: =1
+
+                                "'Customer Name_6' As label":
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =If(ThisItem.IsSelected,RGBA(255, 255, 255, 1),RGBA(0, 0, 0, 1))
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =19
+                                    LayoutMinHeight: =34
+                                    OnSelect: |-
+                                        =Set(
+                                            _V_SelectedCustomer_1, ThisItem
+                                        );
+                                        UpdateContext({_V_Add_Pre_Call:false});
+                                        UpdateContext({_V_StartCall:false});
+                                        UpdateContext({_V_SelectedHeaderOptionInCall:""});
+                                        UpdateContext({_V_CallEnded:false});
+                                        /*Refresh(Concepts);
+                                        ClearCollect(
+                                            col_newRecord1,
+                                            Filter(
+                                                Concepts,
+                                                Customer.Customer = ThisItem.Customer
+                                            )
+                                        );*/
+                                    Size: =10
+                                    Text: =ThisItem.Name
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                Customer_Name_6 As label:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =If(ThisItem.IsSelected,RGBA(255, 255, 255, 1),RGBA(0, 0, 0, 1))
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    OnSelect: |-
+                                        =Set(
+                                            _V_SelectedCustomer_1, ThisItem
+                                        );
+                                        UpdateContext({_V_Add_Pre_Call:false});
+                                        UpdateContext({_V_StartCall:false});
+                                        UpdateContext({_V_SelectedHeaderOptionInCall:""});
+                                        UpdateContext({_V_CallEnded:false});
+                                        /*Refresh(Concepts);
+                                        ClearCollect(
+                                            col_newRecord1,
+                                            Filter(
+                                                Concepts,
+                                                Customer.Customer = ThisItem.Customer
+                                            )
+                                        );*/
+                                    PaddingTop: =0
+                                    Size: =10
+                                    Text: =ThisItem.ulchef_mothergroupslt
+                                    VerticalAlign: =VerticalAlign.Top
+                                    Width: =Parent.Width
+                                    ZIndex: =2
+
+                SKU_DashboardContainer_3 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =4
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =20
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                    Container27_6 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Start
+                        Fill: =RGBA(214, 221, 224, 1)
+                        FillPortions: =0
+                        Height: =45
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =3
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Container21_21 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            BorderColor: =RGBA(139, 154, 159, 1)
+                            BorderThickness: =0.5
+                            DropShadow: =DropShadow.Semibold
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FillPortions: =0
+                            Height: =Parent.Height - 16
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =5
+                            PaddingRight: =5
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width/2
+                            ZIndex: =4
+
+                            TextInput2_27 As text:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderThickness: =2
+                                Color: =RGBA(139, 154, 159, 1)
+                                Default: =""
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                FillPortions: =1
+                                FocusedBorderThickness: =4
+                                Height: =Parent.Height
+                                HintText: ="Search by SKUs Name"
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =RGBA(0, 0, 0, 1)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                LayoutMinWidth: =0
+                                OnChange: =
+                                OnSelect: =Set(_V_ShowUnderline, true)
+                                PaddingLeft: =2
+                                Size: =10
+                                ZIndex: =1
+
+                            Icon1_24 As icon.Search:
+                                AlignInContainer: =AlignInContainer.Center
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(139, 154, 159, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                FocusedBorderThickness: =0
+                                Height: =Parent.Height/1.5
+                                Icon: =Icon.Search
+                                Width: =Self.Height
+                                ZIndex: =2
+
+                    "SKU_SelectionGallery_3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(131, 24, 75, 1)
+                        DelayItemLoading: =true
+                        Items: |-
+                            =Filter(
+                                //_Col_SKUForInCalls
+                                _C_AllMasterSKUs,
+                                TextInput2_27.Text in Name
+                            )
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =50
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =0
+                        TemplateSize: =180
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        Separator4_3 As rectangle:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =8
+                            OnSelect: =
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - Self.Height
+                            ZIndex: =5
+
+                        Rectangle7_3 As rectangle:
+                            BorderColor: =RGBA(139, 154, 159, 1)
+                            Fill: =RGBA(139, 154, 159, 1)
+                            Height: =Parent.TemplateHeight - Separator4_3.Height
+                            OnSelect: =
+                            Visible: =ThisItem.IsSelected
+                            Width: =1
+                            ZIndex: =6
+
+                        Gallery_Body_3 As groupContainer.horizontalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Semilight
+                            Height: =170
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutGap: =10
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =5
+                            PaddingRight: =10
+                            RadiusBottomLeft: =20
+                            RadiusBottomRight: =20
+                            RadiusTopLeft: =20
+                            RadiusTopRight: =20
+                            Width: =Parent.TemplateWidth-20
+                            X: =8
+                            ZIndex: =7
+
+                            ButtonBody_6 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                DropShadow: =DropShadow.Light
+                                Fill: =If(ThisItem in Col_CartItem2,RGBA(46,204,113,1), RGBA(145, 177, 191, 0.25))
+                                FillPortions: =0
+                                Height: =If('Cart Screen'.Size >3, 60,40)
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =10
+                                PaddingLeft: =10
+                                PaddingRight: =10
+                                PaddingTop: =10
+                                RadiusBottomLeft: =30
+                                RadiusBottomRight: =30
+                                RadiusTopLeft: =30
+                                RadiusTopRight: =30
+                                Width: =If('Cart Screen'.Size >3, 60,40)
+                                ZIndex: =1
+
+                                Cart_icon_6 As icon.ShoppingCart:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                    Height: =If('Cart Screen'.Size >3, 40,20)
+                                    Icon: =Icon.ShoppingCart
+                                    OnSelect: |-
+                                        =If(
+                                            IsBlank(
+                                                LookUp(
+                                                    Col_CartItem2,
+                                                    ThisItem.Name = Name
+                                                )
+                                            ),
+                                            If(
+                                                CountRows(Col_CartItem2) < 1,
+                                                ClearCollect(
+                                                    Col_CartItem2,
+                                                    ThisItem
+                                                );
+                                                ClearCollect(
+                                                    _C_Cs_Units,
+                                                    {
+                                                        Id: ThisItem.Name,//GUID(ThisItem.SKU),
+                                                        Quantity: 1
+                                                    }
+                                                );
+                                                ClearCollect(
+                                                    _C_Ps_Units,
+                                                    {
+                                                        Id: ThisItem.Name,//GUID(ThisItem.SKU),
+                                                        Quantity: 0
+                                                    }
+                                                ),
+                                                Collect(
+                                                    Col_CartItem2,
+                                                    ThisItem
+                                                );
+                                                Collect(
+                                                    _C_Cs_Units,
+                                                    {
+                                                        Id: ThisItem.Name,//GUID(ThisItem.SKU),
+                                                        Quantity: 1
+                                                    }
+                                                );
+                                                Collect(
+                                                    _C_Ps_Units,
+                                                    {
+                                                        Id: ThisItem.Name,//GUID(ThisItem.SKU),
+                                                        Quantity: 0
+                                                    }
+                                                )
+                                            ),
+                                            RemoveIf(
+                                                _C_Cs_Units,
+                                                Id = ThisItem.Name//GUID(ThisItem.SKU)
+                                            );
+                                            RemoveIf(
+                                                _C_Ps_Units,
+                                                Id = ThisItem.Name//GUID(ThisItem.SKU)
+                                            );
+                                            Remove(
+                                                Col_CartItem2,
+                                                ThisItem
+                                            )
+                                        );
+                                    Width: =If('Cart Screen'.Size >3, 40,20)
+                                    ZIndex: =1
+
+                            SKU_Img_3 As image:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =If('Cart Screen'.Size >3, 100,60)
+                                Image: =If(IsBlank(ThisItem.Photo),RichMedia,ThisItem.Photo)
+                                Width: =If('Cart Screen'.Size >3, 100,60)
+                                ZIndex: =2
+
+                            "'SKU Details_6' As groupContainer.verticalAutoLayoutContainer":
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =50
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width*.69
+                                ZIndex: =3
+
+                                SKUname_6 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =30
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =If('Cart Screen'.Size >3, 11,9)
+                                    Text: =ThisItem.Name
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                Pack_Size_6 As label:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =If('Cart Screen'.Size >3, 11,9)
+                                    Text: ="Pack Size - "&ThisItem.'Pack Size'
+                                    Width: =Parent.Width
+                                    ZIndex: =2
+
+                                Date1_6 As label:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =If('Cart Screen'.Size >3, 11,9)
+                                    Text: |-
+                                        ="Case Price - ₱ "&Text(ThisItem.'Case Price',"#,#.00")
+                                    Width: =Parent.Width
+                                    ZIndex: =3
+
+                                Type1_6 As label:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisplayMode: =DisplayMode.View
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =If('Cart Screen'.Size >3, 11,9)
+                                    Text: |-
+                                        ="Pcs Price - ₱ "&Text(ThisItem.'Piece Price',"#,#.00")
+                                    Width: =Parent.Width
+                                    ZIndex: =4
+
+                Cart_body_1 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =1.8
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =5
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =4
+
+                    Container28_5 As groupContainer.horizontalAutoLayoutContainer:
+                        Fill: =RGBA(214, 221, 224, 1)
+                        FillPortions: =0
+                        Height: =45
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =5
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        RadiusBottomLeft: =5
+                        RadiusBottomRight: =5
+                        RadiusTopLeft: =5
+                        RadiusTopRight: =5
+                        ZIndex: =1
+
+                        Label16_22 As label:
+                            AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FillPortions: =1
+                            FontWeight: =FontWeight.Bold
+                            LayoutMinWidth: =50
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: ="Cart"
+                            ZIndex: =1
+
+                        Label17_9 As label:
+                            Align: =Align.Right
+                            AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =20
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =2
+                            Size: =11
+                            Text: |-
+                                ="Total Price : ₱ " & 
+                                Text(Sum(Cart_Gallery_3.AllItems,
+                                //((Value(CS_Count.Text)*'Case Price (ulchef_casepricenew)')+(Value(Ps_Count.Text)*'Piece Price (ulchef_piecepricenew)'))
+                                Value(Last(Split(SubTotalPriceLbl_3.Text,"₱")).Value)),"#,#.00")
+                            Width: =Parent.Width*.3
+                            ZIndex: =2
+
+                    "Cart_Gallery_3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(131, 24, 75, 1)
+                        DelayItemLoading: =true
+                        FillPortions: =0
+                        Height: =Parent.Height-100
+                        Items: =Col_CartItem2
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =0
+                        TemplateSize: =130
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        Template_Body_3 As groupContainer.horizontalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Semilight
+                            Height: =125
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =5
+                            PaddingLeft: =15
+                            PaddingRight: =5
+                            PaddingTop: =5
+                            RadiusBottomLeft: =20
+                            RadiusBottomRight: =20
+                            RadiusTopLeft: =20
+                            RadiusTopRight: =20
+                            Width: =Parent.Width-25
+                            X: =10
+                            ZIndex: =1
+
+                            SKU_3 As image:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =If('Cart Screen'.Size >3, 100,80)
+                                Image: =RichMedia
+                                Width: =If('Cart Screen'.Size >3, 100,80)
+                                ZIndex: =1
+
+                            SKU_DetBody_3 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                FillPortions: =0
+                                Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutGap: =3
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =10
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width*.5-50
+                                ZIndex: =2
+
+                                sku_namelbl_3 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    PaddingBottom: =0
+                                    PaddingLeft: =2
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =11
+                                    Text: =ThisItem.Name
+                                    Width: =Parent.Width-20
+                                    ZIndex: =1
+
+                                packsizelbl_3 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =2
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =11
+                                    Text: ="Pack Size - " & ThisItem.'Pack Size'
+                                    Width: =Parent.Width-20
+                                    ZIndex: =2
+
+                                noofcaseslbl_3 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =2
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =11
+                                    Text: ="Cases"
+                                    Width: =Parent.Width-20
+                                    ZIndex: =3
+
+                                noofpieceslbl_3 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    PaddingBottom: =0
+                                    PaddingLeft: =2
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =11
+                                    Text: ="Pcs"
+                                    Width: =Parent.Width-20
+                                    ZIndex: =4
+
+                            SKU_PrcDetBody_3 As groupContainer.verticalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Height: =Parent.Height
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutGap: =5
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =0
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingTop: =8
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                ZIndex: =3
+
+                                SubTotalPriceLbl_3 As label:
+                                    AutoHeight: =true
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Semibold
+                                    PaddingBottom: =0
+                                    PaddingLeft: =10
+                                    PaddingRight: =0
+                                    PaddingTop: =0
+                                    Size: =If('Cart Screen'.Size >3, 12,10)
+                                    Text: |
+                                        ="Sub-Total Price : ₱ " & Text(((Value(CS_Count_3.Text)*ThisItem.'Case Price')+(Value(Ps_Count_3.Text)*ThisItem.'Piece Price')),"#,#.00")
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                UnitsButtonBody_3 As groupContainer.verticalAutoLayoutContainer:
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =5
+                                    LayoutMinHeight: =30
+                                    LayoutMinWidth: =0
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =10
+                                    PaddingTop: =10
+                                    ZIndex: =2
+
+                                    case_unitsbody_3 As groupContainer.horizontalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.Center
+                                        FillPortions: =0
+                                        Height: =Parent.Height*.3
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =0
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =2
+                                        PaddingLeft: =10
+                                        PaddingRight: =12
+                                        PaddingTop: =2
+                                        RadiusBottomLeft: =15
+                                        RadiusBottomRight: =15
+                                        RadiusTopLeft: =15
+                                        RadiusTopRight: =15
+                                        Width: =Parent.Width-20
+                                        ZIndex: =1
+
+                                        Cs_lbl_3 As label:
+                                            AlignInContainer: =AlignInContainer.Center
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            PaddingBottom: =0
+                                            PaddingLeft: =8
+                                            PaddingRight: =0
+                                            PaddingTop: =0
+                                            Size: =If('Cart Screen'.Size >3, 13,9)
+                                            Text: ="CS"
+                                            Width: =Parent.Width*.225
+                                            ZIndex: =1
+
+                                        Unit_ButtonBody_6 As groupContainer.horizontalAutoLayoutContainer:
+                                            DropShadow: =DropShadow.Semilight
+                                            FillPortions: =0
+                                            LayoutMinHeight: =0
+                                            LayoutMinWidth: =0
+                                            LayoutMode: =LayoutMode.Auto
+                                            PaddingLeft: =10
+                                            PaddingRight: =10
+                                            RadiusBottomLeft: =15
+                                            RadiusBottomRight: =15
+                                            RadiusTopLeft: =15
+                                            RadiusTopRight: =15
+                                            Width: =Parent.Width*.525
+                                            ZIndex: =2
+
+                                            Add_Unit_6 As icon.Add:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(131, 24, 75, 1)
+                                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                                Height: =12
+                                                Icon: =Icon.Add
+                                                OnSelect: |-
+                                                    =UpdateIf(_C_Cs_Units, Id = ThisItem.Name, {Quantity: Quantity+1})
+                                                Width: =12
+                                                ZIndex: =1
+
+                                            CS_Count_3 As label:
+                                                Align: =Align.Center
+                                                AlignInContainer: =AlignInContainer.Center
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(0, 0, 0, 1)
+                                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                                FillPortions: =1
+                                                Height: =Parent.Height
+                                                LayoutMinWidth: =0
+                                                Size: =10
+                                                Text: =LookUp(_C_Cs_Units, Id = ThisItem.Name, Quantity)
+                                                ZIndex: =2
+
+                                            Sub_Unit_6 As icon.HorizontalLine:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(131, 24, 75, 1)
+                                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                                Height: =12
+                                                Icon: =Icon.HorizontalLine
+                                                OnSelect: |
+                                                    =UpdateIf(
+                                                        _C_Cs_Units,
+                                                        Id = ThisItem.Name && !((Quantity - 1) < 0),
+                                                        {Quantity: Quantity - 1}
+                                                    );
+                                                    If(
+                                                        LookUp(
+                                                            _C_Cs_Units,
+                                                            ThisItem.Name = Id
+                                                        ).Quantity = 0 && LookUp(
+                                                            _C_Ps_Units,
+                                                            ThisItem.Name = Id
+                                                        ).Quantity = 0,
+                                                        Remove(
+                                                            Col_CartItem2,
+                                                            ThisItem
+                                                        )
+                                                    );
+                                                Width: =12
+                                                ZIndex: =3
+
+                                    piece_unitsbody_4 As groupContainer.horizontalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.Center
+                                        FillPortions: =0
+                                        Height: =Parent.Height*.3
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =0
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingBottom: =2
+                                        PaddingLeft: =10
+                                        PaddingRight: =2
+                                        PaddingTop: =2
+                                        RadiusBottomLeft: =15
+                                        RadiusBottomRight: =15
+                                        RadiusTopLeft: =15
+                                        RadiusTopRight: =15
+                                        Width: =Parent.Width-20
+                                        ZIndex: =2
+
+                                        Ps_lbl_3 As label:
+                                            AlignInContainer: =AlignInContainer.Center
+                                            AutoHeight: =true
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            PaddingBottom: =0
+                                            PaddingLeft: =8
+                                            PaddingRight: =0
+                                            PaddingTop: =0
+                                            Size: =If('Cart Screen'.Size >3, 13,9)
+                                            Text: ="PC"
+                                            Width: =Parent.Width*.225
+                                            ZIndex: =1
+
+                                        Unit_ButtonBody_7 As groupContainer.horizontalAutoLayoutContainer:
+                                            DropShadow: =DropShadow.Semilight
+                                            FillPortions: =0
+                                            LayoutMinHeight: =0
+                                            LayoutMinWidth: =0
+                                            LayoutMode: =LayoutMode.Auto
+                                            PaddingLeft: =10
+                                            PaddingRight: =10
+                                            RadiusBottomLeft: =15
+                                            RadiusBottomRight: =15
+                                            RadiusTopLeft: =15
+                                            RadiusTopRight: =15
+                                            Width: =Parent.Width*.525
+                                            ZIndex: =2
+
+                                            Add_Unit_7 As icon.Add:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(131, 24, 75, 1)
+                                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                                Height: =12
+                                                Icon: =Icon.Add
+                                                OnSelect: |-
+                                                    =UpdateIf(_C_Ps_Units, Id = ThisItem.Name, {Quantity: Quantity+1})
+                                                Width: =12
+                                                ZIndex: =1
+
+                                            Ps_Count_3 As label:
+                                                Align: =Align.Center
+                                                AlignInContainer: =AlignInContainer.Center
+                                                AutoHeight: =true
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(0, 0, 0, 1)
+                                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                                FillPortions: =1
+                                                Height: =Parent.Height
+                                                LayoutMinWidth: =0
+                                                Size: =10
+                                                Text: =LookUp(_C_Ps_Units, Id = ThisItem.Name, Quantity)
+                                                ZIndex: =2
+
+                                            Sub_Unit_7 As icon.HorizontalLine:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(131, 24, 75, 1)
+                                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                                Height: =12
+                                                Icon: =Icon.HorizontalLine
+                                                OnSelect: |-
+                                                    =UpdateIf(_C_Ps_Units, Id = ThisItem.Name && !((Quantity-1)<0), {Quantity: Quantity-1});
+                                                    If(LookUp(_C_Cs_Units,ThisItem.Name = Id).Quantity = 0 && LookUp(_C_Ps_Units,ThisItem.Name = Id).Quantity = 0,Remove(Col_CartItem2,ThisItem));
+                                                Width: =12
+                                                ZIndex: =3
+
+                            Icon10_3 As icon.Trash:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(235, 10, 2, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                Height: =25
+                                Icon: =Icon.Trash
+                                OnSelect: =Remove(Col_CartItem2,ThisItem);
+                                Width: =25
+                                ZIndex: =4
+
+                    Container28_17 As groupContainer.horizontalAutoLayoutContainer:
+                        Fill: =RGBA(253, 207, 180, .25)
+                        FillPortions: =0
+                        Height: =45
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =Parent.Width*.275
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =3
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =3
+                        ZIndex: =3
+
+                        Button8_7 As button:
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 176, 80, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height*.55
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =ColorFade(Self.Fill, -20%)
+                            OnSelect: |-
+                                =ForAll(
+                                    Cart_Gallery_3.AllItems,
+                                    Patch(
+                                        Carts,
+                                        Defaults(Carts),
+                                        {
+                                            Customer: LookUp(
+                                                Customers,
+                                                Name = Customers_Gallery_6.Selected.Name
+                                            ),
+                                            'Total Price': ThisRecord.'Case Price' + ThisRecord.'Piece Price',
+                                            //Sum(Cart_Gallery.AllItems,((Value(CS_Count.Text)*'Case Price')+(Value(Ps_Count.Text)*'Piece Price'))),
+                                            Date: Today(),
+                                            Name: ThisRecord.Name
+                                        }
+                                    )
+                                )
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            RadiusBottomLeft: =6
+                            RadiusBottomRight: =6
+                            RadiusTopLeft: =6
+                            RadiusTopRight: =6
+                            Size: =11
+                            Text: ="Save"
+                            Width: =Parent.Width*.13
+                            ZIndex: =2
+

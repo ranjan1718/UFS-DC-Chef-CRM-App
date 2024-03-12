@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "ulchef_richmediavideoses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "ulchef_richmediavideos",
+    "Name": "Rich Media Videos",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "ulchef_Author": "Author",
+      "ulchef_description": "Description",
+      "ulchef_file": "File",
+      "ulchef_name": "Name",
+      "ulchef_richmediavideos_AsyncOperations": "System Jobs",
+      "ulchef_richmediavideos_BulkDeleteFailures": "Bulk Delete Failures",
+      "ulchef_richmediavideos_DuplicateBaseRecord": "Duplicate Records (ulchef_richmediavideos_DuplicateBaseRecord)",
+      "ulchef_richmediavideos_DuplicateMatchingRecord": "Duplicate Records (ulchef_richmediavideos_DuplicateMatchingRecord)",
+      "ulchef_richmediavideos_FileAttachments": "FileAttachments",
+      "ulchef_richmediavideos_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "ulchef_richmediavideos_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "ulchef_richmediavideos_ProcessSession": "Process Sessions",
+      "ulchef_richmediavideos_SyncErrors": "Sync Errors",
+      "ulchef_richmediavideosid": "Rich Media Videos ",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Rich Media Videos",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Rich Media Videos (Views)",
+    "Name": "_ulchef_richmediavideos_views",
+    "RelatedEntityName": "Rich Media Videos",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "19868c62-92ea-4a00-a29c-dd7d34f13b98": "Rich Media Videos  Advanced Find View",
+      "7b31f3b6-2398-41f9-8968-bc53b00925d2": "Active Rich Media Videos",
+      "7bb278d1-3d0e-4b2a-ad52-4dd695a667e1": "Rich Media Videos  Lookup View",
+      "a89c7108-4092-4cd4-975f-1d90a6547347": "Rich Media Videos  Associated View",
+      "f36f1c70-04a9-4f86-a665-c140d8d2e8cb": "Inactive Rich Media Videos"
+    }
+  },
+  {
+    "DisplayName": "Status (Rich Media Videos)",
+    "Name": "ulchef_richmediavideos_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Rich Media Videos"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Rich Media Videos",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Rich Media Videos)",
+    "Name": "ulchef_richmediavideos_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Rich Media Videos"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Rich Media Videos",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "new_contacts",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "new_contact",
+    "Name": "Contacts_1",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr86f_new_contact": "New_Contact",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_contact_AsyncOperations": "System Jobs",
+      "new_contact_BulkDeleteFailures": "Bulk Delete Failures",
+      "new_contact_DuplicateBaseRecord": "Duplicate Records (new_contact_DuplicateBaseRecord)",
+      "new_contact_DuplicateMatchingRecord": "Duplicate Records (new_contact_DuplicateMatchingRecord)",
+      "new_contact_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "new_contact_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "new_contact_ProcessSession": "Process Sessions",
+      "new_contact_SyncErrors": "Sync Errors",
+      "new_contactid": "Contact",
+      "new_name": "Name",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Contacts_1",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Contacts_1 (Views)",
+    "Name": "_new_contact_views",
+    "RelatedEntityName": "Contacts_1",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "99576238-e807-43b8-b290-91ac99490f6d": "Inactive Contacts",
+      "9ab4acdf-612e-42dc-9154-e64d11bc0daa": "Contact Lookup View",
+      "a2ddff54-4b49-46ce-868e-0aa589e11a9d": "Contact Advanced Find View",
+      "a91d59af-dd77-491a-af9a-ee8c3aaec7ea": "Contact Associated View",
+      "bae14e94-24d9-4041-8374-9f80228db598": "Active Contacts"
+    }
+  },
+  {
+    "DisplayName": "Status (Contacts_1)",
+    "Name": "new_contact_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Contacts_1"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Contacts_1",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Contacts_1)",
+    "Name": "new_contact_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Contacts_1"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Contacts_1",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,561 @@
+"'Home Page' As screen.'layout_Offline_ver1.0'":
+    Fill: =RGBA(255,255,255,1)
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+
+    ScreenContainer11 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        MainSectionContainer11 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =20
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =5
+
+            "'Main Header_5' As 'Main Header'":
+                Header: ="Home"
+                Height: =Parent.Height/11
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =Parent.Width
+
+            SubMainContainer44 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Start
+                DropShadow: =DropShadow.Light
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width
+                ZIndex: =2
+
+                "'Side Bar Component_14' As 'Side Bar Component'":
+                    Height: =Parent.Height
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    Width: =140
+
+                Cont_Inner_withoutSideBar As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingTop: =20
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =false
+                    ZIndex: =2
+
+                    Cont_Banner As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        Height: =Parent.Height/1.5
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Width: =Parent.Width/1.25
+                        ZIndex: =1
+
+                        Label13 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 90, 0, 1)
+                            FontWeight: =FontWeight.Bold
+                            Height: =Parent.Height/4
+                            PaddingBottom: =20
+                            Size: =20
+                            Text: ="PROMOTION & BANNER"
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        Image2 As image:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height-Label13.Height-50
+                            Image: =LookUp(SKUS,Barcode="4800888603227").SKU_Image
+                            Width: =Parent.Width/3
+                            Y: =Label13.Height
+                            ZIndex: =2
+
+                        Image2_1 As image:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height-Label13.Height-50
+                            Image: =Last(SKUS).SKU_Image
+                            Width: =Parent.Width/3
+                            X: =Image2.Width
+                            Y: =Label13.Height
+                            ZIndex: =3
+
+                        Image2_2 As image:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height-Label13.Height-50
+                            Image: =LookUp(SKUS,Barcode="4800888607973").SKU_Image
+                            Width: =Parent.Width/3
+                            X: =Image2.Width+Image2_1.Width
+                            Y: =Label13.Height
+                            ZIndex: =4
+
+                        Image20 As image:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =69.66666666666669
+                            Image: =PNG_UFS_Logo
+                            ImagePosition: =ImagePosition.Fill
+                            Width: =150
+                            X: =40
+                            Y: =Image2.Height+Image2.Y-20
+                            ZIndex: =5
+
+                    Cont_lower As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.Width/1.25
+                        ZIndex: =2
+
+                        Gallery12 As gallery.galleryHorizontal:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DelayItemLoading: =true
+                            Items: =SKUS
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =320
+                            LoadingSpinner: =LoadingSpinner.Data
+                            TemplatePadding: =10
+                            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+                            ZIndex: =1
+
+                            Container52 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Semilight
+                                Height: =123
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =320
+                                ZIndex: =3
+
+                                Image21 As image:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Image: =If(IsBlank(ThisItem.SKU_Image),SampleImage,ThisItem.SKU_Image)
+                                    ImagePosition: =ImagePosition.Fill
+                                    Width: =Parent.Width/3
+                                    ZIndex: =1
+
+                                Container51 As groupContainer.horizontalAutoLayoutContainer:
+                                    DropShadow: =DropShadow.Light
+                                    Height: =123
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =0
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingTop: =2
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Width: =320
+                                    ZIndex: =2
+
+                                    Label25 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =25
+                                        Size: =8
+                                        Text: =ThisItem.Name
+                                        ZIndex: =1
+
+                                    Label25_1 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FillPortions: =1
+                                        Overflow: =Overflow.Scroll
+                                        Size: =8
+                                        Text: =ThisItem.Description
+                                        ZIndex: =2
+
+                    Container53 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =3
+
+                        Circle1 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =10
+                            LayoutMinHeight: =10
+                            Width: =10
+                            ZIndex: =1
+
+                        Circle1_1 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =12
+                            LayoutMinHeight: =10
+                            Width: =12
+                            ZIndex: =2
+
+                        Circle1_11 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =10
+                            LayoutMinHeight: =10
+                            Width: =10
+                            ZIndex: =3
+
+                Cont_Inner_withoutSideBar_1 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingTop: =20
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =3
+
+                    Timer2 As timer:
+                        AutoStart: =true
+                        Duration: =5000
+                        Fill: =RGBA(211, 66, 9, 1)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                        OnSelect: =
+                        OnTimerStart: |-
+                            =If(CountRows(_C_SKUs) > Var_Id + 1,
+                            Set(Var_Id,Var_Id+3),
+                            Set(Var_Id,1))
+                        Repeat: =true
+                        Visible: =false
+                        ZIndex: =1
+
+                    Cont_Banner_1 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        Height: =Parent.Height/1.5
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomLeft: =20
+                        RadiusBottomRight: =20
+                        RadiusTopLeft: =20
+                        RadiusTopRight: =20
+                        Width: =Parent.Width/1.25
+                        ZIndex: =2
+
+                        Label13_5 As label:
+                            Align: =Align.Center
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            Color: =RGBA(255, 255, 255, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 90, 0, 1)
+                            FontWeight: =FontWeight.Bold
+                            Height: =Parent.Height/4
+                            PaddingBottom: =20
+                            Size: =20
+                            Text: ="PROMOTION & BANNER"
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        Gallery12_2 As gallery.galleryHorizontal:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DelayItemLoading: =true
+                            FocusedBorderThickness: =0
+                            Height: =Parent.Height-Label13_5.Height-50
+                            Items: |-
+                                =//SKUS
+                                Filter(_C_SKUs,ID=Var_Id ||ID=Var_Id+1 || ID=Var_Id+2)
+                            LoadingSpinner: =LoadingSpinner.Data
+                            ShowScrollbar: =false
+                            TemplatePadding: =10
+                            TemplateSize: =Parent.Width/3.1
+                            Width: =Parent.Width
+                            X: =
+                            Y: =Label13_5.Height
+                            ZIndex: =3
+
+                            Container52_1 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Semilight
+                                Height: =Parent.TemplateHeight
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.TemplateWidth
+                                ZIndex: =3
+
+                                Image21_1 As image:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Image: =If(IsBlank(ThisItem.SKU_Image),SampleImage,ThisItem.SKU_Image)
+                                    ImagePosition: =ImagePosition.Fill
+                                    OnSelect: |-
+                                        =Set(Var_Image, If(IsBlank(ThisItem.SKU_Image),SampleImage,ThisItem.SKU_Image));
+                                        Set(Var_pop, true)
+                                    Transparency: |-
+                                        =If(
+                                            Timer2.Value <= Timer2.Duration * .2,
+                                            ((Timer2.Duration * .2) - Timer2.Value) / (Timer2.Duration * .2),
+                                            If(
+                                                Timer2.Value >= Timer2.Duration * .8,
+                                                (Timer2.Value - Timer2.Duration*.8) / (Timer2.Duration * .2)
+                                            )
+                                        )
+                                        //Timer2.Value/ Timer2.Duration
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                    Cont_lower_1 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Cont_Banner_1.Width
+                        ZIndex: =3
+
+                        Gallery12_3 As gallery.galleryHorizontal:
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DelayItemLoading: =true
+                            Items: |-
+                                =//SKUS
+                                Filter(_C_SKUs,ID=Var_Id ||ID=Var_Id+1 || ID=Var_Id+2)
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =50
+                            LoadingSpinner: =LoadingSpinner.Data
+                            ShowScrollbar: =false
+                            TemplatePadding: =10
+                            TemplateSize: =Parent.Width/3.1
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            Container52_4 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Semilight
+                                Height: =123
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.TemplateWidth
+                                ZIndex: =3
+
+                                Image21_2 As image:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    FillPortions: =1
+                                    Height: =Parent.Height
+                                    Image: =If(IsBlank(ThisItem.SKU_Image),SampleImage,ThisItem.SKU_Image)
+                                    ImagePosition: =ImagePosition.Fill
+                                    OnSelect: |-
+                                        =Set(Var_Image, If(IsBlank(ThisItem.SKU_Image),SampleImage,ThisItem.SKU_Image));
+                                        Set(Var_pop, true)
+                                    Transparency: |-
+                                        =If(
+                                            Timer2.Value <= Timer2.Duration * .2,
+                                            ((Timer2.Duration * .2) - Timer2.Value) / (Timer2.Duration * .2),
+                                            If(
+                                                Timer2.Value >= Timer2.Duration * .8,
+                                                (Timer2.Value - Timer2.Duration*.8) / (Timer2.Duration * .2)
+                                            )
+                                        )
+                                        //Timer2.Value/ Timer2.Duration
+                                    Width: =Parent.Width/3
+                                    ZIndex: =1
+
+                                Container51_2 As groupContainer.horizontalAutoLayoutContainer:
+                                    DropShadow: =DropShadow.Light
+                                    Height: =123
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =0
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingTop: =2
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Width: =320
+                                    ZIndex: =2
+
+                                    Label25_4 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =25
+                                        Size: =8
+                                        Text: =ThisItem.Name
+                                        Visible: =.8
+                                        ZIndex: =1
+
+                                    Label25_5 As label:
+                                        AlignInContainer: =AlignInContainer.Stretch
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FillPortions: =1
+                                        LayoutMinWidth: =50
+                                        Overflow: =Overflow.Scroll
+                                        Size: =8
+                                        Text: |-
+                                            =ThisItem.Description
+                                            //ThisItem.ID
+                                        ZIndex: =2
+
+                    Container53_2 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =10
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =4
+
+                        Circle1_3 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =10
+                            LayoutMinHeight: =10
+                            Width: =10
+                            ZIndex: =1
+
+                        Circle1_2 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =12
+                            LayoutMinHeight: =10
+                            Width: =12
+                            ZIndex: =2
+
+                        Circle1_12 As circle:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =10
+                            LayoutMinHeight: =10
+                            Width: =10
+                            ZIndex: =3
+
+    Container17_3 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =Var_pop
+        Width: =Parent.Width
+        X: =Parent.Width/2-Self.Width/2
+        ZIndex: =2
+
+        Image2_5 As image:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =Parent.Height-30
+            Image: =Var_Image
+            ImagePosition: =ImagePosition.Fill
+            Width: =Parent.Width-500
+            X: =Parent.Width/2-Self.Width/2
+            Y: =30
+            ZIndex: =1
+
+        Icon19_1 As icon.CancelBadge:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Icon: =Icon.CancelBadge
+            OnSelect: =Set(Var_pop, false)
+            X: =Image2_5.Width+Image2_5.X
+            Y: =Image2_5.Y
+            ZIndex: =2
+

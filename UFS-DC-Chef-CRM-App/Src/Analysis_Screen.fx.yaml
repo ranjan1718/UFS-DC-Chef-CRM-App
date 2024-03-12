@@ -1,0 +1,1354 @@
+"Analysis_Screen As screen.'layout_Offline_ver1.0'":
+    Fill: =RGBA(255,255,255,1)
+    LoadingSpinnerColor: =RGBA(211, 66, 9, 1)
+
+    ScreenContainer12 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer12 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =75
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =16
+            PaddingRight: =16
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =false
+            ZIndex: =2
+
+            AppName12 As label:
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                ContentLanguage: ="Add the name of your app"
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FillPortions: =1
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Lighter
+                Height: =75
+                LayoutMinWidth: =280
+                PaddingLeft: =10
+                Size: =16
+                Text: ="Add the name of your app"
+                Tooltip: ="Add the name of your app"
+                Width: =280
+                X: =1
+                ZIndex: =3
+
+            "'Offline sync Icon12' As icon.Globe":
+                AccessibleLabel: ="Offline sync status icon"
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(131, 24, 75, 1)
+                Color: =RGBA(131, 24, 75, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Icon: |-
+                    =Switch(Connection.Sync,
+                       ConnectionSync.Connected, Icon.Globe, 
+                       ConnectionSync.ConnectedWithWarning, Icon.GlobeWarning,
+                       ConnectionSync.ConnectedPendingUpsync, Icon.GlobeChangesPending,
+                       ConnectionSync.ConnectedError, Icon.GlobeError,
+                       ConnectionSync.ConnectedRefresh, Icon.GlobeRefresh,
+                       ConnectionSync.NotConnected, Icon.GlobeNotConnected, 
+                       ConnectionSync.NotConnectedWithWarning, Icon.GlobeWarning,
+                       ConnectionSync.NotConnectedPendingUpsync, Icon.GlobeChangesPending,
+                       ConnectionSync.NotConnectedSyncError, Icon.GlobeError)
+                LayoutMinHeight: =32
+                OnSelect: |-
+                    =Switch(Connection.Sync,
+                       ConnectionSync.Connected, Notify("Your device is connected to the network, and your app is ready to work offline.",NotificationType.Success), 
+                       ConnectionSync.ConnectedWithWarning, Notify(Connection.LastSyncMessage,NotificationType.Warning),
+                       ConnectionSync.ConnectedPendingUpsync, Notify("Some data on your device must be synchronized with the server.",NotificationType.Warning),
+                       ConnectionSync.ConnectedError, Notify(Connection.LastSyncMessage,NotificationType.Error),
+                       ConnectionSync.ConnectedRefresh, Notify("Your app is currently synchronizing data with the server.",NotificationType.Information),
+                       ConnectionSync.NotConnected, Notify("Your device is not connected to the network, but you can keep using this app.",NotificationType.Success), 
+                       ConnectionSync.NotConnectedWithWarning, Notify(Connection.LastSyncMessage,NotificationType.Warning),
+                       ConnectionSync.NotConnectedPendingUpsync, Notify("Some data on your device must be synchronized with the server. Reconnect to the network to synchronize.",NotificationType.Warning),
+                       ConnectionSync.NotConnectedSyncError, Notify(Connection.LastSyncMessage,NotificationType.Error))
+                TabIndex: =0
+                Tooltip: =If(Connection.Connected,"Connected","Offline")
+                Width: =32
+                ZIndex: =4
+
+        MainSectionContainer12 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =20
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =5
+
+            "'Main Header_12' As 'Main Header'":
+                Header: ="Analysis"
+                Height: =Parent.Height/11
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =Parent.Width
+
+            Container48 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+                "'Side Bar Component_5' As 'Side Bar Component'":
+                    Height: =Parent.Height
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    Width: =140
+
+                BodyContainer_Without_SideBar As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =2
+
+                    Cont_DashBoard As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Regular
+                        Height: =Parent.Height - Self.Y*2
+                        LayoutGap: =150
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =100
+                        PaddingRight: =100
+                        PaddingTop: =Self.Height/2 - 'cont_SKU and Account Oppertunity'.Height/2 - 25
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =!_V_SKU_AccountOppertunity && !_V_RoutePlan_PromoEligibity_View && !_V_CustomerRecovery
+                        Width: =Parent.Width-Self.X*2
+                        X: =40
+                        Y: =40
+                        ZIndex: =4
+
+                        "'cont_SKU and Account Oppertunity' As groupContainer.manualLayoutContainer":
+                            AlignInContainer: =AlignInContainer.Start
+                            FillPortions: =0
+                            Height: =220
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =150
+                            ZIndex: =4
+
+                            Circle2_4 As circle:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Fill: =RGBA(211, 66, 9, 1)
+                                Height: =150
+                                OnSelect: =Set(_V_SKU_AccountOppertunity,true)
+                                Width: =150
+                                Y: =
+                                ZIndex: =1
+
+                            Label13_1 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =60
+                                OnSelect: =Set(_V_SKU_AccountOppertunity,true)
+                                Size: =12
+                                Text: ="SKU and Account Oppertunity"
+                                X: =
+                                Y: =Circle2_4.Height+5
+                                ZIndex: =2
+
+                            Image14_4 As image:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =80
+                                Image: =pour
+                                ImagePosition: =ImagePosition.Fill
+                                OnSelect: =Set(_V_SKU_AccountOppertunity,true)
+                                PaddingBottom: =5
+                                PaddingLeft: =5
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                RadiusBottomLeft: =120
+                                RadiusBottomRight: =120
+                                RadiusTopLeft: =120
+                                RadiusTopRight: =120
+                                Width: =80
+                                X: =Parent.Width/2-Self.Width/2
+                                Y: =Parent.Width/2-Self.Width/2
+                                ZIndex: =3
+
+                        "'cont_Route Plan & Promo Eligibility' As groupContainer.manualLayoutContainer":
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =220
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =150
+                            ZIndex: =5
+
+                            Circle2_6 As circle:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Fill: =RGBA(211, 66, 9, 1)
+                                Height: =150
+                                OnSelect: =Set(_V_RoutePlan_PromoEligibity_View,true)
+                                Width: =150
+                                Y: =
+                                ZIndex: =1
+
+                            Label13_2 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =60
+                                OnSelect: =Set(_V_RoutePlan_PromoEligibity_View,true)
+                                Size: =12
+                                Text: ="Route Plan & Promo Eligibility"
+                                X: =
+                                Y: =Circle2_4.Height+5
+                                ZIndex: =2
+
+                            Image14_5 As image:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =80
+                                Image: ='business-plan'
+                                OnSelect: =Set(_V_RoutePlan_PromoEligibity_View,true)
+                                PaddingBottom: =5
+                                PaddingLeft: =5
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                RadiusBottomLeft: =120
+                                RadiusBottomRight: =120
+                                RadiusTopLeft: =120
+                                RadiusTopRight: =120
+                                Width: =80
+                                X: =Parent.Width/2-Self.Width/2
+                                Y: =Parent.Width/2-Self.Width/2
+                                ZIndex: =3
+
+                        "'cont_Dormant Customers Recovery' As groupContainer.manualLayoutContainer":
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0
+                            Height: =220
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =150
+                            ZIndex: =6
+
+                            Circle2_7 As circle:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Fill: =RGBA(211, 66, 9, 1)
+                                Height: =150
+                                OnSelect: =Set(_V_CustomerRecovery,true)
+                                Width: =150
+                                Y: =
+                                ZIndex: =1
+
+                            Label13_3 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =60
+                                OnSelect: =Set(_V_CustomerRecovery,true)
+                                Size: =12
+                                Text: ="Dormant Customers Recovery"
+                                X: =
+                                Y: =Circle2_4.Height+5
+                                ZIndex: =2
+
+                            Image14_6 As image:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =80
+                                Image: =DormatCustomerRecovery
+                                ImagePosition: =ImagePosition.Fill
+                                OnSelect: =Set(_V_CustomerRecovery,true)
+                                PaddingBottom: =5
+                                PaddingLeft: =5
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                RadiusBottomLeft: =120
+                                RadiusBottomRight: =120
+                                RadiusTopLeft: =120
+                                RadiusTopRight: =120
+                                Width: =80
+                                X: =Parent.Width/2-Self.Width/2
+                                Y: =Parent.Width/2-Self.Width/2
+                                ZIndex: =3
+
+                    Cont_SKUPenetration_AccountOppertunity As groupContainer.verticalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Height: =Parent.Height-10
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =10
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =20
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =_V_SKU_AccountOppertunity
+                        Width: =Parent.Width-10
+                        X: =5
+                        Y: =5
+                        ZIndex: =5
+
+                        Container39_1 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0.15
+                            Height: =Parent.Height
+                            LayoutAlignItems: =LayoutAlignItems.Center
+                            LayoutGap: =20
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            Icon3_5 As icon.BackArrow:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(240, 98, 15, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height
+                                Icon: =Icon.BackArrow
+                                OnSelect: =Set(_V_SKU_AccountOppertunity,false)
+                                PaddingBottom: =5
+                                PaddingTop: =5
+                                Width: =Parent.Width*0.03
+                                ZIndex: =1
+
+                            "'lbl_SKU Penetration' As label":
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =Parent.Height
+                                PaddingLeft: =20
+                                Text: ="Full Year Account and SKU Oppurtunity"
+                                Width: =Parent.Width*0.5
+                                ZIndex: =2
+
+                            ComboBox6 As combobox:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                ChevronBackground: =RGBA(211, 66, 9, 1)
+                                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height-10
+                                HoverColor: =RGBA(0, 0, 0, 1)
+                                HoverFill: =RGBA(255, 211, 205, 1)
+                                InputTextPlaceholder: ="Account"
+                                Items: =ComboBoxSample
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(131, 24, 75, 1)
+                                SearchItems: =Search(ComboBoxSample,ComboBox6.SearchText,"Value1")
+                                SelectionFill: =RGBA(211, 66, 9, 1)
+                                Size: =13
+                                Width: =Parent.Width*0.2
+                                ZIndex: =5
+
+                            ComboBox6_1 As combobox:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                ChevronBackground: =RGBA(211, 66, 9, 1)
+                                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height-10
+                                HoverColor: =RGBA(0, 0, 0, 1)
+                                HoverFill: =RGBA(255, 211, 205, 1)
+                                InputTextPlaceholder: ="SKU"
+                                Items: =ComboBoxSample
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(131, 24, 75, 1)
+                                SearchItems: =Search(ComboBoxSample,ComboBox6_1.SearchText,"Value1")
+                                SelectionFill: =RGBA(211, 66, 9, 1)
+                                Size: =13
+                                Width: =Parent.Width*0.2
+                                ZIndex: =6
+
+                        Container32_7 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Start
+                            DropShadow: =DropShadow.Regular
+                            FillPortions: =1.3
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width-20
+                            ZIndex: =3
+
+                            Container19_3 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Light
+                                FillPortions: =0.1
+                                Height: =Parent.Height
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =0
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                Label19_20 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Height: =Parent.Height
+                                    Size: =13
+                                    Text: =""
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =1
+
+                                Label22_37 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =10
+                                    Text: ="2022 Sales"
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =2
+
+                                Label23_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =10
+                                    Text: ="2023 Sales"
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =3
+
+                                Label24_3 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =10
+                                    Text: ="2024 Sales"
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =4
+
+                                Label25_2 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    Height: =Parent.Height
+                                    Size: =13
+                                    Text: =""
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =5
+
+                            Container28_10 As groupContainer.verticalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Light
+                                Height: =Parent.Height
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                                Gallery15 As gallery.galleryVertical:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    DelayItemLoading: =true
+                                    Height: =Container32_7.Height-Container19_3.Height
+                                    Items: ='Mother Groups'
+                                    Layout: =Layout.Vertical
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    LoadingSpinner: =LoadingSpinner.Data
+                                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                        Container36_8 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0.3
+                            Height: =80
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width-20
+                            ZIndex: =4
+
+                            Container36_9 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Height: =Parent.Height
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width/2
+                                ZIndex: =1
+
+                                Container37_2 As groupContainer.verticalAutoLayoutContainer:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    FillPortions: =0
+                                    Height: =Parent.Height
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =100
+                                    LayoutMinWidth: =250
+                                    LayoutMode: =LayoutMode.Auto
+                                    RadiusBottomLeft: =4
+                                    RadiusBottomRight: =4
+                                    RadiusTopLeft: =4
+                                    RadiusTopRight: =4
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                    Label18_10 As label:
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        Color: =RGBA(0, 0, 0, 1)
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        FontWeight: =FontWeight.Bold
+                                        Height: =Parent.Height/2.2
+                                        Text: ="Run Rate and Balance to Sell"
+                                        Width: =Parent.Width
+                                        ZIndex: =1
+
+                                    Container38_8 As groupContainer.horizontalAutoLayoutContainer:
+                                        AlignInContainer: =AlignInContainer.SetByContainer
+                                        Height: =Parent.Height/2
+                                        LayoutGap: =20
+                                        LayoutMinHeight: =0
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        PaddingLeft: =20
+                                        PaddingRight: =20
+                                        PaddingTop: =5
+                                        RadiusBottomLeft: =4
+                                        RadiusBottomRight: =4
+                                        RadiusTopLeft: =4
+                                        RadiusTopRight: =4
+                                        Width: =Parent.Width
+                                        ZIndex: =2
+
+                                        "'lbl_SKU Penetration_1' As label":
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =Parent.Height
+                                            PaddingLeft: =20
+                                            Size: =10
+                                            Text: |-
+                                                ="Select Date Range : "
+                                            Width: =Parent.Width*0.25
+                                            ZIndex: =1
+
+                                        ComboBox4 As combobox:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            ChevronBackground: =RGBA(211, 66, 9, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            Height: =Parent.Height-10
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(0, 0, 0, 0)
+                                            InputTextPlaceholder: ="Day"
+                                            Items: =ComboBoxSample
+                                            PaddingLeft: =10
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(131, 24, 75, 1)
+                                            SearchItems: =Search(ComboBoxSample,ComboBox4.SearchText,"Value1")
+                                            SelectionFill: =RGBA(0, 0, 0, 0)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =Parent.Width*0.2
+                                            ZIndex: =2
+
+                                        ComboBox4_1 As combobox:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            ChevronBackground: =RGBA(211, 66, 9, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            DisplayFields: =["Value"]
+                                            Height: =Parent.Height-10
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(0, 0, 0, 0)
+                                            InputTextPlaceholder: ="Month"
+                                            Items: =["January","February","March","April","May","June","July","September","October","November","December"]
+                                            PaddingLeft: =10
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(131, 24, 75, 1)
+                                            SearchFields: =["Value"]
+                                            SearchItems: =Search(["January","February","March","April","May","June","July","September","October","November","December"],ComboBox4_1.SearchText,"Value")
+                                            SelectionFill: =RGBA(0, 0, 0, 0)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =Parent.Width*0.2
+                                            ZIndex: =3
+
+                                        ComboBox4_7 As combobox:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            ChevronBackground: =RGBA(211, 66, 9, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            DisplayFields: =["Value"]
+                                            Height: =Parent.Height-10
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(0, 0, 0, 0)
+                                            InputTextPlaceholder: ="Year"
+                                            Items: =["2023","2024","2025","2026"]
+                                            PaddingLeft: =10
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(131, 24, 75, 1)
+                                            SearchFields: =["Value"]
+                                            SearchItems: =Search(["2023","2024","2025","2026"],ComboBox4_7.SearchText,"Value")
+                                            SelectionFill: =RGBA(253, 207, 180, 1)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =Parent.Width*0.2
+                                            ZIndex: =4
+
+                        Container36_10 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            DropShadow: =DropShadow.Light
+                            Height: =Parent.Height
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width-20
+                            ZIndex: =5
+
+                    "'Cont_Route Plan & Promo Eligibility' As groupContainer.verticalAutoLayoutContainer":
+                        DropShadow: =DropShadow.Light
+                        Height: =Parent.Height-10
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =10
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =20
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =_V_RoutePlan_PromoEligibity_View
+                        Width: =Parent.Width-10
+                        X: =5
+                        Y: =5
+                        ZIndex: =6
+
+                        Container44_2 As groupContainer.horizontalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.SetByContainer
+                            FillPortions: =0.07
+                            Height: =0
+                            LayoutGap: =10
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =20
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width-20
+                            ZIndex: =1
+
+                            Icon6_2 As icon.BackArrow:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(240, 98, 15, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height
+                                Icon: =Icon.BackArrow
+                                OnSelect: =Set(_V_RoutePlan_PromoEligibity_View,false)
+                                PaddingBottom: =5
+                                PaddingTop: =5
+                                Width: =Parent.Width*0.03
+                                ZIndex: =1
+
+                            lbl_RoutePlan As label:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                ContentLanguage: =Parent.Width*0.962
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =Parent.Height
+                                PaddingLeft: =20
+                                PaddingRight: =20
+                                Size: =16
+                                Text: ="Sales trend"
+                                Width: =Parent.Width*0.94
+                                ZIndex: =2
+
+                        Container41_1 As groupContainer.verticalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
+                            Fill: =RGBA(214, 221, 224, 1)
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =3
+
+                            Container36_11 As groupContainer.horizontalAutoLayoutContainer:
+                                AlignInContainer: =AlignInContainer.SetByContainer
+                                Fill: =RGBA(255, 255, 255, 1)
+                                FillPortions: =0.08
+                                Height: =Parent.Height
+                                LayoutAlignItems: =LayoutAlignItems.Center
+                                LayoutGap: =10
+                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width/2
+                                ZIndex: =1
+
+                                Label18_11 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =12
+                                    Text: |-
+                                        ="Select Date Range : "
+                                    Width: =Parent.Width*0.3
+                                    ZIndex: =2
+
+                                ComboBox4_8 As combobox:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    ChevronBackground: =RGBA(211, 66, 9, 1)
+                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                    ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height-20
+                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    InputTextPlaceholder: ="Day"
+                                    Items: =ComboBoxSample
+                                    PaddingLeft: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(131, 24, 75, 1)
+                                    SearchItems: =Search(ComboBoxSample,ComboBox4_8.SearchText,"Value1")
+                                    SelectionFill: =RGBA(0, 0, 0, 0)
+                                    SelectMultiple: =false
+                                    Size: =10
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =3
+
+                                ComboBox4_9 As combobox:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    ChevronBackground: =RGBA(211, 66, 9, 1)
+                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                    ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    DisplayFields: =["Value"]
+                                    Height: =Parent.Height-20
+                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    InputTextPlaceholder: ="Month"
+                                    Items: =["January","February","March","April","May","June","July","September","October","November","December"]
+                                    PaddingLeft: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(131, 24, 75, 1)
+                                    SearchFields: =["Value"]
+                                    SearchItems: =Search(["January","February","March","April","May","June","July","September","October","November","December"],ComboBox4_9.SearchText,"Value")
+                                    SelectionFill: =RGBA(0, 0, 0, 0)
+                                    SelectMultiple: =false
+                                    Size: =10
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =4
+
+                                ComboBox4_10 As combobox:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    ChevronBackground: =RGBA(211, 66, 9, 1)
+                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                    ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    DisplayFields: =["Value"]
+                                    Height: =Parent.Height-20
+                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    InputTextPlaceholder: ="Year"
+                                    Items: =["2023","2024","2025","2026"]
+                                    PaddingLeft: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(131, 24, 75, 1)
+                                    SearchFields: =["Value"]
+                                    SearchItems: =Search(["2023","2024","2025","2026"],ComboBox4_10.SearchText,"Value")
+                                    SelectionFill: =RGBA(253, 207, 180, 1)
+                                    SelectMultiple: =false
+                                    Size: =10
+                                    Width: =Parent.Width*0.2
+                                    ZIndex: =5
+
+                            Container36_12 As groupContainer.horizontalAutoLayoutContainer:
+                                Fill: =RGBA(255, 255, 255, 1)
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =5
+                                PaddingLeft: =10
+                                PaddingTop: =5
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                ZIndex: =2
+
+                                Cont_MonthCalender As groupContainer.verticalAutoLayoutContainer:
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =0.5
+                                    DropShadow: =DropShadow.Light
+                                    FillPortions: =0
+                                    Height: =Parent.Height/1.55
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =0
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingLeft: =10
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =Parent.Width-10
+                                    ZIndex: =1
+
+                                    Gallery16 As gallery.galleryVertical:
+                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                        DelayItemLoading: =true
+                                        Height: =Parent.Height
+                                        Items: =CustomGallerySample
+                                        Layout: =Layout.Vertical
+                                        LayoutMinHeight: =287
+                                        LayoutMinWidth: =320
+                                        LoadingSpinner: =LoadingSpinner.Data
+                                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                                        Width: =Parent.Width
+                                        ZIndex: =1
+
+                    "'cont_Customer Recovery' As groupContainer.verticalAutoLayoutContainer":
+                        DropShadow: =DropShadow.Light
+                        Height: =Parent.Height-10 
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =10
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingLeft: =20
+                        PaddingRight: =20
+                        PaddingTop: =10
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Visible: =_V_CustomerRecovery
+                        Width: =Parent.Width-10 
+                        X: =5
+                        Y: =5
+                        ZIndex: =7
+
+                        Container29_10 As groupContainer.verticalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
+                            FillPortions: =0.3
+                            Height: =Parent.Height
+                            LayoutAlignItems: =LayoutAlignItems.End
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            ComboBox7_2 As combobox:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                ChevronBackground: =RGBA(211, 66, 9, 1)
+                                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height/4
+                                HoverColor: =RGBA(0, 0, 0, 1)
+                                HoverFill: =RGBA(255, 211, 205, 1)
+                                Items: =ComboBoxSample
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(131, 24, 75, 1)
+                                SearchItems: =Search(ComboBoxSample,ComboBox7_2.SearchText,"Value1")
+                                SelectionFill: =RGBA(211, 66, 9, 1)
+                                Size: =10
+                                ZIndex: =1
+
+                        Container44_3 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0.07
+                            Height: =Parent.Height
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                            Icon6_9 As icon.BackArrow:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(240, 98, 15, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                Height: =Parent.Height
+                                Icon: =Icon.BackArrow
+                                OnSelect: =Set(_V_CustomerRecovery,false)
+                                PaddingBottom: =5
+                                PaddingTop: =5
+                                Width: =Parent.Width*0.03
+                                ZIndex: =1
+
+                            lbl_RoutePlan_2 As label:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FontWeight: =FontWeight.Bold
+                                PaddingLeft: =20
+                                PaddingRight: =20
+                                Size: =16
+                                Text: ="Customer Recovery"
+                                Width: =Parent.Width*0.962
+                                ZIndex: =2
+
+                        Container46 As groupContainer.verticalAutoLayoutContainer:
+                            DropShadow: =DropShadow.Light
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =5
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+                            Container47_1 As groupContainer.horizontalAutoLayoutContainer:
+                                FillPortions: =0.1
+                                Height: =Parent.Height
+                                LayoutGap: =20
+                                LayoutJustifyContent: =LayoutJustifyContent.End
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =0
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingRight: =20
+                                PaddingTop: =2.5
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                ComboBox5_2 As combobox:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    ChevronBackground: =RGBA(211, 66, 9, 1)
+                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                    ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =30
+                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                    HoverFill: =RGBA(255, 211, 205, 1)
+                                    InputTextPlaceholder: ="Category"
+                                    Items: =ComboBoxSample
+                                    PaddingLeft: =12
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(131, 24, 75, 1)
+                                    SearchItems: =Search(ComboBoxSample,ComboBox5_2.SearchText,"Value1")
+                                    SelectionFill: =RGBA(211, 66, 9, 1)
+                                    Size: =10
+                                    Width: =180
+                                    ZIndex: =1
+
+                                ComboBox5_3 As combobox:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    ChevronBackground: =RGBA(211, 66, 9, 1)
+                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                    ChevronHoverBackground: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =30
+                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                    HoverFill: =RGBA(255, 211, 205, 1)
+                                    InputTextPlaceholder: ="Year"
+                                    Items: =ComboBoxSample
+                                    PaddingLeft: =12
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =RGBA(131, 24, 75, 1)
+                                    SearchItems: =Search(ComboBoxSample,ComboBox5_3.SearchText,"Value1")
+                                    SelectionFill: =RGBA(211, 66, 9, 1)
+                                    Size: =10
+                                    Width: =180
+                                    ZIndex: =2
+
+                            Container48_1 As groupContainer.horizontalAutoLayoutContainer:
+                                DropShadow: =DropShadow.Light
+                                FillPortions: =0.1
+                                Height: =40
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =0
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =5
+                                PaddingRight: =5
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                                Label21_49 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    LayoutMinWidth: =100
+                                    Size: =10
+                                    Text: ="Account"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =1
+
+                                Label21_50 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="January"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =2
+
+                                Label21_51 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="February"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =3
+
+                                Label21_52 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="March"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =4
+
+                                Label21_53 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="April"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =5
+
+                                Label21_54 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="May"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =6
+
+                                Label21_55 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="June"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =7
+
+                                Label21_56 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="July"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =8
+
+                                Label21_57 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="August"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =9
+
+                                Label21_58 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="September"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =10
+
+                                Label21_59 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="October"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =11
+
+                                Label21_60 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="November"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =12
+
+                                Label21_61 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="December"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =13
+
+                                Label21_62 As label:
+                                    Align: =Align.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(0, 0, 0, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =9
+                                    Text: ="Total"
+                                    Width: =Parent.Width/14
+                                    ZIndex: =14
+
+                                Icon8_3 As icon.ArrowsUpDown:
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =RGBA(131, 24, 75, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                    Height: =40
+                                    Icon: =Icon.Sort
+                                    PaddingBottom: =10
+                                    PaddingTop: =10
+                                    Width: =30
+                                    ZIndex: =15
+
+                            Rectangle5 As rectangle:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                Fill: =RGBA(0, 0, 0, 1)
+                                Height: =1
+                                ZIndex: =3
+
+                            Gallery13 As gallery.variableTemplateHeightGallery:
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                DelayItemLoading: =true
+                                Height: =Parent.Height
+                                Items: =CustomGallerySample
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =320
+                                LoadingSpinner: =LoadingSpinner.Data
+                                TemplateSize: =40
+                                Width: =Parent.Width
+                                ZIndex: =4
+

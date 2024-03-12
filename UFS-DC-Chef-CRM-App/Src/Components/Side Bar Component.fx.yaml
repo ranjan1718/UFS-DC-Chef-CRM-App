@@ -1,0 +1,180 @@
+"'Side Bar Component' As CanvasComponent":
+    Fill: =RGBA(50,45,51,255)
+    Height: =686
+    MenuNavigation: |-
+        =Table(
+            {
+                MenuText: "Home",
+                MenuIcon: Icon.Home,
+                MenuNavigation: 'Home Page'
+            },
+            {
+                MenuText: "Customer",
+                MenuIcon: Icon.People,
+                MenuNavigation: CustomerContactScreen
+            },
+            {
+                MenuText: "Menu Matrix",
+                MenuIcon: Icon.Items,
+                MenuNavigation: 'Menu Matrix Offline Screen'
+            },
+            {
+                MenuText: "Route Planning",
+                MenuIcon: Icon.Trending,
+                MenuNavigation: RoutePlanningScreen
+            },
+            {
+                MenuText: "Analysis",
+                MenuIcon: Icon.ListScrollWatchlist,
+                MenuNavigation: Analysis_Screen
+            },
+            {
+                MenuText: "Call",
+                MenuIcon: Icon.Phone,
+                MenuNavigation: 'In Call Screen'
+            },
+            {
+                MenuText: "Rich Media",
+                MenuIcon: Icon.Camera,
+                MenuNavigation: 'Rich Media Offline Screen'
+            },
+            {
+                MenuText: "Cart",
+                MenuIcon: Icon.ShoppingCart,
+                MenuNavigation: 'Cart Screen'
+            },
+            {
+                MenuText: "Email",
+                MenuIcon: Icon.Mail,
+                MenuNavigation: 'Email Screen'
+            }
+        )
+    OnSelect: =
+    ScreenName: =_V_CurrentModule
+    Width: =180
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Gallery2 As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(131, 24, 75, 1)
+        DelayItemLoading: =true
+        Height: =Parent.Height-10
+        Items: ='Side Bar Component'.MenuNavigation
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: |-
+            =Set(_V_CurrentModule, ThisItem.MenuText);
+            Set(Gbl_InCallFromCustomer,false);Set(Gbl_InCallFromRoutePlan,false);
+            Navigate(ThisItem.MenuNavigation,ScreenTransition.Fade);
+        ShowScrollbar: =false
+        TemplateFill: |-
+            =//If(ThisItem.MenuNavigation=App.ActiveScreen,RGBA(0, 0, 0, 0),RGBA(50,45,51,255))
+            RGBA(0,0,0,0)
+        TemplatePadding: =0
+        TemplateSize: =Parent.Height/9.2
+        Width: =Parent.Width-10
+        X: =5
+        Y: =5
+        ZIndex: =3
+
+        Button2 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: |-
+                =If(
+                    ThisItem.MenuNavigation = App.ActiveScreen,
+                    RGBA(
+                        0,
+                        0,
+                        0,
+                        0
+                    ),
+                    RGBA(
+                        50,
+                        45,
+                        51,
+                        255
+                    )
+                )
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(255,255,255,0.5)
+            OnSelect: |-
+                =/*Set(_V_CurrentModule, ThisItem.MenuText);
+                Navigate(ThisItem.MenuNavigation,ScreenTransition.Fade);
+                Select(Button11)*/
+                //Set(Gbl_InCallFromCustomer,false);Set(Gbl_InCallFromRoutePlan,false);
+                Select(Parent)
+            PressedFill: =RGBA(0,0,0,0)
+            RadiusBottomLeft: =If(ThisItem.IsSelected,10,0) 
+            RadiusBottomRight: =If(ThisItem.IsSelected,10,0) 
+            RadiusTopLeft: =If(ThisItem.IsSelected,10,0) 
+            RadiusTopRight: =If(ThisItem.IsSelected,10,0) 
+            Size: =15
+            Text: =""
+            Width: =Parent.TemplateWidth
+            X: =
+            Y: =
+            ZIndex: =1
+
+        Label4 As label:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =If(ThisItem.MenuNavigation=App.ActiveScreen,Color.Orange,Color.White)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Parent.TemplateHeight/2
+            OnSelect: =Select(Parent)
+            PaddingLeft: =8
+            Size: =11.5
+            Text: =ThisItem.MenuText
+            Width: =Parent.TemplateWidth-Icon2.Width-10
+            X: =Parent.X+40
+            Y: =Parent.TemplateHeight/2-Self.Height/2
+            ZIndex: =2
+
+        Icon2 As icon.Add:
+            BorderColor: =RGBA(131, 24, 75, 1)
+            Color: =If(ThisItem.MenuNavigation=App.ActiveScreen,Color.Orange,Color.White)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =30
+            Icon: =ThisItem.MenuIcon
+            OnSelect: =Select(Parent)
+            Width: =30
+            X: =Parent.X+10
+            Y: =Parent.TemplateHeight/2-Self.Height/2
+            ZIndex: =3
+
+        Button11 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: |
+                =If(
+                    ThisItem.MenuNavigation = App.ActiveScreen,
+                    RGBA(189,195,191,0.5),
+                    RGBA(0,0,0,0)
+                )
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.TemplateHeight 
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(189,195,191,0.5)
+            OnSelect: |-
+                =//If(ThisItem.IsSelected,Set(Gbl_InCallFromCustomer,false);Set(Gbl_InCallFromRoutePlan,false));
+                //Set(Gbl_InCallFromCustomer,false);Set(Gbl_InCallFromRoutePlan,false);
+                Select(Parent);
+            PressedFill: =RGBA(0,0,0,0)
+            RadiusBottomLeft: =30
+            RadiusBottomRight: =30
+            RadiusTopLeft: =30
+            RadiusTopRight: =30
+            Size: =15
+            Text: =""
+            Visible: |-
+                =//If(ThisItem.IsSelected,true,false)
+                true
+            Width: =Parent.TemplateWidth 
+            ZIndex: =4
+

@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Col_NumberOfAddedSKUs_1",
+    "Type": "CollectionDataSourceInfo"
+  }
+]
