@@ -187,6 +187,7 @@
 
                     Container8_1 As groupContainer.verticalAutoLayoutContainer:
                         DropShadow: =DropShadow.Light
+                        FillPortions: =0
                         Height: =Parent.Height
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutMinHeight: =100
@@ -220,7 +221,7 @@
                             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
                             OnTimerEnd: |-
                                 =Set(var_routeplannerloaderspinner,false);
-                                Set(var_routescreen,true)
+                                //Set(var_routescreen,true)
                             ZIndex: =2
 
                     Con_Route_6 As groupContainer.verticalAutoLayoutContainer:
@@ -235,7 +236,6 @@
                         RadiusBottomRight: =4
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
-                        Visible: =var_routescreen
                         Width: |-
                             =//Parent.Width*9/10
                             Parent.Width/1.15
@@ -3705,8 +3705,8 @@
                                                     LayoutMinHeight: =0
                                                     LayoutMinWidth: =0
                                                     LayoutMode: =LayoutMode.Auto
-                                                    PaddingBottom: =10
-                                                    PaddingTop: =10
+                                                    PaddingBottom: =15
+                                                    PaddingTop: =15
                                                     Visible: |
                                                         =If(ThisItem.'Call Status'=444670004,true,false)
                                                     Width: =Parent.Width/5
@@ -3835,6 +3835,10 @@
                                                             Set(var_ClickIncall,true);
                                                             Set(var_IncallScheduleddate,ThisItem);
                                                             Set(var_calenderday,DateValue(ThisItem.'Scheduled Call Date'))
+                                                        PaddingBottom: =0
+                                                        PaddingLeft: =2
+                                                        PaddingRight: =0
+                                                        PaddingTop: =0
                                                         Size: =8
                                                         Text: ="Edit Call"
                                                         Width: =Parent.Width/2.3
@@ -3861,6 +3865,10 @@
                                                             Set(var_ClickIncall,true);
                                                             Set(var_IncallScheduleddate,ThisItem);
                                                             Set(var_calenderday,DateValue(ThisItem.'Scheduled Call Date'));
+                                                        PaddingBottom: =0
+                                                        PaddingLeft: =2
+                                                        PaddingRight: =0
+                                                        PaddingTop: =0
                                                         Size: =8
                                                         Text: ="Start Call"
                                                         Width: =Parent.Width/2.3
