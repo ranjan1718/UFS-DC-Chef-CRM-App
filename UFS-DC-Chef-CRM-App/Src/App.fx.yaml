@@ -3,7 +3,7 @@ App As appinfo:
     Formulas: |-
         =fxInCallFromCustomer = 'Side Bar Component_8'.OnSelect;
         fxScreenName = 'Side Bar Component_8'.ScreenName;
-    OnStart: |
+    OnStart: |+
         =ClearCollect(
             colTabs,
             {
@@ -161,6 +161,10 @@ App As appinfo:
             _C_AllMasterSKUs,
             SKUS
         );
+        Set(var_ClickIncall,false);
+        Set(Var_viewCustomerdetails,false);
+        Set(var_routeplannerloaderspinner,true);
+        Set(var_routescreen,false)
         Set(
             var_ModuleHeaderColor,
             RGBA(
@@ -224,10 +228,7 @@ App As appinfo:
                 255
             )
         );
-        Set(var_ClickIncall,false);
-        Set(Var_viewCustomerdetails,false);
-        Set(var_routeplannerloaderspinner,true);
-        Set(var_routescreen,false)
+        
     StartScreen: ='Home Page'
     Theme: =PowerAppsTheme
 
