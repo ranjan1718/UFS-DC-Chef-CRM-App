@@ -2267,7 +2267,7 @@
                                                     LayoutMinWidth: =0
                                                     LoadingSpinner: =LoadingSpinner.Data
                                                     TemplateFill: =RGBA(255, 255, 255, 1) 
-                                                    TemplateSize: =40
+                                                    TemplateSize: =34
                                                     Width: =Parent.Width 
                                                     X: =315
                                                     ZIndex: =1
@@ -2288,12 +2288,13 @@
 
                                                         Label6 As label:
                                                             Align: =Align.Center
+                                                            AlignInContainer: =AlignInContainer.Center
                                                             BorderColor: =RGBA(131, 24, 75, 1)
                                                             Color: =RGBA(0, 0, 0, 1)
                                                             DisabledColor: =RGBA(166, 166, 166, 1)
-                                                            FillPortions: =1
+                                                            FillPortions: =0.75
                                                             FontWeight: =FontWeight.Semibold
-                                                            Height: =Parent.Height-4 
+                                                            Height: =Parent.Height-12
                                                             LayoutMinWidth: =0
                                                             Size: =10
                                                             Text: ="SKU Name"
@@ -2301,11 +2302,12 @@
                                                             ZIndex: =1
 
                                                         Container24_2 As groupContainer.manualLayoutContainer:
-                                                            AlignInContainer: =AlignInContainer.Start
+                                                            AlignInContainer: =AlignInContainer.Center
                                                             BorderColor: =RGBA(189, 49, 51, 1)
-                                                            Height: =Parent.Height-4
+                                                            Height: =Parent.Height-12 
                                                             LayoutMinHeight: =100
                                                             LayoutMinWidth: =0
+                                                            PaddingTop: =5
                                                             Width: =Parent.Width - Label6.Width - Icon7_14.Width - Icon8_10.Width
                                                             ZIndex: =2
 
@@ -2331,7 +2333,7 @@
                                                                         DisplayMode.Edit
                                                                     )
                                                                 FocusedBorderThickness: =1
-                                                                Height: =Parent.Height - 5
+                                                                Height: =Parent.Height - 2
                                                                 HoverColor: =RGBA(0, 0, 0, 1)
                                                                 HoverFill: =RGBA(214, 221, 224, 1)
                                                                 IsSearchable: =false
@@ -2379,7 +2381,7 @@
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                                                 DisplayMode: =DisplayMode.View
                                                                 FocusedBorderThickness: =4
-                                                                Height: =Parent.Height - 8
+                                                                Height: =ComboBox7_5.Height -2
                                                                 HoverBorderColor: =RGBA(139, 154, 159, 1)
                                                                 HoverColor: =RGBA(0, 0, 0, 1)
                                                                 HoverFill: =RGBA(214, 221, 224, 1)
@@ -2391,7 +2393,7 @@
                                                                 Size: =10
                                                                 Width: =Parent.Width-34
                                                                 X: =1
-                                                                Y: =4
+                                                                Y: =3
                                                                 ZIndex: =4
 
                                                         Icon7_14 As icon.Add:
