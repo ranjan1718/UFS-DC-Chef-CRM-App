@@ -1779,7 +1779,7 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Semibold
                                                         Size: =12
-                                                        Text: ="30%"
+                                                        Text: =(Label13_240.Text/Label11_53.Text)* 100 &"%" 
                                                         Width: =Parent.Width/3
                                                         ZIndex: =3
 
@@ -2006,7 +2006,7 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Semibold
                                                         Size: =12
-                                                        Text: ="30%"
+                                                        Text: =(Label24_14.Text/Label23_14.Text)* 100 &"%" 
                                                         Width: =Parent.Width/3
                                                         ZIndex: =3
 
@@ -2219,7 +2219,8 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Bold
                                                         Size: =12
-                                                        Text: ="30"
+                                                        Text: |
+                                                            =CountRows(Filter(Carts,Year(Date)=Year(varFirstDayOfMonth) && Month(Date)=Month(varFirstDayOfMonth)))
                                                         Width: =Parent.Width/3
                                                         ZIndex: =2
 
@@ -2232,7 +2233,7 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Semibold
                                                         Size: =12
-                                                        Text: ="30%"
+                                                        Text: =(Label24_15.Text/Label23_15.Text)* 100 &"%" 
                                                         Width: =Parent.Width/3
                                                         ZIndex: =3
 
