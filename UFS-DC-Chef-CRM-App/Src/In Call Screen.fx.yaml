@@ -2598,7 +2598,7 @@
                                                     PressedColor: =RGBA(255, 255, 255, 1)
                                                     PressedFill: =RGBA(131, 24, 75, 1)
                                                     SearchFields: =["statecode"]
-                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_3.SearchText,"statecode")
+                                                    SearchItems: =[]
                                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                                     SelectMultiple: =false
                                                     Size: =10
@@ -3666,7 +3666,7 @@
                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                 PressedFill: =RGBA(131, 24, 75, 1)
                                                 SearchFields: =["statecode"]
-                                                SearchItems: =Search(_Col_AllSKUs,ComboBoxofSKUs_2.SearchText,"statecode")
+                                                SearchItems: =[]
                                                 SelectionFill: =RGBA(211, 66, 9, 1)
                                                 SelectMultiple: =false
                                                 Size: =10

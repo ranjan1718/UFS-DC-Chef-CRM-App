@@ -460,6 +460,7 @@
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
             TemplateSize: =130
+            Visible: =!Cutomer_preview
             Width: =Parent.Width
             ZIndex: =11
 
@@ -800,6 +801,7 @@
             PaddingLeft: =20
             PaddingRight: =20
             PaddingTop: =3
+            Visible: =!Cutomer_preview
             ZIndex: =12
 
             Label17_21 As label:
@@ -2450,10 +2452,7 @@
                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                 PressedFill: =RGBA(131, 24, 75, 1)
                                                 SearchFields: =["Value"]
-                                                SearchItems: |-
-                                                    =Search(//["2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" ]
-                                                    Distinct(_Col_SKUForInCalls,Text('Created On',"yyyy"))
-                                                    ,ComboBox5_1.SearchText,"Value")
+                                                SearchItems: =[]
                                                 SelectionFill: =RGBA(211, 66, 9, 1)
                                                 Size: =If('In-Call Sampling Screen'.Size >3,10,6)
                                                 Width: =128
@@ -3846,7 +3845,7 @@
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(106, 122, 127, 1)
                                             SearchFields: =["Value"]
-                                            SearchItems: =Choices(CallType_Incall,ComboBox3_13.SearchText)
+                                            SearchItems: =[]
                                             SelectionFill: =RGBA(255, 255, 255, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -7489,7 +7488,9 @@
                                             LayoutMinWidth: =95
                                             OnSelect: |-
                                                 =UpdateContext({V_PreviewCallSummary: true});
-                                                Set(
+                                                Set(Var_verify,true);
+                                                
+                                                /*Set(
                                                     Gbl_PreviewContent,
                                                     PDF(
                                                         MainPreview_Container,
@@ -8039,6 +8040,8 @@
             Icon: =Icon.CancelBadge
             OnSelect: |-
                 =UpdateContext({V_PreviewCallSummary: false});
+                UpdateContext({Var_pdfVisible: false});
+            Visible: =Var_pdfVisible
             Width: =40
             ZIndex: =1
 
@@ -8050,9 +8053,9 @@
             FontWeight: =FontWeight.Semibold
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-            OnSelect: |-
+            OnSelect: |
                 =Office365Outlook.SendEmailV2(
-                    User().Email,
+                    "SujoySoren@Sigilotech.com",
                     "Call Summary",
                     "Here is the PDF of call summary",
                     {
@@ -8073,18 +8076,22 @@
                         )
                     }
                 );
+                
+                Notify("Email send successfully",NotificationType.Success);
                 UpdateContext({V_PreviewCallSummary: false});
+                UpdateContext({Var_pdfVisible: false});
             Size: =15
             Text: ="Send"
+            Visible: =Var_pdfVisible
             Width: =140
-            ZIndex: =2
+            ZIndex: =3
 
     PdfViewer4 As pdfViewer:
         BorderColor: =RGBA(89, 96, 99, 1)
         BorderThickness: =2
         Document: =Gbl_PreviewContent
         Height: =Parent.Height - 100
-        Visible: =V_PreviewCallSummary
+        Visible: =Var_pdfVisible
         Width: =Parent.Width - 40
         X: =20
         Y: =50

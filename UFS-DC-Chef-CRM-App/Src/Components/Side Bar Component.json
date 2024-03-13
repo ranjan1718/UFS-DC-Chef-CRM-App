@@ -1806,7 +1806,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638459189106502941",
+    "LastModifiedTimestamp": "638459123075416299",
     "Name": "Side Bar Component",
     "Rules": [
       {
@@ -1911,7 +1911,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638459189106502941",
+  "LastModifiedTimestamp": "638459123075416299",
   "Name": "226c85ad7af94a36a171ff248d927213",
   "OverridableProperties": {},
   "TemplateOriginalName": "74a54739f034469ca36afbc8e145b5c9",

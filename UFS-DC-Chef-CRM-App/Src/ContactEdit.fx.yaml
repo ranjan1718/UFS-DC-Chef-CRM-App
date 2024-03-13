@@ -2203,7 +2203,7 @@
                                         PressedColor: =RGBA(255, 255, 255, 1)
                                         PressedFill: =RGBA(0, 0, 0, 0)
                                         SearchFields: =["ulchef_name"]
-                                        SearchItems: =Search(Contacts,'Primary Contact ComboBox_4'.SearchText,"ulchef_name")
+                                        SearchItems: =[]
                                         SelectionFill: =RGBA(139, 154, 159, 1)
                                         SelectMultiple: =false
                                         Size: =10
