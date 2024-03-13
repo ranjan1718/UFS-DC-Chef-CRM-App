@@ -961,109 +961,6 @@
                         Width: =135
                         ZIndex: =6
 
-                        Gal_Button As button:
-                            BorderStyle: =BorderStyle.None
-                            BorderThickness: =0
-                            Color: =If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(0,0,0,1), RGBA(255, 255, 255, 1))
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(255, 255, 255, 1),RGBA(0,0,0,0))
-                            FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Normal)
-                            Height: =(Parent.TemplateHeight)-60
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(255, 255, 255, 1), -20%)
-                            OnSelect: |-
-                                =Set(Gbl_selectedCutomerFromInCall,Gbl_CurrentCustomer);
-                                Clear(Col_NumberOfAddedDish_1);
-                                Reset(Dropdown1_13);
-                                Clear(Col_NumberOfAddedSKUs_1);
-                                UpdateContext({_V_SelectedHeaderOptionInCall: Self.Text});
-                                //UpdateContext({_V_SelectedCallAssessment: ""});
-                                //Clear(Col_CartItem2);
-                                Reset(DatePicker1_7);
-                                Reset(Dropdown1_13);
-                                Reset(Dropdown1_14);
-                                Reset(ComboBox3_13);
-                                Reset(TextInput1_16);
-                                Reset(TextInput1_18);
-                                Reset(TextInput1_19);
-                                If(
-                                    _V_SelectedHeaderOptionInCall = "Customer & Contact",
-                                    Set(
-                                        gblLastScreen,
-                                        "FromInCallSample_ToCustomerContact"
-                                    );
-                                       Navigate(
-                                        CustomerContactScreen,
-                                        ScreenTransition.Fade,
-                                        {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
-                                    ),
-                                    _V_SelectedHeaderOptionInCall = "Menu Matrix",
-                                    Set(
-                                        gblLastScreen,
-                                        "FromInCallSample_ToMenuMatrix"
-                                    );
-                                    Set(_V_SelectedCustomer,LookUp(Customers,Name=Cus_Name_4.Text));
-                                    Navigate(
-                                        'Menu Matrix Offline Screen',
-                                        ScreenTransition.Fade,
-                                        {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
-                                    ),
-                                    _V_SelectedHeaderOptionInCall = "Rich Media",
-                                    Set(
-                                        gblLastScreen,
-                                        "FromInCallSample_ToRichMedia"
-                                    );
-                                    Navigate(
-                                        'Rich Media Offline Screen',
-                                        ScreenTransition.Fade,
-                                        {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
-                                    )
-                                )
-                            PaddingLeft: =20
-                            PaddingRight: =10
-                            Size: =12
-                            Text: =ThisItem.Value
-                            Visible: =false
-                            Width: =Parent.TemplateWidth -5
-                            ZIndex: =1
-
-                        Indicator_Button As button:
-                            BorderStyle: =BorderStyle.None
-                            BorderThickness: =0
-                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisabledFill: =RGBA(244, 244, 244, 1)
-                            Fill: =RGBA(50, 45, 51, 1)
-                            FontWeight: =FontWeight.Semibold
-                            Height: =((Parent.Height)/8-7)/2
-                            HoverColor: =RGBA(255, 255, 255, 1)
-                            HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-                            OnSelect: =Gal_Button.Pressed
-                            Size: =12
-                            Text: =
-                            Visible: |-
-                                =//_V_SelectedHeaderOptionInCall = ThisItem.Value
-                                false
-                            Width: =7
-                            X: =5
-                            Y: =(Gal_Button.Height-Self.Height)/2
-                            ZIndex: =2
-
-                        Label10_2 As label:
-                            BorderColor: =RGBA(131, 24, 75, 1)
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            Height: =10
-                            OnSelect: =Select(Parent)
-                            Size: =13
-                            Text: =
-                            Visible: =false
-                            Width: =117.77000000000001
-                            Y: =60
-                            ZIndex: =3
-
                         Container10 As groupContainer.horizontalAutoLayoutContainer:
                             Fill: |-
                                 =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,RGBA(189,195,191,0.5),
@@ -1090,7 +987,7 @@
                                 Height: =Self.Width
                                 HoverFill: =RGBA(0,0,0,0)
                                 Icon: =If(ThisItem.Value="Customer & Contact",Icon.People,ThisItem.Value="Menu Matrix",Icon.Items,ThisItem.Value="Rich Media",Icon.Camera,ThisItem.Value="Call Objective",Icon.Phone,ThisItem.Value="Sampling",Icon.Phonebook,ThisItem.Value="Cart",Icon.ShoppingCart,ThisItem.Value="Call Summary",Icon.DocumentWithContent)
-                                Width: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,30,25)
+                                Width: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,25,20)
                                 ZIndex: =1
 
                             Gal_Button_4 As button:
@@ -1109,9 +1006,7 @@
                                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Bold)
                                 Height: =(Parent.Height)-60
                                 HoverColor: =If(_V_SelectedHeaderOptionInCall = Self.Text,Color.Orange,Color.White) 
-                                HoverFill: |-
-                                    =//If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(189,195,191,0.5),RGBA(255,255,255,1))
-                                    RGBA(0,0,0,0)
+                                HoverFill: =RGBA(189, 195, 191, 0)
                                 LayoutMinWidth: =0
                                 OnSelect: |-
                                     =Set(Gbl_selectedCutomerFromInCall,Gbl_CurrentCustomer);
@@ -1162,6 +1057,8 @@
                                         )
                                     )
                                 PaddingRight: =10
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =
                                 RadiusBottomLeft: =30
                                 RadiusBottomRight: =30
                                 RadiusTopLeft: =30
@@ -1170,48 +1067,6 @@
                                 Text: =ThisItem.Value
                                 Width: =Parent.Width -5
                                 ZIndex: =2
-
-                            Indicator_Button_4 As button:
-                                AlignInContainer: =AlignInContainer.Stretch
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =0
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Fill: =RGBA(50, 45, 51, 1)
-                                FillPortions: =1
-                                FontWeight: =FontWeight.Semibold
-                                Height: =((Parent.Height)/8-7)/2
-                                HoverColor: =RGBA(255, 255, 255, 1)
-                                HoverFill: =RGBA(0,0,0,0)
-                                LayoutMinWidth: =0
-                                OnSelect: =Gal_Button_4.Pressed
-                                Size: =12
-                                Text: =
-                                Visible: |-
-                                    =//_V_SelectedHeaderOptionInCall = ThisItem.Value
-                                    false
-                                Width: =7
-                                X: =5
-                                Y: =(Gal_Button_4.Height-Self.Height)/2
-                                ZIndex: =3
-
-                            Label10_7 As label:
-                                AlignInContainer: =AlignInContainer.Stretch
-                                BorderColor: =RGBA(131, 24, 75, 1)
-                                Color: =RGBA(0, 0, 0, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                FillPortions: =1
-                                Height: =10
-                                HoverFill: =RGBA(0,0,0,0)
-                                LayoutMinWidth: =0
-                                OnSelect: =//Select(Parent)
-                                Size: =13
-                                Text: =
-                                Visible: =false
-                                Width: =117.77000000000001
-                                Y: =60
-                                ZIndex: =4
 
                 "'Body_Container without Sidebar_3' As groupContainer.horizontalAutoLayoutContainer":
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -2595,7 +2450,10 @@
                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                 PressedFill: =RGBA(131, 24, 75, 1)
                                                 SearchFields: =["Value"]
-                                                SearchItems: =[]
+                                                SearchItems: |-
+                                                    =Search(//["2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" ]
+                                                    Distinct(_Col_SKUForInCalls,Text('Created On',"yyyy"))
+                                                    ,ComboBox5_1.SearchText,"Value")
                                                 SelectionFill: =RGBA(211, 66, 9, 1)
                                                 Size: =If('In-Call Sampling Screen'.Size >3,10,6)
                                                 Width: =128
@@ -3456,7 +3314,7 @@
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                            DisplayFields: =["ulchef_name"]
+                                            DisplayFields: =["statecode"]
                                             Height: =28
                                             HoverColor: =RGBA(0, 0, 0, 1)
                                             HoverFill: =RGBA(255, 211, 205, 1)
@@ -3465,8 +3323,8 @@
                                             OnSelect: =Select(Parent)
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                            SearchFields: =["ulchef_name"]
-                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"ulchef_name")
+                                            SearchFields: =["statecode"]
+                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"statecode")
                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -3562,7 +3420,7 @@
                                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                                     DisabledFill: =RGBA(244, 244, 244, 1)
-                                                    DisplayFields: =["ulchef_name"]
+                                                    DisplayFields: =["statecode"]
                                                     Height: =28
                                                     HoverColor: =RGBA(0, 0, 0, 1)
                                                     HoverFill: =RGBA(255, 211, 205, 1)
@@ -3571,8 +3429,8 @@
                                                     OnSelect: =Select(Parent)
                                                     PressedColor: =RGBA(255, 255, 255, 1)
                                                     PressedFill: =RGBA(131, 24, 75, 1)
-                                                    SearchFields: =["ulchef_name"]
-                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"ulchef_name")
+                                                    SearchFields: =["statecode"]
+                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"statecode")
                                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                                     SelectMultiple: =false
                                                     Size: =10
@@ -3990,7 +3848,7 @@
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(106, 122, 127, 1)
                                             SearchFields: =["Value"]
-                                            SearchItems: =[]
+                                            SearchItems: =Choices(CallType_Incall,ComboBox3_13.SearchText)
                                             SelectionFill: =RGBA(255, 255, 255, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -4933,7 +4791,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["ulchef_name"]
+                                                                DisplayFields: =["statecode"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2.Selected.Name) || IsBlank(Dropdown3_2.SelectedText) || IsBlank(Dropdown4_1.SelectedText),
@@ -4966,8 +4824,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["ulchef_name"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"ulchef_name")
+                                                                SearchFields: =["statecode"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"statecode")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -6113,7 +5971,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["ulchef_name"]
+                                                                DisplayFields: =["statecode"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3.SelectedText) || IsBlank(Dropdown4_2.SelectedText),
@@ -6146,8 +6004,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["ulchef_name"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"ulchef_name")
+                                                                SearchFields: =["statecode"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"statecode")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -6589,7 +6447,7 @@
                                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                                            DisplayFields: =["ulchef_name"]
+                                                            DisplayFields: =["statecode"]
                                                             DisplayMode: |-
                                                                 =/*If(
                                                                     IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3) || IsBlank(Dropdown4_2),
@@ -6622,8 +6480,8 @@
                                                                 );*/
                                                             PressedColor: =RGBA(255, 255, 255, 1)
                                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                                            SearchFields: =["ulchef_name"]
-                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"ulchef_name")
+                                                            SearchFields: =["statecode"]
+                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"statecode")
                                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                                             SelectMultiple: =false
                                                             Size: =10

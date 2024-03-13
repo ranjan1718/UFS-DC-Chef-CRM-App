@@ -214,7 +214,9 @@
                                     PressedFill: =RGBA(131, 24, 75, 1)
                                     Reset: =true
                                     SearchFields: =["ulchef_name"]
-                                    SearchItems: =[]
+                                    SearchItems: |-
+                                        =Search(//Filter(_C_All_Incalls,'Call Status'="Completed")
+                                        _C_All_Incalls,ComboBox6_2.SearchText,"ulchef_name")
                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                     SelectMultiple: =false
                                     Size: =13
