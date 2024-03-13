@@ -1776,6 +1776,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 23,
+                  "snippet": {
+                    "text": "Year(Date)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "RoutePlanningScreen",
+                "type": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Year"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 33,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "RoutePlanningScreen",
+                "type": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 59,
+                  "snippet": {
+                    "text": "&&"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "RoutePlanningScreen",
+                "type": "RoutePlanningScreen.ScreenContainer8.MainSectionContainer8.MainContainer_4.Body_Container_Route_4.Con_Route_6.Cont_RouteDetail_6.Cont_Month_6.Con_MonthGalleryDetails_12.Cont_MonthRate_5.Container2_56.Container32_22.Container31_15.Label24_15"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "CustomerContactScreen.ScreenContainer9.MainSectionContainer9.MainContainerSection.BodyContainer.'ContainerWithoutSidebar'''.ContainerWithoutCustomerList.LowerContainer.MainBottomContainer.HeaderContainer.General.btn_General.Fill"
                 }
               ],
