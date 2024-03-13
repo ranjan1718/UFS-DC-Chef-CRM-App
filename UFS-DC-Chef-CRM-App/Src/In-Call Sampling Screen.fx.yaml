@@ -924,7 +924,6 @@
 
             Body_Container_3 As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
-                FillPortions: =0
                 Height: =Parent.Height*10/11
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -939,29 +938,26 @@
                     FillPortions: =0
                     Height: =Parent.Height
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutGap: =30
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    PaddingTop: =10
                     Width: |-
                         =135
                         //Parent.Width*.095
                     ZIndex: =1
 
                     Gallery6_6 As gallery.variableTemplateHeightGallery:
-                        AlignInContainer: =AlignInContainer.Center
+                        AlignInContainer: =AlignInContainer.Start
                         BorderColor: =RGBA(131, 24, 75, 1)
                         DelayItemLoading: =true
-                        FillPortions: =0
                         Height: =Parent.Height - 10
                         Items: =["Customer & Contact","Call Objective","Menu Matrix","Sampling","Rich Media","Cart","Call Summary"]
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =0
                         LayoutMinWidth: =0
                         LoadingSpinner: =LoadingSpinner.Data
-                        TemplatePadding: =6
-                        TemplateSize: =100
+                        TemplatePadding: =0
+                        TemplateSize: =Parent.Height/7-10
                         Width: =135
                         ZIndex: =6
 
@@ -1074,7 +1070,7 @@
                                     RGBA(0,0,0,0))
                             Height: =Parent.TemplateHeight
                             LayoutMode: =LayoutMode.Auto
-                            PaddingLeft: =5
+                            PaddingLeft: =10
                             RadiusBottomLeft: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
                             RadiusBottomRight: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
                             RadiusTopLeft: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
@@ -1091,10 +1087,10 @@
                                 Fill: |-
                                     =//If(ThisItem.IsSelected,RGBA(189,195,191,0.5),
                                         RGBA(0,0,0,0)
-                                Height: =30
+                                Height: =Self.Width
                                 HoverFill: =RGBA(0,0,0,0)
                                 Icon: =If(ThisItem.Value="Customer & Contact",Icon.People,ThisItem.Value="Menu Matrix",Icon.Items,ThisItem.Value="Rich Media",Icon.Camera,ThisItem.Value="Call Objective",Icon.Phone,ThisItem.Value="Sampling",Icon.Phonebook,ThisItem.Value="Cart",Icon.ShoppingCart,ThisItem.Value="Call Summary",Icon.DocumentWithContent)
-                                Width: =30
+                                Width: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,30,25)
                                 ZIndex: =1
 
                             Gal_Button_4 As button:
@@ -1165,13 +1161,12 @@
                                             {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
                                         )
                                     )
-                                PaddingLeft: =10
                                 PaddingRight: =10
                                 RadiusBottomLeft: =30
                                 RadiusBottomRight: =30
                                 RadiusTopLeft: =30
                                 RadiusTopRight: =30
-                                Size: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,11,8)
+                                Size: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,12,10)
                                 Text: =ThisItem.Value
                                 Width: =Parent.Width -5
                                 ZIndex: =2
