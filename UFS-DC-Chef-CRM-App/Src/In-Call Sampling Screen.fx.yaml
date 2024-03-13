@@ -5706,7 +5706,9 @@
                                         BorderColor: =RGBA(127, 45, 0, 1)
                                         BorderThickness: =5
                                         DelayItemLoading: =true
+                                        DisplayMode: =DisplayMode.View
                                         Fill: =RGBA(127, 45, 0, 1)
+                                        FillPortions: =0
                                         FocusedBorderThickness: =2
                                         Height: |-
                                             =/*If(
@@ -5714,7 +5716,7 @@
                                                 2,
                                                 CountRows(Col_NumberOfAddedSKUs)
                                             ) * (Gallery1_12.TemplateHeight + 45)*/
-                                            400
+                                            CountRows(Gallery1_22.AllItems)*(Gallery1_22.TemplateHeight+Gallery1_22.TemplatePadding)+Gallery1_22.TemplatePadding
                                         Items: =Col_AddedDishes
                                         Layout: =Layout.Vertical
                                         LayoutMinHeight: =250
@@ -5982,6 +5984,7 @@
                                                 AlignInContainer: =AlignInContainer.Start
                                                 BorderColor: =RGBA(131, 24, 75, 1)
                                                 DelayItemLoading: =true
+                                                DisplayMode: =DisplayMode.View
                                                 Fill: =RGBA(230, 230, 230, 1)
                                                 Height: =Parent.Height
                                                 Items: =Filter(Col_NumberOfAddedSKUs,Id = ThisItem.Value)
@@ -6096,14 +6099,7 @@
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
                                                                 DisplayFields: =["ulchef_name"]
-                                                                DisplayMode: |-
-                                                                    =If(
-                                                                        IsBlank(Dropdown2_3.Selected.Name) || IsBlank(Dropdown3_6.SelectedText) || IsBlank(Dropdown4_5.SelectedText),
-                                                                        DisplayMode.Disabled,
-                                                                        Dropdown2_3.Selected.Name = "Other" && IsBlank(TextInput4_13.Text),
-                                                                        DisplayMode.Disabled,
-                                                                        DisplayMode.Edit
-                                                                    )
+                                                                DisplayMode: =DisplayMode.View
                                                                 FocusedBorderThickness: =1
                                                                 Height: =26
                                                                 HoverColor: =RGBA(0, 0, 0, 1)
@@ -6133,6 +6129,7 @@
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
+                                                                Visible: =false
                                                                 Width: =TextInput4_16.Width+32
                                                                 Y: =2
                                                                 ZIndex: =1
@@ -6176,14 +6173,6 @@
                                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                                            DisplayMode: |-
-                                                                =If(
-                                                                    IsBlank(Dropdown2_3.Selected.Name) || IsBlank(Dropdown3_6.SelectedText) || IsBlank(Dropdown4_5.SelectedText),
-                                                                    DisplayMode.Disabled,
-                                                                    Dropdown2_3.Selected.Name = "Other" && IsBlank(TextInput4_13.Text),
-                                                                    DisplayMode.Disabled,
-                                                                    DisplayMode.Edit
-                                                                )
                                                             Height: =26
                                                             HoverColor: =RGBA(0, 0, 0, 1)
                                                             HoverFill: =RGBA(214, 221, 224, 1)
@@ -6235,7 +6224,7 @@
                                                             DisabledFill: =RGBA(244, 244, 244, 1)
                                                             FocusedBorderThickness: =4
                                                             Height: =26
-                                                            HintText: ="Put your comments"
+                                                            HintText: =""
                                                             HoverBorderColor: =RGBA(139, 154, 159, 1)
                                                             HoverColor: =RGBA(0, 0, 0, 1)
                                                             HoverFill: =RGBA(214, 221, 224, 1)
@@ -8184,6 +8173,171 @@
             LayoutMode: =LayoutMode.Auto
             Visible: =!Var_verify&&!Var_pdfVisible
             ZIndex: =2
+
+            Container7_1 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Regular
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =50
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =!Var_loadingpop
+                Width: =Parent.Width/3
+                ZIndex: =1
+
+                Label3_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    Size: =18
+                    Text: ="Do you want to preview for"
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                Container8_2 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =70
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =30
+                    PaddingRight: =30
+                    PaddingTop: =5
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                    Button3 As button:
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(211, 66, 9, 1)
+                        FontWeight: =FontWeight.Semibold
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                        OnSelect: |-
+                            =
+                            UpdateContext({Var_loadingpop:true});
+                            
+                            UpdateContext({Cutomer_preview:true});
+                            
+                            
+                            
+                            
+                            Set(
+                                Gbl_PreviewContent,
+                                PDF(
+                                    MainPreview_Container,
+                                    {
+                                        ExpandContainers: true,
+                                        Orientation: PaperOrientation.Portrait,
+                                        Size: PaperSize.A4,
+                                        DPI: 150
+                                    }
+                                )
+                            );
+                            
+                            UpdateContext({Var_loadingpop:false});
+                            UpdateContext({Var_verify:false});
+                            UpdateContext({Var_pdfVisible:true});
+                            
+                            //UpdateContext({V_PreviewCallSummary: true});
+                        Size: =15
+                        Text: ="Customer"
+                        Width: =130
+                        ZIndex: =1
+
+                    Button3_1 As button:
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(211, 66, 9, 1)
+                        FontWeight: =FontWeight.Semibold
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
+                        OnSelect: |-
+                            =UpdateContext({Var_loadingpop:true});
+                            
+                            UpdateContext({Cutomer_preview:false});
+                            
+                            
+                            
+                            
+                            Set(
+                                Gbl_PreviewContent,
+                                PDF(
+                                    MainPreview_Container,
+                                    {
+                                        ExpandContainers: true,
+                                        Orientation: PaperOrientation.Portrait,
+                                        Size: PaperSize.A4,
+                                        DPI: 150
+                                    }
+                                )
+                            );
+                            
+                            UpdateContext({Var_loadingpop:false});
+                            UpdateContext({Var_verify:false});
+                            UpdateContext({Var_pdfVisible:true});
+                        Size: =15
+                        Text: ="User"
+                        Width: =130
+                        ZIndex: =2
+
+            Container7_2 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.Regular
+                FillPortions: =0
+                Height: =Parent.Height/3
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =50
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Visible: =Var_loadingpop
+                Width: =Parent.Width/3
+                ZIndex: =2
+
+                Spinner2 As Spinner:
+                    BasePaletteColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =200
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Width: =200
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                Label3_3 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(131, 24, 75, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    Size: =18
+                    Text: ="Loading"
+                    Width: =Parent.Width
+                    ZIndex: =2
 
         Button1 As button:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
