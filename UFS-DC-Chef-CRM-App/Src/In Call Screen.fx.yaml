@@ -2138,6 +2138,20 @@
                                                 RadiusTopRight: =4
                                                 ZIndex: =1
 
+                                                FeedBackForDish_1 As label:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 0, 0, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    FontWeight: =FontWeight.Semibold
+                                                    Height: =28
+                                                    OnSelect: =//Select(Parent)
+                                                    Size: =10
+                                                    Text: |-
+                                                        ="Select Type : "
+                                                    Width: =90
+                                                    X: =2
+                                                    ZIndex: =1
+
                                                 Dropdown4_4 As dropdown:
                                                     AllowEmptySelection: =true
                                                     BorderColor: =RGBA(139, 154, 159, 1)
@@ -2491,7 +2505,7 @@
                                                             Height: =20
                                                             Icon: =Icon.Trash
                                                             OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
-                                                            Width: =28
+                                                            Width: =20
                                                             ZIndex: =5
 
                                         Icon8_2 As icon.Cancel:
