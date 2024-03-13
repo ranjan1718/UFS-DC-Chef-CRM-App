@@ -187,126 +187,6 @@
                             //Parent.Width*.095
                         ZIndex: =1
 
-                        Gallery6_7 As gallery.variableTemplateHeightGallery:
-                            AlignInContainer: =AlignInContainer.Center
-                            BorderColor: =RGBA(131, 24, 75, 1)
-                            DelayItemLoading: =true
-                            FillPortions: =0
-                            Height: =Parent.Height - 10
-                            Items: =["Customer & Contact","Call Objective","Menu Matrix","Sampling","Rich Media","Cart","Call Summary"]
-                            Layout: =Layout.Vertical
-                            LayoutMinHeight: =0
-                            LayoutMinWidth: =0
-                            LoadingSpinner: =LoadingSpinner.Data
-                            TemplatePadding: =6
-                            TemplateSize: =120
-                            Visible: =false
-                            Width: =135
-                            ZIndex: =1
-
-                            Gal_Button_1 As button:
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =0
-                                Color: =If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(0,0,0,1), RGBA(255, 255, 255, 1))
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Fill: =If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(255, 255, 255, 1),RGBA(0,0,0,0))
-                                FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Normal)
-                                Height: =(Parent.TemplateHeight)-60
-                                HoverColor: =RGBA(255, 255, 255, 1)
-                                HoverFill: =ColorFade(RGBA(255, 255, 255, 1), -20%)
-                                OnSelect: |-
-                                    =If(Self.Text <> "Customer & Contact",
-                                     Set(Gbl_selectedCutomerFromInCall,Customers_Gallery_5.Selected);
-                                    Clear(Col_NumberOfAddedDish_1);
-                                    Reset(Dropdown1_13);
-                                    Clear(Col_NumberOfAddedSKUs_1);
-                                    UpdateContext({_V_SelectedHeaderOptionInCall: Self.Text});
-                                    //UpdateContext({_V_SelectedCallAssessment: ""});
-                                    //Clear(Col_CartItem2);
-                                    Reset(DatePicker1_7);
-                                    Reset(Dropdown1_13);
-                                    Reset(Dropdown1_14);
-                                    Reset(ComboBox3_13);
-                                    Reset(TextInput1_16);
-                                    Reset(TextInput1_18);
-                                    Reset(TextInput1_19);
-                                    If(
-                                        _V_SelectedHeaderOptionInCall = "Customer & Contact",
-                                        Set(
-                                            gblLastScreen,
-                                            "FromInCallSample_ToCustomerContact"
-                                        );
-                                        //Set(_V_SelectedCustomerInCustModule,LookUp(Customers,Customers_Gallery_5.Selected.Name = Name));
-                                           Navigate(
-                                            CustomerContactScreen,
-                                            ScreenTransition.Fade,
-                                            {lclPreviousScreen: App.ActiveScreen}
-                                        ),
-                                        _V_SelectedHeaderOptionInCall = "Call Objective" || _V_SelectedHeaderOptionInCall = "Sampling" || _V_SelectedHeaderOptionInCall = "Cart" || _V_SelectedHeaderOptionInCall = "Call Summary",
-                                        Navigate('In-Call Sampling Screen',ScreenTransition.Fade,{_V_SelectedHeaderOptionInCall: Self.Text}),
-                                        _V_SelectedHeaderOptionInCall = "Menu Matrix",
-                                        Set(
-                                            gblLastScreen,
-                                            "FromInCallSample_ToMenuMatrix"
-                                        );
-                                        Set(_V_SelectedCustomer,LookUp(Customers,Name=Cus_Name_4.Text));
-                                        Navigate(
-                                            'Menu Matrix Offline Screen',
-                                            ScreenTransition.Fade,
-                                            {lclPreviousScreen: App.ActiveScreen}
-                                        ),
-                                        _V_SelectedHeaderOptionInCall = "Rich Media",
-                                        Set(
-                                            gblLastScreen,
-                                            "FromInCallSample_ToRichMedia"
-                                        );
-                                        Navigate(
-                                            'Rich Media Offline Screen',
-                                            ScreenTransition.Fade,
-                                            {lclPreviousScreen: App.ActiveScreen}
-                                        )
-                                    ))
-                                PaddingLeft: =20
-                                PaddingRight: =10
-                                Size: =12
-                                Text: =ThisItem.Value
-                                Width: =Parent.TemplateWidth -5
-                                ZIndex: =1
-
-                            Indicator_Button_1 As button:
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =0
-                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                DisabledFill: =RGBA(244, 244, 244, 1)
-                                Fill: =RGBA(50, 45, 51, 1)
-                                FontWeight: =FontWeight.Semibold
-                                Height: =((Parent.Height)/8-7)/2
-                                HoverColor: =RGBA(255, 255, 255, 1)
-                                HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
-                                OnSelect: =Gal_Button_1.Pressed
-                                Size: =12
-                                Text: =
-                                Visible: =_V_SelectedHeaderOptionInCall = ThisItem.Value
-                                Width: =7
-                                X: =5
-                                Y: =(Gal_Button_1.Height-Self.Height)/2
-                                ZIndex: =2
-
-                            Label10_3 As label:
-                                BorderColor: =RGBA(131, 24, 75, 1)
-                                Color: =RGBA(0, 0, 0, 1)
-                                DisabledColor: =RGBA(166, 166, 166, 1)
-                                Height: =10
-                                OnSelect: =Select(Parent)
-                                Size: =13
-                                Text: =
-                                Width: =117.77000000000001
-                                Y: =60
-                                ZIndex: =3
-
                         Gallery6_10 As gallery.variableTemplateHeightGallery:
                             BorderColor: =RGBA(131, 24, 75, 1)
                             DelayItemLoading: =true
@@ -318,6 +198,7 @@
                             LoadingSpinner: =LoadingSpinner.Data
                             TemplatePadding: =6
                             TemplateSize: =100
+                            Visible: =false
                             Width: =Parent.Width
                             ZIndex: =2
 
@@ -423,6 +304,180 @@
                                 Width: =117.77000000000001
                                 Y: =60
                                 ZIndex: =3
+
+                        Gallery6_7 As gallery.variableTemplateHeightGallery:
+                            AlignInContainer: =AlignInContainer.Start
+                            BorderColor: =RGBA(131, 24, 75, 1)
+                            DelayItemLoading: =true
+                            Height: =Parent.Height - 10
+                            Items: =["Customer & Contact","Call Objective","Menu Matrix","Sampling","Rich Media","Cart","Call Summary"]
+                            Layout: =Layout.Vertical
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =0
+                            LoadingSpinner: =LoadingSpinner.Data
+                            TemplatePadding: =0
+                            TemplateSize: =Parent.Height/7-10
+                            Width: =135
+                            ZIndex: =3
+
+                            Container10_1 As groupContainer.horizontalAutoLayoutContainer:
+                                Fill: |-
+                                    =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,RGBA(189,195,191,0.5),
+                                        RGBA(0,0,0,0))
+                                Height: =Parent.TemplateHeight
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingLeft: =10
+                                RadiusBottomLeft: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
+                                RadiusBottomRight: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
+                                RadiusTopLeft: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
+                                RadiusTopRight: =If(ThisItem.Value = _V_SelectedHeaderOptionInCall,30,4)
+                                Width: =Parent.TemplateWidth
+                                ZIndex: =4
+
+                                Icon4_1 As icon.People:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    Color: =If(ThisItem.Value=_V_SelectedHeaderOptionInCall,Color.Orange,Color.White)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                    Fill: |-
+                                        =//If(ThisItem.IsSelected,RGBA(189,195,191,0.5),
+                                            RGBA(0,0,0,0)
+                                    Height: =Self.Width
+                                    HoverFill: =RGBA(0,0,0,0)
+                                    Icon: =If(ThisItem.Value="Customer & Contact",Icon.People,ThisItem.Value="Menu Matrix",Icon.Items,ThisItem.Value="Rich Media",Icon.Camera,ThisItem.Value="Call Objective",Icon.Phone,ThisItem.Value="Sampling",Icon.Phonebook,ThisItem.Value="Cart",Icon.ShoppingCart,ThisItem.Value="Call Summary",Icon.DocumentWithContent)
+                                    Width: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,25,20)
+                                    ZIndex: =1
+
+                                Gal_Button_6 As button:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =0
+                                    Color: =If(ThisItem.Value=_V_SelectedHeaderOptionInCall,Color.Orange,Color.White)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Fill: |-
+                                        =//If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(189,195,191,0.5),
+                                            //RGBA(0,0,0,0))
+                                            RGBA(0,0,0,0)
+                                    FillPortions: =1
+                                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Bold)
+                                    Height: =(Parent.Height)-60
+                                    HoverColor: =If(_V_SelectedHeaderOptionInCall = Self.Text,Color.Orange,Color.White) 
+                                    HoverFill: =RGBA(189, 195, 191, 0)
+                                    LayoutMinWidth: =0
+                                    OnSelect: |-
+                                        =/*Set(Gbl_selectedCutomerFromInCall,Gbl_CurrentCustomer);
+                                        Clear(Col_NumberOfAddedDish_1);
+                                        Reset(Dropdown1_13);
+                                        Clear(Col_NumberOfAddedSKUs_1);
+                                        UpdateContext({_V_SelectedHeaderOptionInCall: Self.Text});
+                                        //UpdateContext({_V_SelectedCallAssessment: ""});
+                                        //Clear(Col_CartItem2);
+                                        Reset(DatePicker1_7);
+                                        Reset(Dropdown1_13);
+                                        Reset(Dropdown1_14);
+                                        Reset(ComboBox3_13);
+                                        Reset(TextInput1_16);
+                                        Reset(TextInput1_18);
+                                        Reset(TextInput1_19);
+                                        If(
+                                            _V_SelectedHeaderOptionInCall = "Customer & Contact",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToCustomerContact"
+                                            );
+                                               Navigate(
+                                                CustomerContactScreen,
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
+                                            ),
+                                            _V_SelectedHeaderOptionInCall = "Menu Matrix",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToMenuMatrix"
+                                            );
+                                            Set(_V_SelectedCustomer,LookUp(Customers,Name=Cus_Name_4.Text));
+                                            Navigate(
+                                                'Menu Matrix Offline Screen',
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
+                                            ),
+                                            _V_SelectedHeaderOptionInCall = "Rich Media",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToRichMedia"
+                                            );
+                                            Navigate(
+                                                'Rich Media Offline Screen',
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen,_V_SelectedHeaderOptionInCall: Self.Text}
+                                            )
+                                        )
+                                        */
+                                        If(Self.Text <> "Customer & Contact",
+                                        Set(Gbl_selectedCutomerFromInCall,Customers_Gallery_5.Selected);
+                                        Clear(Col_NumberOfAddedDish_1);
+                                        Reset(Dropdown1_13);
+                                        Clear(Col_NumberOfAddedSKUs_1);
+                                        UpdateContext({_V_SelectedHeaderOptionInCall: Self.Text});
+                                        //UpdateContext({_V_SelectedCallAssessment: ""});
+                                        //Clear(Col_CartItem2);
+                                        Reset(DatePicker1_7);
+                                        Reset(Dropdown1_13);
+                                        Reset(Dropdown1_14);
+                                        Reset(ComboBox3_13);
+                                        Reset(TextInput1_16);
+                                        Reset(TextInput1_18);
+                                        Reset(TextInput1_19);
+                                        If(
+                                            _V_SelectedHeaderOptionInCall = "Customer & Contact",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToCustomerContact"
+                                            );
+                                            //Set(_V_SelectedCustomerInCustModule,LookUp(Customers,Customers_Gallery_5.Selected.Name = Name));
+                                               Navigate(
+                                                CustomerContactScreen,
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen}
+                                            ),
+                                            _V_SelectedHeaderOptionInCall = "Call Objective" || _V_SelectedHeaderOptionInCall = "Sampling" || _V_SelectedHeaderOptionInCall = "Cart" || _V_SelectedHeaderOptionInCall = "Call Summary",
+                                            Navigate('In-Call Sampling Screen',ScreenTransition.Fade,{_V_SelectedHeaderOptionInCall: Self.Text}),
+                                            _V_SelectedHeaderOptionInCall = "Menu Matrix",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToMenuMatrix"
+                                            );
+                                            Set(_V_SelectedCustomer,LookUp(Customers,Name=Cus_Name_4.Text));
+                                            Navigate(
+                                                'Menu Matrix Offline Screen',
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen}
+                                            ),
+                                            _V_SelectedHeaderOptionInCall = "Rich Media",
+                                            Set(
+                                                gblLastScreen,
+                                                "FromInCallSample_ToRichMedia"
+                                            );
+                                            Navigate(
+                                                'Rich Media Offline Screen',
+                                                ScreenTransition.Fade,
+                                                {lclPreviousScreen: App.ActiveScreen}
+                                            )
+                                        ))
+                                    PaddingRight: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    PressedFill: =
+                                    RadiusBottomLeft: =30
+                                    RadiusBottomRight: =30
+                                    RadiusTopLeft: =30
+                                    RadiusTopRight: =30
+                                    Size: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,12,10)
+                                    Text: =ThisItem.Value
+                                    Width: =Parent.Width -5
+                                    ZIndex: =2
 
                     "'Side Bar Component_8' As 'Side Bar Component'":
                         Height: =Parent.Height
