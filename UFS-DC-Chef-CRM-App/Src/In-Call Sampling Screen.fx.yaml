@@ -3369,7 +3369,7 @@
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                            DisplayFields: =["statecode"]
+                                            DisplayFields: =["ulchef_name"]
                                             Height: =28
                                             HoverColor: =RGBA(0, 0, 0, 1)
                                             HoverFill: =RGBA(255, 211, 205, 1)
@@ -3378,8 +3378,8 @@
                                             OnSelect: =Select(Parent)
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                            SearchFields: =["statecode"]
-                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"statecode")
+                                            SearchFields: =["ulchef_name"]
+                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"ulchef_name")
                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -3475,7 +3475,7 @@
                                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                                     DisabledFill: =RGBA(244, 244, 244, 1)
-                                                    DisplayFields: =["statecode"]
+                                                    DisplayFields: =["ulchef_name"]
                                                     Height: =28
                                                     HoverColor: =RGBA(0, 0, 0, 1)
                                                     HoverFill: =RGBA(255, 211, 205, 1)
@@ -3484,8 +3484,8 @@
                                                     OnSelect: =Select(Parent)
                                                     PressedColor: =RGBA(255, 255, 255, 1)
                                                     PressedFill: =RGBA(131, 24, 75, 1)
-                                                    SearchFields: =["statecode"]
-                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"statecode")
+                                                    SearchFields: =["ulchef_name"]
+                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"ulchef_name")
                                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                                     SelectMultiple: =false
                                                     Size: =10
@@ -3901,7 +3901,7 @@
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(106, 122, 127, 1)
                                             SearchFields: =["Value"]
-                                            SearchItems: =Choices(CallType_Incall,ComboBox3_13.SearchText)
+                                            SearchItems: =[]
                                             SelectionFill: =RGBA(255, 255, 255, 1)
                                             SelectMultiple: =false
                                             Size: =10
