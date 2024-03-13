@@ -160,7 +160,6 @@
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    PaddingTop: =10
                     Visible: =gblLastScreen = "FromInCallSample_ToRichMedia"
                     Width: |-
                         =135
@@ -298,7 +297,7 @@
                         LayoutMinWidth: =0
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =6
-                        TemplateSize: =100
+                        TemplateSize: =Parent.Height/7 -10
                         Width: =Parent.Width
                         ZIndex: =2
 
@@ -428,10 +427,10 @@
                                 Fill: |-
                                     =//If(ThisItem.IsSelected,RGBA(189,195,191,0.5),
                                         RGBA(0,0,0,0)
-                                Height: =30
+                                Height: =Self.Width
                                 HoverFill: =RGBA(0,0,0,0)
                                 Icon: =If(ThisItem.Value="Customer & Contact",Icon.People,ThisItem.Value="Menu Matrix",Icon.Items,ThisItem.Value="Rich Media",Icon.Camera,ThisItem.Value="Call Objective",Icon.Phone,ThisItem.Value="Sampling",Icon.Phonebook,ThisItem.Value="Cart",Icon.ShoppingCart,ThisItem.Value="Call Summary",Icon.DocumentWithContent)
-                                Width: =30
+                                Width: =If('Rich Media Offline Screen'.Size>3, 30,25) 
                                 ZIndex: =1
 
                             Gal_Button_8 As button:
@@ -452,7 +451,8 @@
                                 HoverColor: =If(_V_SelectedHeaderOptionInCall = Self.Text,Color.Orange,Color.White) 
                                 HoverFill: |-
                                     =//If(_V_SelectedHeaderOptionInCall = Self.Text,RGBA(189,195,191,0.5),RGBA(255,255,255,1))
-                                    RGBA(0,0,0,0)
+                                    //RGBA(0,0,0,0)
+                                    RGBA(189,195,191,0.5)
                                 LayoutMinWidth: =0
                                 OnSelect: |-
                                     =/*Set(Gbl_selectedCutomerFromInCall,Gbl_CurrentCustomer);
@@ -560,7 +560,7 @@
                                 RadiusBottomRight: =30
                                 RadiusTopLeft: =30
                                 RadiusTopRight: =30
-                                Size: =If('In-Call Sampling Screen'.Size>3 || 'In Call Screen'.Size>3 ,11,8)
+                                Size: =If('Rich Media Offline Screen'.Size>3,12,10)
                                 Text: =ThisItem.Value
                                 Width: =Parent.Width -5
                                 ZIndex: =2
