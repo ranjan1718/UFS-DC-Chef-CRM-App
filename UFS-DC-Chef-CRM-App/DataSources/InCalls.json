@@ -35,6 +35,7 @@
       "ulchef_calltime": "Call Time",
       "ulchef_calltype": "Call Type",
       "ulchef_Customer": "Customer",
+      "ulchef_endcalldate": "EndCallDate",
       "ulchef_followupactiondsr": "Key Action (CDE/DSR)",
       "ulchef_followupcustomer": "Minutes of Meeting",
       "ulchef_incall_AsyncOperations": "System Jobs",
