@@ -3316,7 +3316,7 @@
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                            DisplayFields: =["statecode"]
+                                            DisplayFields: =["ulchef_name"]
                                             Height: =28
                                             HoverColor: =RGBA(0, 0, 0, 1)
                                             HoverFill: =RGBA(255, 211, 205, 1)
@@ -3325,8 +3325,8 @@
                                             OnSelect: =Select(Parent)
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                            SearchFields: =["statecode"]
-                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"statecode")
+                                            SearchFields: =["ulchef_name"]
+                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"ulchef_name")
                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -3422,7 +3422,7 @@
                                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                                     DisabledFill: =RGBA(244, 244, 244, 1)
-                                                    DisplayFields: =["statecode"]
+                                                    DisplayFields: =["ulchef_name"]
                                                     Height: =28
                                                     HoverColor: =RGBA(0, 0, 0, 1)
                                                     HoverFill: =RGBA(255, 211, 205, 1)
@@ -3431,8 +3431,8 @@
                                                     OnSelect: =Select(Parent)
                                                     PressedColor: =RGBA(255, 255, 255, 1)
                                                     PressedFill: =RGBA(131, 24, 75, 1)
-                                                    SearchFields: =["statecode"]
-                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"statecode")
+                                                    SearchFields: =["ulchef_name"]
+                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"ulchef_name")
                                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                                     SelectMultiple: =false
                                                     Size: =10
@@ -4301,16 +4301,78 @@
                                         AlignInContainer: =AlignInContainer.SetByContainer
                                         FillPortions: =0
                                         Height: =60
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutGap: =5
                                         LayoutJustifyContent: =LayoutJustifyContent.End
                                         LayoutMinHeight: =100
                                         LayoutMinWidth: =250
                                         LayoutMode: =LayoutMode.Auto
+                                        PaddingLeft: =5
                                         PaddingRight: =20
                                         Width: =Parent.Width-10
                                         ZIndex: =1
 
+                                        DishComboBox1_1 As combobox:
+                                            BorderColor: =RGBA(106, 122, 127, 1)
+                                            BorderThickness: =0.5
+                                            ChevronBackground: =RGBA(247, 247, 247, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronFill: =RGBA(0, 0, 0, 1)
+                                            ChevronHoverBackground: =RGBA(106, 122, 127, 1)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            DisplayFields: =["Value"]
+                                            FillPortions: =1
+                                            Height: =26
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(247, 247, 247, 1)
+                                            InputTextPlaceholder: ="Find Dish"
+                                            Items: =Distinct(Col_AddedDishes,DishName)
+                                            LayoutMinWidth: =108
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(139, 154, 159, 1)
+                                            SearchFields: =[""]
+                                            SearchItems: =[]
+                                            SelectionColor: =RGBA(214, 221, 224, 1)
+                                            SelectionFill: =RGBA(139, 154, 159, 1)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =108
+                                            ZIndex: =1
+
+                                        ComboBox1 As combobox:
+                                            BorderColor: =RGBA(106, 122, 127, 1)
+                                            BorderThickness: =0.5
+                                            ChevronBackground: =RGBA(247, 247, 247, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronFill: =RGBA(0, 0, 0, 1)
+                                            ChevronHoverBackground: =RGBA(106, 122, 127, 1)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            FillPortions: =1
+                                            Height: =26
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(247, 247, 247, 1)
+                                            InputTextPlaceholder: ="Find SKUs"
+                                            Items: =Distinct(Col_NumberOfAddedSKUs,sku)
+                                            LayoutMinWidth: =108
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(139, 154, 159, 1)
+                                            SearchItems: =Search(ComboBoxSample,ComboBox1.SearchText,"Value1")
+                                            SelectionColor: =RGBA(214, 221, 224, 1)
+                                            SelectionFill: =RGBA(139, 154, 159, 1)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =108
+                                            ZIndex: =2
+
                                         AddButton_2 As button:
-                                            AlignInContainer: =AlignInContainer.Center
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -4383,10 +4445,9 @@
                                             Size: =12
                                             Text: ="+ Add Dish"
                                             Width: =100
-                                            ZIndex: =1
+                                            ZIndex: =3
 
                                         Label12_6 As label:
-                                            AlignInContainer: =AlignInContainer.Center
                                             BorderColor: =RGBA(131, 24, 75, 1)
                                             Color: =RGBA(0, 0, 0, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
@@ -4395,7 +4456,7 @@
                                             Text: =""
                                             Visible: =false
                                             Width: =20
-                                            ZIndex: =2
+                                            ZIndex: =4
 
                                     Gallery1_11 As gallery.variableTemplateHeightGallery:
                                         AlignInContainer: =AlignInContainer.Start
@@ -4453,6 +4514,52 @@
                                                 X: =40
                                                 ZIndex: =1
 
+                                                FeedBackForDish_4 As label:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 0, 0, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    FillPortions: =1
+                                                    FontWeight: =FontWeight.Semibold
+                                                    Height: =30
+                                                    LayoutMinHeight: =20
+                                                    OnSelect: =
+                                                    PaddingLeft: =9
+                                                    Size: =10
+                                                    Text: ="Select Type"
+                                                    Width: =Parent.Width
+                                                    X: =5
+                                                    ZIndex: =1
+
+                                                Dropdown4_1 As dropdown:
+                                                    AllowEmptySelection: =true
+                                                    BorderColor: =RGBA(139, 154, 159, 1)
+                                                    BorderThickness: =0.5
+                                                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                                    ChevronFill: =RGBA(0, 0, 0, 1)
+                                                    ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                                    Default: =ThisItem.DishType
+                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                                    Height: =30
+                                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                                    HoverFill: =RGBA(139, 154, 159, 1)
+                                                    Items: =Choices(Type_SKU)
+                                                    OnChange: |-
+                                                        =ForAll(Filter(Col_NumberOfAddedSKUs,ThisItem.Value = Id),Patch(Col_NumberOfAddedSKUs,ThisRecord,{Type:Self.Selected.Value}))
+                                                    OnSelect: =
+                                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                                    PressedFill: =RGBA(106, 122, 127, 1)
+                                                    SelectionColor: =RGBA(214, 221, 224, 1)
+                                                    SelectionFill: =RGBA(139, 154, 159, 1)
+                                                    Size: =10
+                                                    Width: =Parent.Width - 10
+                                                    X: =FeedBackForDish_2.X + FeedBackForDish_2.Width + 5
+                                                    ZIndex: =2
+
                                                 FeedBackForDish_2 As label:
                                                     BorderColor: =RGBA(131, 24, 75, 1)
                                                     Color: =RGBA(0, 0, 0, 1)
@@ -4467,7 +4574,7 @@
                                                     Text: ="Latest Dish"
                                                     Width: =Parent.Width
                                                     X: =5
-                                                    ZIndex: =1
+                                                    ZIndex: =3
 
                                                 Container44 As groupContainer.manualLayoutContainer:
                                                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -4476,7 +4583,7 @@
                                                     LayoutMinHeight: =100
                                                     LayoutMinWidth: =Parent.Width
                                                     Width: =Parent.Width
-                                                    ZIndex: =2
+                                                    ZIndex: =4
 
                                                     Dropdown2 As dropdown:
                                                         AllowEmptySelection: =true
@@ -4578,7 +4685,7 @@
                                                     Text: ="Remarks"
                                                     Width: =Parent.Width
                                                     X: =5
-                                                    ZIndex: =3
+                                                    ZIndex: =5
 
                                                 Dropdown3_2 As dropdown:
                                                     AllowEmptySelection: =true
@@ -4626,52 +4733,6 @@
                                                     SelectionFill: =RGBA(139, 154, 159, 1)
                                                     Size: =10
                                                     Width: =Parent.Width - 10
-                                                    ZIndex: =4
-
-                                                FeedBackForDish_4 As label:
-                                                    BorderColor: =RGBA(131, 24, 75, 1)
-                                                    Color: =RGBA(0, 0, 0, 1)
-                                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                                    FillPortions: =1
-                                                    FontWeight: =FontWeight.Semibold
-                                                    Height: =30
-                                                    LayoutMinHeight: =20
-                                                    OnSelect: =
-                                                    PaddingLeft: =9
-                                                    Size: =10
-                                                    Text: ="Select Type"
-                                                    Width: =Parent.Width
-                                                    X: =5
-                                                    ZIndex: =5
-
-                                                Dropdown4_1 As dropdown:
-                                                    AllowEmptySelection: =true
-                                                    BorderColor: =RGBA(139, 154, 159, 1)
-                                                    BorderThickness: =0.5
-                                                    ChevronBackground: =RGBA(255, 255, 255, 1)
-                                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
-                                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
-                                                    ChevronFill: =RGBA(0, 0, 0, 1)
-                                                    ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
-                                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
-                                                    Default: =ThisItem.DishType
-                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                                    DisabledColor: =RGBA(166, 166, 166, 1)
-                                                    DisabledFill: =RGBA(244, 244, 244, 1)
-                                                    Height: =30
-                                                    HoverColor: =RGBA(0, 0, 0, 1)
-                                                    HoverFill: =RGBA(139, 154, 159, 1)
-                                                    Items: =Choices(Type_SKU)
-                                                    OnChange: |-
-                                                        =ForAll(Filter(Col_NumberOfAddedSKUs,ThisItem.Value = Id),Patch(Col_NumberOfAddedSKUs,ThisRecord,{Type:Self.Selected.Value}))
-                                                    OnSelect: =
-                                                    PressedColor: =RGBA(255, 255, 255, 1)
-                                                    PressedFill: =RGBA(106, 122, 127, 1)
-                                                    SelectionColor: =RGBA(214, 221, 224, 1)
-                                                    SelectionFill: =RGBA(139, 154, 159, 1)
-                                                    Size: =10
-                                                    Width: =Parent.Width - 10
-                                                    X: =FeedBackForDish_2.X + FeedBackForDish_2.Width + 5
                                                     ZIndex: =6
 
                                             Gallery1_12 As gallery.variableTemplateHeightGallery:
@@ -4776,7 +4837,7 @@
                                                             Height: =30
                                                             LayoutMinHeight: =100
                                                             LayoutMinWidth: =Parent.Width
-                                                            Width: =Parent.Width
+                                                            Width: =Parent.Width-4
                                                             ZIndex: =1
 
                                                             ComboBox7_1 As combobox:
@@ -4791,7 +4852,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["statecode"]
+                                                                DisplayFields: =["ulchef_name"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2.Selected.Name) || IsBlank(Dropdown3_2.SelectedText) || IsBlank(Dropdown4_1.SelectedText),
@@ -4824,8 +4885,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["statecode"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"statecode")
+                                                                SearchFields: =["ulchef_name"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"ulchef_name")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -4916,7 +4977,7 @@
                                                             PressedFill: =RGBA(106, 122, 127, 1)
                                                             SelectionFill: =RGBA(214, 221, 224, 1)
                                                             Size: =10
-                                                            Width: =Parent.Width
+                                                            Width: =Parent.Width-4
                                                             X: =FeedBackForDish_3.X + FeedBackForDish_3.Width
                                                             Y: =ComboBox7_1.Y + ComboBox7_1.Height +8
                                                             ZIndex: =2
@@ -4942,7 +5003,7 @@
                                                             RadiusTopRight: =2
                                                             Size: =10
                                                             Visible: =!IsBlank(ThisItem.SkuFeedback) && ThisItem.SkuFeedback <> "Like it, placed order"
-                                                            Width: =Parent.Width
+                                                            Width: =Parent.Width-4
                                                             ZIndex: =3
 
                                                     Container42_4 As groupContainer.verticalAutoLayoutContainer:
@@ -5971,7 +6032,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["statecode"]
+                                                                DisplayFields: =["ulchef_name"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3.SelectedText) || IsBlank(Dropdown4_2.SelectedText),
@@ -6004,8 +6065,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["statecode"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"statecode")
+                                                                SearchFields: =["ulchef_name"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"ulchef_name")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -6331,6 +6392,293 @@
                                                 Y: =36
                                                 ZIndex: =3
 
+                                    Gallery1_17 As gallery.variableTemplateHeightGallery:
+                                        AlignInContainer: =AlignInContainer.Start
+                                        BorderColor: =RGBA(127, 45, 0, 1)
+                                        BorderThickness: =5
+                                        DelayItemLoading: =true
+                                        Fill: =RGBA(127, 45, 0, 1)
+                                        FocusedBorderThickness: =2
+                                        Height: |-
+                                            =/*If(
+                                                CountRows(Col_NumberOfAddedSKUs) < 2,
+                                                2,
+                                                CountRows(Col_NumberOfAddedSKUs)
+                                            ) * (Gallery1_12.TemplateHeight + 45)*/
+                                            400
+                                        Items: =Col_AddedDishes
+                                        Layout: =Layout.Vertical
+                                        LayoutMinHeight: =250
+                                        LayoutMinWidth: =320
+                                        LoadingSpinner: =LoadingSpinner.Data
+                                        TemplatePadding: =8
+                                        TemplateSize: |-
+                                            =//CountRows(Gallery1_12.AllItems)* Gallery1_12.TemplateHeight
+                                            200
+                                        Width: =Parent.Width - 30
+                                        ZIndex: =10
+
+                                        Container43_2 As groupContainer.horizontalAutoLayoutContainer:
+                                            DropShadow: =DropShadow.Light
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            Height: =Parent.TemplateHeight
+                                            LayoutMode: =LayoutMode.Auto
+                                            PaddingTop: =2
+                                            RadiusBottomLeft: =4
+                                            RadiusBottomRight: =4
+                                            RadiusTopLeft: =4
+                                            RadiusTopRight: =4
+                                            Width: =Parent.TemplateWidth
+                                            ZIndex: =1
+
+                                            Container41_2 As groupContainer.verticalAutoLayoutContainer:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                DropShadow: =DropShadow.Light
+                                                Height: =Parent.Height
+                                                LayoutAlignItems: =LayoutAlignItems.Center
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutMinHeight: =100
+                                                LayoutMinWidth: =50
+                                                LayoutMode: =LayoutMode.Auto
+                                                PaddingBottom: =5
+                                                RadiusBottomLeft: =4
+                                                RadiusBottomRight: =4
+                                                RadiusTopLeft: =4
+                                                RadiusTopRight: =4
+                                                X: =40
+                                                ZIndex: =1
+
+                                                FeedBackForDish_15 As label:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 0, 0, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    FillPortions: =1
+                                                    FontWeight: =FontWeight.Semibold
+                                                    Height: =30
+                                                    LayoutMinHeight: =20
+                                                    OnSelect: =
+                                                    PaddingLeft: =9
+                                                    Size: =10
+                                                    Text: ="Select Type"
+                                                    Width: =Parent.Width
+                                                    X: =5
+                                                    ZIndex: =1
+
+                                                Dropdown4_3 As dropdown:
+                                                    AllowEmptySelection: =true
+                                                    BorderColor: =RGBA(139, 154, 159, 1)
+                                                    BorderThickness: =0.5
+                                                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                                                    ChevronDisabledBackground: =RGBA(0, 0, 0, 0)
+                                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                                    ChevronFill: =RGBA(0, 0, 0, 1)
+                                                    ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                                    Default: =ThisItem.DishType
+                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledColor: =RGBA(0, 0, 0, 1)
+                                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                                    DisplayMode: =DisplayMode.Disabled
+                                                    Height: =30
+                                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                                    HoverFill: =RGBA(139, 154, 159, 1)
+                                                    Items: =Choices(Type_SKU)
+                                                    OnChange: |-
+                                                        =ForAll(Filter(Col_NumberOfAddedSKUs,ThisItem.Value = Id),Patch(Col_NumberOfAddedSKUs,ThisRecord,{Type:Self.Selected.Value}))
+                                                    OnSelect: =
+                                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                                    PressedFill: =RGBA(106, 122, 127, 1)
+                                                    SelectionColor: =RGBA(214, 221, 224, 1)
+                                                    SelectionFill: =RGBA(139, 154, 159, 1)
+                                                    Size: =10
+                                                    Width: =Parent.Width - 10
+                                                    X: =FeedBackForDish_13.X + FeedBackForDish_13.Width + 5
+                                                    ZIndex: =2
+
+                                                FeedBackForDish_13 As label:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 0, 0, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    FillPortions: =1
+                                                    FontWeight: =FontWeight.Semibold
+                                                    Height: =30
+                                                    LayoutMinHeight: =20
+                                                    OnSelect: =
+                                                    PaddingLeft: =9
+                                                    Size: =10
+                                                    Text: ="Latest Dish"
+                                                    Width: =Parent.Width
+                                                    X: =5
+                                                    ZIndex: =3
+
+                                                Container44_6 As groupContainer.manualLayoutContainer:
+                                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                                    FillPortions: =0
+                                                    Height: =32
+                                                    LayoutMinHeight: =100
+                                                    LayoutMinWidth: =Parent.Width
+                                                    Width: =Parent.Width
+                                                    ZIndex: =4
+
+                                                    Dropdown2_2 As dropdown:
+                                                        AllowEmptySelection: =true
+                                                        BorderColor: =RGBA(106, 122, 127, 1)
+                                                        BorderThickness: =0.5
+                                                        ChevronBackground: =RGBA(247, 247, 247, 1)
+                                                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                                        ChevronFill: =RGBA(0, 0, 0, 1)
+                                                        ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                                        Default: =ThisItem.DishName
+                                                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledFill: =RGBA(244, 244, 244, 1)
+                                                        FocusedBorderThickness: =1
+                                                        Height: =30
+                                                        HoverColor: =RGBA(0, 0, 0, 1)
+                                                        HoverFill: =RGBA(139, 154, 159, 1)
+                                                        Items: =SortByColumns(_Col_AllDishes,"ulchef_name",SortOrder.Ascending)
+                                                        OnChange: |
+                                                            =Patch(
+                                                                Col_AddedDishes,
+                                                                LookUp(
+                                                                    Col_AddedDishes,
+                                                                    ThisItem.Value = Value
+                                                                ),
+                                                                {DishName: Self.Selected.Name}
+                                                            );
+                                                        PressedColor: =RGBA(255, 255, 255, 1)
+                                                        PressedFill: =RGBA(106, 122, 127, 1)
+                                                        SelectionColor: =RGBA(214, 221, 224, 1)
+                                                        SelectionFill: =RGBA(139, 154, 159, 1)
+                                                        Size: =10
+                                                        Width: =Parent.Width-10
+                                                        X: =5
+                                                        Y: =1
+                                                        ZIndex: =1
+
+                                                    TextInput4_14 As text:
+                                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                                        BorderThickness: =0
+                                                        Color: =RGBA(0, 0, 0, 1)
+                                                        Default: =ThisItem.DishName
+                                                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledFill: =RGBA(244, 244, 244, 1)
+                                                        DisplayMode: =DisplayMode.View
+                                                        FocusedBorderThickness: =0
+                                                        Height: =28
+                                                        HoverBorderColor: =RGBA(214, 221, 224, 1)
+                                                        HoverColor: =RGBA(0, 0, 0, 1)
+                                                        HoverFill: =RGBA(0, 0, 0, 0)
+                                                        RadiusBottomLeft: =0
+                                                        RadiusBottomRight: =0
+                                                        RadiusTopLeft: =0
+                                                        RadiusTopRight: =0
+                                                        Size: =10
+                                                        Visible: =!(Dropdown2_2.Selected.Name = "Other")
+                                                        Width: =Dropdown2_2.Width -34
+                                                        X: =5.5
+                                                        Y: =2
+                                                        ZIndex: =3
+
+                                                FeedBackForDish_14 As label:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 0, 0, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    FillPortions: =1
+                                                    FontWeight: =FontWeight.Semibold
+                                                    Height: =30
+                                                    LayoutMinHeight: =20
+                                                    OnSelect: =
+                                                    PaddingLeft: =9
+                                                    Size: =10
+                                                    Text: ="Remarks"
+                                                    Width: =Parent.Width
+                                                    X: =5
+                                                    ZIndex: =5
+
+                                                Dropdown3_4 As dropdown:
+                                                    AllowEmptySelection: =true
+                                                    BorderColor: =RGBA(139, 154, 159, 1)
+                                                    BorderThickness: =0.5
+                                                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                                                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                                    ChevronFill: =RGBA(0, 0, 0, 1)
+                                                    ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                                    Default: =//ThisItem.DishType
+                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                                    DisplayMode: |-
+                                                        =If(
+                                                            !IsBlank(ThisItem.DishName),
+                                                            DisplayMode.Edit,
+                                                            IsBlank(Dropdown2_2.Selected.Name),
+                                                            DisplayMode.Disabled,
+                                                            Dropdown2_2.Selected.Name = "Other" && IsBlank(TextInput4_13.Text),
+                                                            DisplayMode.Disabled,
+                                                            DisplayMode.Edit
+                                                        )
+                                                    Height: =30
+                                                    HoverColor: =RGBA(0, 0, 0, 1)
+                                                    HoverFill: =RGBA(139, 154, 159, 1)
+                                                    Items: |-
+                                                        =["Like it, will purchase (by when?)",
+                                                        "Like it, placed order",
+                                                        "Need more time for internal testing/ R&D (how long?)",
+                                                        "Need more more samples (SKU and qty?)",
+                                                        "Rejected it, too expensive (what is target cost?)",
+                                                        "Rejected it, does not like taste profile (Why?)",
+                                                        "Rejected it, prefers competitor (Why?)",
+                                                        "Rejected it, prefers scratch (Why?)",
+                                                        "Rejected it, prefers smaller pack (Why?)",
+                                                        "Rejected it, other reason (Place in Remarks)",
+                                                        "Others, place comment in Remarks"]
+                                                    OnChange: =
+                                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                                    PressedFill: =RGBA(106, 122, 127, 1)
+                                                    SelectionColor: =RGBA(214, 221, 224, 1)
+                                                    SelectionFill: =RGBA(139, 154, 159, 1)
+                                                    Size: =10
+                                                    Width: =Parent.Width - 10
+                                                    ZIndex: =6
+
+                                            Gallery1_20 As gallery.variableTemplateHeightGallery:
+                                                AlignInContainer: =AlignInContainer.Start
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                DelayItemLoading: =true
+                                                Fill: =RGBA(230, 230, 230, 1)
+                                                Height: =Parent.Height
+                                                Items: =Filter(Col_NumberOfAddedSKUs,Id = ThisItem.Value)
+                                                Layout: =Layout.Vertical
+                                                LayoutMinHeight: =287
+                                                LayoutMinWidth: =If('In-Call Sampling Screen'.Size >3,400,300)
+                                                LoadingSpinner: =LoadingSpinner.Data
+                                                TemplatePadding: =8
+                                                TemplateSize: =100
+                                                Width: =389
+                                                X: =294
+                                                Y: =120
+                                                ZIndex: =2
+
+                                            Icon8_12 As icon.Cancel:
+                                                BorderColor: =RGBA(131, 24, 75, 1)
+                                                Color: =RGBA(153, 5, 32, 1)
+                                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                DisabledColor: =RGBA(244, 244, 244, 1)
+                                                Height: =25
+                                                Icon: =Icon.Trash
+                                                OnSelect: =Remove(Col_AddedDishes,ThisItem)
+                                                Visible: =false
+                                                Width: =28
+                                                X: =237
+                                                Y: =36
+                                                ZIndex: =3
+
                                     New_Gallery As gallery.variableTemplateHeightGallery:
                                         AlignInContainer: =AlignInContainer.Start
                                         BorderColor: =RGBA(131, 24, 75, 1)
@@ -6343,8 +6691,9 @@
                                         TemplateFill: =RGBA(0, 0, 0, 0.3)
                                         TemplatePadding: =3
                                         TemplateSize: =(CountRows(Gallery1_16.AllItems)* Gallery1_16.TemplateHeight) + 80
+                                        Visible: =false
                                         Width: =Parent.Width
-                                        ZIndex: =10
+                                        ZIndex: =11
 
                                         Container32_4 As groupContainer.verticalAutoLayoutContainer:
                                             Fill: =RGBA(3, 3, 3, 0)
@@ -6447,7 +6796,7 @@
                                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                                            DisplayFields: =["statecode"]
+                                                            DisplayFields: =["ulchef_name"]
                                                             DisplayMode: |-
                                                                 =/*If(
                                                                     IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3) || IsBlank(Dropdown4_2),
@@ -6480,8 +6829,8 @@
                                                                 );*/
                                                             PressedColor: =RGBA(255, 255, 255, 1)
                                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                                            SearchFields: =["statecode"]
-                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"statecode")
+                                                            SearchFields: =["ulchef_name"]
+                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"ulchef_name")
                                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                                             SelectMultiple: =false
                                                             Size: =10
@@ -6888,7 +7237,7 @@
                                         RadiusTopLeft: =4
                                         RadiusTopRight: =4
                                         Width: =Parent.Width
-                                        ZIndex: =11
+                                        ZIndex: =12
 
                                         Sample_Lbl_4 As label:
                                             BorderColor: =RGBA(131, 24, 75, 1)
@@ -6940,7 +7289,7 @@
                                         TemplatePadding: =0
                                         TemplateSize: =130
                                         Width: =Parent.Width
-                                        ZIndex: =12
+                                        ZIndex: =13
 
                                         Template_Body_1 As groupContainer.horizontalAutoLayoutContainer:
                                             DropShadow: =DropShadow.Semilight
@@ -7278,7 +7627,7 @@
                                         PaddingLeft: =20
                                         PaddingRight: =20
                                         PaddingTop: =3
-                                        ZIndex: =13
+                                        ZIndex: =14
 
                                         Label17_7 As label:
                                             Align: =Align.Right
@@ -7314,7 +7663,7 @@
                                         RadiusTopLeft: =4
                                         RadiusTopRight: =4
                                         Width: =Parent.Width
-                                        ZIndex: =14
+                                        ZIndex: =15
 
                                         Attach_Invoice_Lbl_2 As label:
                                             BorderColor: =RGBA(131, 24, 75, 1)
