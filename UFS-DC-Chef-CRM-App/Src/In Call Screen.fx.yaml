@@ -853,10 +853,10 @@
                                                     First(
                                                         Split(
                                                             Last(
-                                                               Split(
+                                                                FirstN(Split(
                                                                     Customers_Gallery_5.Selected.'Created On',
                                                                     " "
-                                                                )
+                                                                ),2)
                                                             ).Value,
                                                             ":"
                                                         )
@@ -864,20 +864,20 @@
                                                 ) - 12 &":"&Last(
                                                         Split(
                                                             Last(
-                                                                Split(
+                                                                FirstN(Split(
                                                                     Customers_Gallery_5.Selected.'Created On',
                                                                     " "
-                                                                )
+                                                                ),2)
                                                             ).Value,
                                                             ":"
                                                         )
                                                     ).Value&" PM",
                                                         Last(
-                                                            Split(
-                                                                Customers_Gallery_5.Selected.'Created On',
-                                                                " "
-                                                            )
-                                                        ).Value &" AM"
+                                                                FirstN(Split(
+                                                                    Customers_Gallery_5.Selected.'Created On',
+                                                                    " "
+                                                                ),2)
+                                                            ).Value &" AM"
                                             )
                                         Width: =Parent.Width-10
                                         ZIndex: =3
