@@ -2152,7 +2152,7 @@
                                                         ="Select Type : "
                                                     Width: =Parent.Width-10
                                                     X: =2
-                                                    ZIndex: =2
+                                                    ZIndex: =1
 
                                                 Dropdown4_4 As dropdown:
                                                     AllowEmptySelection: =true
@@ -2180,7 +2180,48 @@
                                                     Size: =10
                                                     Width: =Parent.Width-10
                                                     X: =FeedBackForDish.X + FeedBackForDish.Width + 5
+                                                    ZIndex: =2
+
+                                                Container13 As groupContainer.horizontalAutoLayoutContainer:
+                                                    DropShadow: =DropShadow.Light
+                                                    LayoutMinHeight: =0
+                                                    LayoutMinWidth: =250
+                                                    LayoutMode: =LayoutMode.Auto
+                                                    RadiusBottomLeft: =4
+                                                    RadiusBottomRight: =4
+                                                    RadiusTopLeft: =4
+                                                    RadiusTopRight: =4
                                                     ZIndex: =3
+
+                                                    Label5 As label:
+                                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                                        Color: =RGBA(240, 98, 15, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        Height: =Parent.Height 
+                                                        Size: =10
+                                                        Text: ="*"
+                                                        VerticalAlign: =VerticalAlign.Top
+                                                        Visible: =If(Dropdown4_4.SelectedText.Value="Wet",true,false)
+                                                        Width: =15
+                                                        ZIndex: =1
+
+                                                    Label11_4 As label:
+                                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                                        Color: =RGBA(0, 0, 0, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        FillPortions: =1
+                                                        FontWeight: =FontWeight.Semibold
+                                                        Height: =Parent.Height
+                                                        LayoutMinHeight: =0
+                                                        OnSelect: =//Select(Parent)
+                                                        PaddingLeft: =2
+                                                        Size: =10
+                                                        Text: |-
+                                                            ="SKUs per Dish :"
+                                                        Width: =Parent.Width-10
+                                                        X: =2
+                                                        Y: =54
+                                                        ZIndex: =2
 
                                                 Label11_3 As label:
                                                     BorderColor: =RGBA(131, 24, 75, 1)
@@ -2193,7 +2234,8 @@
                                                     OnSelect: =//Select(Parent)
                                                     Size: =10
                                                     Text: |-
-                                                        ="SKUs per Dish:"
+                                                        ="SKUs per Dish :"
+                                                    Visible: =false
                                                     Width: =Parent.Width-10
                                                     X: =2
                                                     Y: =54
