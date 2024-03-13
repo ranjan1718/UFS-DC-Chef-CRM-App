@@ -2083,10 +2083,10 @@
                                                     First(
                                                         Split(
                                                             Last(
-                                                                Split(
+                                                                FirstN(Split(
                                                                     Gbl_CurrentCustomer.'Created On',
                                                                     " "
-                                                                )
+                                                                ),2)
                                                             ).Value,
                                                             ":"
                                                         )
@@ -2096,10 +2096,10 @@
                                                     First(
                                                         Split(
                                                             Last(
-                                                                Split(
+                                                                FirstN(Split(
                                                                     Gbl_CurrentCustomer.'Created On',
                                                                     " "
-                                                                )
+                                                                ),2)
                                                             ).Value,
                                                             ":"
                                                         )
@@ -2107,20 +2107,20 @@
                                                 ) - 12 & ":" & Last(
                                                     Split(
                                                         Last(
-                                                            Split(
-                                                                Gbl_CurrentCustomer.'Created On',
-                                                                " "
-                                                            )
-                                                        ).Value,
+                                                                FirstN(Split(
+                                                                    Gbl_CurrentCustomer.'Created On',
+                                                                    " "
+                                                                ),2)
+                                                            ).Value,
                                                         ":"
                                                     )
                                                 ).Value & " PM",
                                                 Last(
-                                                    Split(
-                                                        Gbl_CurrentCustomer.'Created On',
-                                                        " "
-                                                    )
-                                                ).Value & " AM"
+                                                                FirstN(Split(
+                                                                    Gbl_CurrentCustomer.'Created On',
+                                                                    " "
+                                                                ),2)
+                                                            ).Value & " AM"
                                             )
                                         Width: =Parent.Width-10
                                         ZIndex: =3
