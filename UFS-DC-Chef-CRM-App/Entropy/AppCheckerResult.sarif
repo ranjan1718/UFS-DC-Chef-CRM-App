@@ -45125,6 +45125,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "In Call Screen",
+                "type": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "In Call Screen",
+                "type": "'In Call Screen'.ScreenContainer3.MainSectionContainer3.MainBodyContainer.'Body_Container without Sidebar_2'.Customer_Information_Container_2.InnerBodyContainer_1.SubSecondBodyContainer_1.PreCallAddContainer_1.Gallery1_8.Container11.Container12_1.Gallery1_21.Container22_12.Icon12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 7
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.varSKUTabSelected"
                 }
               ],

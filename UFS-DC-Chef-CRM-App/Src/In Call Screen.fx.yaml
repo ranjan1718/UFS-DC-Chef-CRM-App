@@ -2463,9 +2463,11 @@
                                                             DisabledColor: =RGBA(244, 244, 244, 1)
                                                             Height: =20
                                                             Icon: =Icon.Cancel
-                                                            OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
+                                                            OnSelect: |-
+                                                                =//Remove(Col_NumberOfAddedSKUs,ThisItem)
+                                                                false
                                                             Visible: |-
-                                                                =First(
+                                                                =/*First(
                                                                     SortByColumns(
                                                                         Filter(
                                                                             Col_NumberOfAddedSKUs,
@@ -2474,10 +2476,23 @@
                                                                         "SndID",
                                                                         SortOrder.Ascending
                                                                     )
-                                                                ).SndID <> ThisItem.SndID
+                                                                ).SndID <> ThisItem.SndID*/
+                                                                false
                                                             Width: =28
                                                             X: =290
                                                             ZIndex: =4
+
+                                                        Icon12 As icon.Trash:
+                                                            AlignInContainer: =AlignInContainer.Center
+                                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                                            Color: =RGBA(240, 98, 15, 1)
+                                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                            DisabledColor: =RGBA(244, 244, 244, 1)
+                                                            Height: =20
+                                                            Icon: =Icon.Trash
+                                                            OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
+                                                            Width: =28
+                                                            ZIndex: =5
 
                                         Icon8_2 As icon.Cancel:
                                             BorderColor: =RGBA(131, 24, 75, 1)
