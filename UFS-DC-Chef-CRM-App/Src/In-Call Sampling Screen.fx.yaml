@@ -2595,7 +2595,10 @@
                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                 PressedFill: =RGBA(131, 24, 75, 1)
                                                 SearchFields: =["Value"]
-                                                SearchItems: =[]
+                                                SearchItems: |-
+                                                    =Search(//["2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040" ]
+                                                    Distinct(_Col_SKUForInCalls,Text('Created On',"yyyy"))
+                                                    ,ComboBox5_1.SearchText,"Value")
                                                 SelectionFill: =RGBA(211, 66, 9, 1)
                                                 Size: =If('In-Call Sampling Screen'.Size >3,10,6)
                                                 Width: =128
@@ -3456,7 +3459,7 @@
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                            DisplayFields: =["ulchef_name"]
+                                            DisplayFields: =["statecode"]
                                             Height: =28
                                             HoverColor: =RGBA(0, 0, 0, 1)
                                             HoverFill: =RGBA(255, 211, 205, 1)
@@ -3465,8 +3468,8 @@
                                             OnSelect: =Select(Parent)
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                            SearchFields: =["ulchef_name"]
-                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"ulchef_name")
+                                            SearchFields: =["statecode"]
+                                            SearchItems: =Search(_Col_AllSKUs,ComboBox4_4.SearchText,"statecode")
                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -3562,7 +3565,7 @@
                                                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                                     DisabledFill: =RGBA(244, 244, 244, 1)
-                                                    DisplayFields: =["ulchef_name"]
+                                                    DisplayFields: =["statecode"]
                                                     Height: =28
                                                     HoverColor: =RGBA(0, 0, 0, 1)
                                                     HoverFill: =RGBA(255, 211, 205, 1)
@@ -3571,8 +3574,8 @@
                                                     OnSelect: =Select(Parent)
                                                     PressedColor: =RGBA(255, 255, 255, 1)
                                                     PressedFill: =RGBA(131, 24, 75, 1)
-                                                    SearchFields: =["ulchef_name"]
-                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"ulchef_name")
+                                                    SearchFields: =["statecode"]
+                                                    SearchItems: =Search(_Col_AllSKUs,ComboBox4_5.SearchText,"statecode")
                                                     SelectionFill: =RGBA(211, 66, 9, 1)
                                                     SelectMultiple: =false
                                                     Size: =10
@@ -3990,7 +3993,7 @@
                                             PressedColor: =RGBA(255, 255, 255, 1)
                                             PressedFill: =RGBA(106, 122, 127, 1)
                                             SearchFields: =["Value"]
-                                            SearchItems: =[]
+                                            SearchItems: =Choices(CallType_Incall,ComboBox3_13.SearchText)
                                             SelectionFill: =RGBA(255, 255, 255, 1)
                                             SelectMultiple: =false
                                             Size: =10
@@ -4933,7 +4936,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["ulchef_name"]
+                                                                DisplayFields: =["statecode"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2.Selected.Name) || IsBlank(Dropdown3_2.SelectedText) || IsBlank(Dropdown4_1.SelectedText),
@@ -4966,8 +4969,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["ulchef_name"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"ulchef_name")
+                                                                SearchFields: =["statecode"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_1.SearchText,"statecode")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -6113,7 +6116,7 @@
                                                                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledColor: =RGBA(166, 166, 166, 1)
                                                                 DisabledFill: =RGBA(244, 244, 244, 1)
-                                                                DisplayFields: =["ulchef_name"]
+                                                                DisplayFields: =["statecode"]
                                                                 DisplayMode: |-
                                                                     =If(
                                                                         IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3.SelectedText) || IsBlank(Dropdown4_2.SelectedText),
@@ -6146,8 +6149,8 @@
                                                                     );
                                                                 PressedColor: =RGBA(255, 255, 255, 1)
                                                                 PressedFill: =RGBA(106, 122, 127, 1)
-                                                                SearchFields: =["ulchef_name"]
-                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"ulchef_name")
+                                                                SearchFields: =["statecode"]
+                                                                SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_3.SearchText,"statecode")
                                                                 SelectionFill: =RGBA(214, 221, 224, 1)
                                                                 SelectMultiple: =false
                                                                 Size: =10
@@ -6589,7 +6592,7 @@
                                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                                             DisabledFill: =RGBA(244, 244, 244, 1)
-                                                            DisplayFields: =["ulchef_name"]
+                                                            DisplayFields: =["statecode"]
                                                             DisplayMode: |-
                                                                 =/*If(
                                                                     IsBlank(Dropdown2_1.Selected.Name) || IsBlank(Dropdown3_3) || IsBlank(Dropdown4_2),
@@ -6622,8 +6625,8 @@
                                                                 );*/
                                                             PressedColor: =RGBA(255, 255, 255, 1)
                                                             PressedFill: =RGBA(131, 24, 75, 1)
-                                                            SearchFields: =["ulchef_name"]
-                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"ulchef_name")
+                                                            SearchFields: =["statecode"]
+                                                            SearchItems: =Search(SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending),ComboBox7_4.SearchText,"statecode")
                                                             SelectionFill: =RGBA(211, 66, 9, 1)
                                                             SelectMultiple: =false
                                                             Size: =10

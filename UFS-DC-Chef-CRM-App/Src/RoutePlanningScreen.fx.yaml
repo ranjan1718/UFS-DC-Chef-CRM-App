@@ -198,7 +198,7 @@
                         RadiusTopLeft: =4
                         RadiusTopRight: =4
                         Visible: =var_routeplannerloaderspinner
-                        Width: =Parent.Width
+                        Width: =Parent.Width-'Side Bar Component_6'.Width
                         ZIndex: =2
 
                         Spinner3_1 As Spinner:
@@ -208,6 +208,7 @@
                             Height: =Parent.Height
                             LayoutMinHeight: =200
                             LayoutMinWidth: =200
+                            SpinnerSize: ='Spinner.SpinnerSize'.Large
                             Width: =Parent.Width
                             X: =0
                             Y: =0
@@ -215,7 +216,7 @@
 
                         Timer3_1 As timer:
                             AutoStart: =true
-                            Duration: =6000
+                            Duration: =5000
                             Fill: =RGBA(211, 66, 9, 1)
                             HoverColor: =RGBA(255, 255, 255, 1)
                             HoverFill: =ColorFade(RGBA(211, 66, 9, 1), -20%)
@@ -2207,7 +2208,18 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Bold
                                                         Size: =12
-                                                        Text: ="100"
+                                                        Text: |-
+                                                            =//CountRows(Filter(_C_All_Incalls,Year(EndCallDate)=Year(varFirstDayOfMonth) && Month(EndCallDate)=Month(varFirstDayOfMonth)))
+                                                            CountRows( Filter(
+                                                                _C_All_Related_SKUS,
+                                                                'Created By'.'Full Name' = User().FullName && !IsBlank(Name),
+                                                                InCall.InCall in
+                                                                Filter(
+                                                                    _C_All_Incalls,
+                                                                    Year(EndCallDate)=Year(varFirstDayOfMonth) && Month(EndCallDate)=Month(varFirstDayOfMonth)&&
+                                                                    Text('Call Status')= "444670002" &&
+                                                                    'Created By'.'Full Name' = User().FullName
+                                                                ).InCall))
                                                         Width: =Parent.Width/3
                                                         ZIndex: =1
 
@@ -2220,7 +2232,7 @@
                                                         FontWeight: =FontWeight.Bold
                                                         Size: =12
                                                         Text: |
-                                                            =CountRows(Filter(Carts,Year(Date)=Year(varFirstDayOfMonth) && Month(Date)=Month(varFirstDayOfMonth)))
+                                                            =CountRows(Filter(Carts,Year(EndCallDate)=Year(varFirstDayOfMonth) && Month(EndCallDate)=Month(varFirstDayOfMonth) && IsSampling=true))
                                                         Width: =Parent.Width/3
                                                         ZIndex: =2
 
@@ -2233,7 +2245,9 @@
                                                         Font: ="'Unilever Shilling Regular','Open Sans'"
                                                         FontWeight: =FontWeight.Semibold
                                                         Size: =12
-                                                        Text: =(Label24_15.Text/Label23_15.Text)* 100 &"%" 
+                                                        Text: |-
+                                                            =//(Label24_15.Text/Label23_15.Text)* 100 &"%" 
+                                                            If(Label23_15.Text="0","0%",(Label24_15.Text/Label23_15.Text)* 100 &"%")
                                                         Width: =Parent.Width/3
                                                         ZIndex: =3
 
