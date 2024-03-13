@@ -5274,7 +5274,7 @@
                                             CountRows(Filter(_C_All_Related_SKUS, 'Created By'.'Full Name' = User().FullName,InCall.InCall in
                                                 Filter(
                                                     _C_All_Incalls,
-                                                    Text(DateValue('Scheduled Call Date'), "MM/dd/yyyy") = Text(Today(), "MM/dd/yyyy") &&
+                                                    Text(DateValue('Scheduled Call Date'), "mm/dd/yyyy") = Text(Today(), "mm/dd/yyyy") &&
                                                     Text('Call Status')<> "" &&
                                                    Text('Call Status') <> "444670003" &&
                                                     Text('Call Status') <> "444670002" &&

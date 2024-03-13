@@ -2751,6 +2751,7 @@
                                             RadiusBottomRight: =4
                                             RadiusTopLeft: =4
                                             RadiusTopRight: =4
+                                            Visible: =var_editCustomerInfo||_V_Customer_New
                                             Width: =115
                                             ZIndex: =10
 
