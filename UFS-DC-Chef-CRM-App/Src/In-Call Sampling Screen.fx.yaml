@@ -3756,9 +3756,7 @@
                                             BorderThickness: =0.5
                                             CalendarHeaderFill: =RGBA(211, 66, 9, 1)
                                             Color: =RGBA(0, 0, 0, 1)
-                                            DefaultDate: |-
-                                                =//If(_V_Gbl_ThisIsInstantCall,Last(InCalls).'Scheduled Call Date', PreCallsGallery_1.Selected.'Scheduled Call Date')
-                                                If(gblLastScreen = "RoutePlanEditScheduleCall",Gbl_RoutePlanSelectedInCall.'Scheduled Call Date',Today())
+                                            DefaultDate: =If(gblLastScreen = "RoutePlanEditScheduleCall",Gbl_RoutePlanSelectedInCall.'Scheduled Call Date',Today())
                                             DisabledBorderColor: =RGBA(166, 166, 166, 1)
                                             DisabledColor: =RGBA(166, 166, 166, 1)
                                             DisabledFill: =RGBA(244, 244, 244, 1)

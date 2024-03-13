@@ -1705,7 +1705,7 @@
                                         LayoutMode: =LayoutMode.Auto
                                         PaddingRight: =3
                                         Width: =Parent.Width-30
-                                        ZIndex: =7
+                                        ZIndex: =6
 
                                         Label2_60 As label:
                                             BorderColor: =RGBA(131, 24, 75, 1)
@@ -1779,7 +1779,7 @@
                                             Width: =68
                                             ZIndex: =3
 
-                                    Gallery1_6 As gallery.variableTemplateHeightGallery:
+                                    Gallery1_8 As gallery.variableTemplateHeightGallery:
                                         AlignInContainer: =AlignInContainer.Start
                                         BorderColor: =RGBA(131, 24, 75, 1)
                                         DelayItemLoading: =true
@@ -1789,17 +1789,335 @@
                                                 CountRows(Col_NumberOfAddedSKUs) < 2,
                                                 2,
                                                 CountRows(Col_NumberOfAddedSKUs)
-                                            ) * (Gallery1_8.TemplateHeight + 40)
+                                            ) * (Gallery1_15.TemplateHeight + 40)
                                         Items: =Col_NumberOfAddedDish
                                         Layout: =Layout.Vertical
                                         LayoutMinHeight: =20
                                         LayoutMinWidth: =320
                                         LoadingSpinner: =LoadingSpinner.Data
                                         ShowNavigation: =true
-                                        TemplatePadding: =20
-                                        TemplateSize: =200
+                                        TemplatePadding: =2
+                                        TemplateSize: =120
                                         Width: =Parent.Width - 30
                                         ZIndex: =8
+
+                                        Gallery1_15 As gallery.variableTemplateHeightGallery:
+                                            BorderColor: =RGBA(247, 162, 119, 1)
+                                            DelayItemLoading: =true
+                                            Fill: =RGBA(237, 237, 237, 1)
+                                            Height: =40
+                                            Items: =Filter(Col_NumberOfAddedSKUs,Id = ThisItem.Id)
+                                            Layout: =Layout.Vertical
+                                            LoadingSpinner: =LoadingSpinner.Data
+                                            TemplatePadding: =2
+                                            TemplateSize: =40
+                                            Width: =249
+                                            X: =315
+                                            ZIndex: =1
+
+                                            Container22_7 As groupContainer.horizontalAutoLayoutContainer:
+                                                Height: =32
+                                                LayoutGap: =3
+                                                LayoutMode: =LayoutMode.Auto
+                                                PaddingLeft: =2
+                                                PaddingRight: =25
+                                                PaddingTop: =2
+                                                Width: =Parent.TemplateWidth/1.3
+                                                X: |-
+                                                    =If('In Call Screen'.Size <4,112,
+                                                     Parent.TemplateWidth - (Parent.TemplateWidth/1.25))
+                                                ZIndex: =4
+
+                                                Container24_1 As groupContainer.manualLayoutContainer:
+                                                    AlignInContainer: =AlignInContainer.Start
+                                                    BorderColor: =RGBA(189, 49, 51, 1)
+                                                    FillPortions: =0
+                                                    Height: =Parent.Height-1
+                                                    LayoutMinHeight: =100
+                                                    LayoutMinWidth: =150
+                                                    Width: =Parent.Width - 80
+                                                    ZIndex: =1
+
+                                                    ComboBox7 As combobox:
+                                                        BorderColor: =RGBA(139, 154, 159, 1)
+                                                        ChevronBackground: =RGBA(247, 247, 247, 1)
+                                                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                                        ChevronFill: =RGBA(0, 0, 0, 1)
+                                                        ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                                        DefaultSelectedItems: =
+                                                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledFill: =RGBA(244, 244, 244, 1)
+                                                        DisplayFields: =["ulchef_name"]
+                                                        DisplayMode: |-
+                                                            =If(
+                                                                IsBlank(ComboBox4_2.Selected) || IsBlank(Dropdown4.Selected),
+                                                                DisplayMode.Disabled,
+                                                                ComboBox4_2.Selected.Name = "Other" && IsBlank(TextInput4_4.Text),
+                                                                DisplayMode.Disabled,
+                                                                DisplayMode.Edit
+                                                            )
+                                                        FocusedBorderThickness: =1
+                                                        Height: =26
+                                                        HoverColor: =RGBA(0, 0, 0, 1)
+                                                        HoverFill: =RGBA(214, 221, 224, 1)
+                                                        IsSearchable: =false
+                                                        Items: =SortByColumns(_Col_AllSKUs,"ulchef_name",SortOrder.Ascending)
+                                                        OnChange: |
+                                                            =Patch(
+                                                                Col_NumberOfAddedSKUs,
+                                                                LookUp(
+                                                                    Col_NumberOfAddedSKUs,
+                                                                    ThisItem.SndID = SndID
+                                                                ),
+                                                                {
+                                                                    sku: Self.Selected.Name,
+                                                                    DishType:  Dropdown4.Selected.Value, //FeedBackTxtInput.Text,
+                                                                    PackSize: Self.Selected.'Pack Size',
+                                                                    PiecePrice: Self.Selected.'Piece Price',
+                                                                    CasePrice: Self.Selected.'Case Price',
+                                                                    Type: Dropdown4.Selected.Value, //Self.Selected.Type,
+                                                                    dish: If(
+                                                                        ComboBox4_2.Selected.Name = "Other",
+                                                                        TextInput4_4.Text,
+                                                                        ComboBox4_2.Selected.Name
+                                                                    )
+                                                                }
+                                                            );
+                                                        PressedColor: =RGBA(255, 255, 255, 1)
+                                                        PressedFill: =RGBA(106, 122, 127, 1)
+                                                        SearchFields: =["ulchef_name"]
+                                                        SearchItems: =[]
+                                                        SelectionFill: =RGBA(214, 221, 224, 1)
+                                                        SelectMultiple: =false
+                                                        Size: =10
+                                                        Width: =TextInput4_5.Width+32
+                                                        X: =1
+                                                        Y: =2
+                                                        ZIndex: =3
+
+                                                    TextInput4_5 As text:
+                                                        BorderColor: =RGBA(131, 24, 75, 1)
+                                                        BorderThickness: =0
+                                                        Color: =If(IsBlank(ThisItem.sku),RGBA(166,166,166,1),RGBA(0, 0, 0, 1))
+                                                        Default: =ThisItem.sku
+                                                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                                        DisabledFill: =RGBA(244, 244, 244, 1)
+                                                        DisplayMode: =DisplayMode.View
+                                                        FocusedBorderThickness: =4
+                                                        Height: =26
+                                                        HoverBorderColor: =RGBA(139, 154, 159, 1)
+                                                        HoverColor: =RGBA(0, 0, 0, 1)
+                                                        HoverFill: =RGBA(214, 221, 224, 1)
+                                                        OnChange: =
+                                                        RadiusBottomLeft: =0
+                                                        RadiusBottomRight: =0
+                                                        RadiusTopLeft: =0
+                                                        RadiusTopRight: =0
+                                                        Size: =10
+                                                        Width: =Parent.Width-34
+                                                        X: =1
+                                                        Y: =2
+                                                        ZIndex: =4
+
+                                                Icon7_7 As icon.Add:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(0, 176, 80, 1)
+                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                                    DisplayMode: =If(IsBlank(ThisItem.sku),DisplayMode.Disabled, DisplayMode.Edit)
+                                                    FocusedBorderThickness: =0
+                                                    Height: =28
+                                                    Icon: =Icon.Add
+                                                    OnSelect: |-
+                                                        =Collect(
+                                                            Col_NumberOfAddedSKUs,
+                                                            {
+                                                                Id: ThisItem.Id,
+                                                                SndID: ThisItem.Id & "_" & Last(
+                                                                    Split(
+                                                                        First(
+                                                                            SortByColumns(
+                                                                                Filter(
+                                                                                    Col_NumberOfAddedSKUs,
+                                                                                    Id = ThisItem.Id
+                                                                                ),
+                                                                                "SndID",
+                                                                                SortOrder.Descending
+                                                                            )
+                                                                        ).SndID,
+                                                                        "_"
+                                                                    )
+                                                                ).Value + 1
+                                                            }
+                                                        )
+                                                    Visible: =!IsBlank(ThisItem.sku)
+                                                    Width: =28
+                                                    X: =260
+                                                    ZIndex: =3
+
+                                                Icon8_1 As icon.Cancel:
+                                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                                    Color: =RGBA(192, 0, 0, 1)
+                                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                                    Height: =28
+                                                    Icon: =Icon.Cancel
+                                                    OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
+                                                    Visible: |-
+                                                        =First(
+                                                            SortByColumns(
+                                                                Filter(
+                                                                    Col_NumberOfAddedSKUs,
+                                                                    Id = ThisItem.Id
+                                                                ),
+                                                                "SndID",
+                                                                SortOrder.Ascending
+                                                            )
+                                                        ).SndID <> ThisItem.SndID
+                                                    Width: =28
+                                                    X: =290
+                                                    ZIndex: =4
+
+                                        ComboBox4_2 As combobox:
+                                            BorderColor: =RGBA(139, 154, 159, 1)
+                                            ChevronBackground: =RGBA(247, 247, 247, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronFill: =RGBA(0, 0, 0, 1)
+                                            ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DefaultSelectedItems: =//[ThisItem.DishName]
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            DisplayFields: =["ulchef_name"]
+                                            Height: =35
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(214, 221, 224, 1)
+                                            InputTextPlaceholder: ="Find Dish Name"
+                                            Items: =SortByColumns(_Col_AllDishes,"ulchef_name",SortOrder.Ascending)
+                                            OnChange: |
+                                                =/*Patch(
+                                                    Col_NumberOfAddedDish,
+                                                    ThisItem,
+                                                    {DishName: Self.Selected.Name}
+                                                );*/
+                                            OnSelect: =Select(Parent)
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(106, 122, 127, 1)
+                                            SearchFields: =["ulchef_name"]
+                                            SearchItems: =Search(SortByColumns(_Col_AllDishes,"ulchef_name",SortOrder.Ascending),ComboBox4_2.SearchText,"ulchef_name")
+                                            SelectionFill: =RGBA(214, 221, 224, 1)
+                                            SelectMultiple: =false
+                                            Size: =10
+                                            Width: =201
+                                            X: =113
+                                            Y: =46
+                                            ZIndex: =3
+
+                                        Label11_2 As label:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =20
+                                            OnSelect: =Select(Parent)
+                                            Size: =10
+                                            Text: |-
+                                                ="SKUs per Dish:"
+                                            Width: =110
+                                            X: =2
+                                            Y: =54
+                                            ZIndex: =4
+
+                                        TextInput4_4 As text:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            BorderThickness: =0
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            Default: =ThisItem.DishName
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            Fill: =RGBA(252, 243, 232, 1)
+                                            FocusedBorderThickness: =0
+                                            Height: =28
+                                            HoverBorderColor: =RGBA(139, 154, 159, 1)
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(214, 221, 224, 1)
+                                            RadiusBottomLeft: =0
+                                            RadiusBottomRight: =0
+                                            RadiusTopLeft: =0
+                                            RadiusTopRight: =0
+                                            Size: =10
+                                            Visible: =ComboBox4_2.Selected.Name = "Other"
+                                            Width: =ComboBox4_2.Width-33
+                                            X: =112
+                                            Y: =74
+                                            ZIndex: =5
+
+                                        Icon8_2 As icon.Cancel:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(153, 5, 32, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(244, 244, 244, 1)
+                                            Height: =28
+                                            Icon: =Icon.Cancel
+                                            OnSelect: =Remove(Col_NumberOfAddedDish,ThisItem)
+                                            Visible: =First(SortByColumns(Col_NumberOfAddedDish,"Id",SortOrder.Ascending)).Id<>ThisItem.Id
+                                            Width: =28
+                                            X: =538
+                                            ZIndex: =6
+
+                                        FeedBackForDish As label:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Color: =RGBA(0, 0, 0, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            FontWeight: =FontWeight.Semibold
+                                            Height: =28
+                                            OnSelect: =Select(Parent)
+                                            Size: =10
+                                            Text: |-
+                                                ="Select Type : "
+                                            Width: =90
+                                            X: =2
+                                            ZIndex: =8
+
+                                        Dropdown4 As dropdown:
+                                            AllowEmptySelection: =true
+                                            BorderColor: =RGBA(139, 154, 159, 1)
+                                            ChevronBackground: =RGBA(247, 247, 247, 1)
+                                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                            ChevronFill: =RGBA(0, 0, 0, 1)
+                                            ChevronHoverBackground: =ColorFade(Self.BorderColor, -20%)
+                                            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                            DisabledColor: =RGBA(166, 166, 166, 1)
+                                            DisabledFill: =RGBA(244, 244, 244, 1)
+                                            Height: =28
+                                            HoverColor: =RGBA(0, 0, 0, 1)
+                                            HoverFill: =RGBA(214, 221, 224, 1)
+                                            Items: =Choices(Type_SKU)
+                                            OnSelect: =Select(Parent)
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =RGBA(106, 122, 127, 1)
+                                            SelectionFill: =RGBA(214, 221, 224, 1)
+                                            Size: =10
+                                            Width: =197
+                                            X: =FeedBackForDish.X + FeedBackForDish.Width + 5
+                                            ZIndex: =9
+
+                                        Rectangle6 As rectangle:
+                                            BorderColor: =RGBA(131, 24, 75, 1)
+                                            Fill: =RGBA(255, 255, 255, 1)
+                                            Height: =2
+                                            OnSelect: =Select(Parent)
+                                            Width: =Parent.TemplateWidth
+                                            ZIndex: =10
 
                                     Container4_5 As groupContainer.horizontalAutoLayoutContainer:
                                         AlignInContainer: =AlignInContainer.Start

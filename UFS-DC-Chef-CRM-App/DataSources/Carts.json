@@ -35,6 +35,8 @@
       "ulchef_cartid": "Cart",
       "ulchef_Customer": "Customer",
       "ulchef_date": "Date",
+      "ulchef_endcalldate": "EndCallDate",
+      "ulchef_issampling": "IsSampling",
       "ulchef_name": "Name",
       "ulchef_subcart_Cart_ulchef_cart": "Sub-Carts",
       "ulchef_totalprice": "Total Price",
@@ -95,6 +97,26 @@
     },
     "OptionSetTypeKey": "StatusType",
     "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Carts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "IsSampling (Carts)",
+    "Name": "ulchef_cart_ulchef_issampling",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "ulchef_issampling",
+        "OptionSetReferenceEntityName": "Carts"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "ulchef_issampling",
     "RelatedEntityName": "Carts",
     "Type": "OptionSetInfo"
   }
