@@ -1,0 +1,9 @@
+[
+  {
+    "IsComponentScoped": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "_Col_AllSKUs_duplicate_sampling",
+    "Type": "CollectionDataSourceInfo"
+  }
+]

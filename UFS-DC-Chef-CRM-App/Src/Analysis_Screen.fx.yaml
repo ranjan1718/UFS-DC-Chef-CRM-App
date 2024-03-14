@@ -716,6 +716,14 @@
                             Width: =Parent.Width-20
                             ZIndex: =5
 
+                            PowerBI2 As powerbi:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =RGBA(131, 24, 75, 1)
+                                FillPortions: =1
+                                LayoutMinHeight: =0
+                                WorkspaceId: ="__my-workspace"
+                                ZIndex: =1
+
                     "'Cont_Route Plan & Promo Eligibility' As groupContainer.verticalAutoLayoutContainer":
                         DropShadow: =DropShadow.Light
                         Height: =Parent.Height-10

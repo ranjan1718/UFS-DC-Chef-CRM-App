@@ -2490,35 +2490,6 @@
                                                             X: =260
                                                             ZIndex: =3
 
-                                                        Icon8_5 As icon.Cancel:
-                                                            AlignInContainer: =AlignInContainer.Center
-                                                            BorderColor: =RGBA(131, 24, 75, 1)
-                                                            Color: =RGBA(192, 0, 0, 1)
-                                                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                                                            DisabledColor: =RGBA(244, 244, 244, 1)
-                                                            Height: =25
-                                                            Icon: =Icon.Cancel
-                                                            OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
-                                                            PaddingBottom: =3
-                                                            PaddingLeft: =3
-                                                            PaddingRight: =3
-                                                            PaddingTop: =3
-                                                            Visible: |-
-                                                                =/*First(
-                                                                    SortByColumns(
-                                                                        Filter(
-                                                                            Col_NumberOfAddedSKUs,
-                                                                            Id = ThisItem.Id
-                                                                        ),
-                                                                        "SndID",
-                                                                        SortOrder.Ascending
-                                                                    )
-                                                                ).SndID <> ThisItem.SndID*/
-                                                                false
-                                                            Width: =Self.Height
-                                                            X: =290
-                                                            ZIndex: =4
-
                                                         Icon12 As icon.Trash:
                                                             AlignInContainer: =AlignInContainer.Center
                                                             BorderColor: =RGBA(131, 24, 75, 1)
@@ -2527,7 +2498,16 @@
                                                             DisabledColor: =RGBA(244, 244, 244, 1)
                                                             Height: =25
                                                             Icon: =Icon.Trash
-                                                            OnSelect: =Remove(Col_NumberOfAddedSKUs,ThisItem)
+                                                            OnSelect: |
+                                                                =Remove(Col_NumberOfAddedSKUs,ThisItem);
+                                                                ClearCollect(col_allSKUs_duplicate,_Col_AllSKUs);
+                                                                ForAll(
+                                                                    Col_NumberOfAddedSKUs As _c_sku,
+                                                                    RemoveIf(
+                                                                        col_allSKUs_duplicate,
+                                                                        _c_sku.sku = Name
+                                                                    )
+                                                                );
                                                             PaddingBottom: =3
                                                             PaddingLeft: =3
                                                             PaddingRight: =3
@@ -2561,7 +2541,17 @@
                                             DisabledColor: =RGBA(244, 244, 244, 1)
                                             Height: =28
                                             Icon: =Icon.Trash
-                                            OnSelect: =Remove(Col_NumberOfAddedDish,ThisItem)
+                                            OnSelect: |
+                                                =Remove(Col_NumberOfAddedDish,ThisItem);
+                                                RemoveIf(Col_NumberOfAddedSKUs,Id = ThisItem.Id);
+                                                ClearCollect(col_allSKUs_duplicate,_Col_AllSKUs);
+                                                ForAll(
+                                                    Col_NumberOfAddedSKUs As _c_sku,
+                                                    RemoveIf(
+                                                        col_allSKUs_duplicate,
+                                                        _c_sku.sku = Name
+                                                    )
+                                                );
                                             PaddingBottom: =5
                                             PaddingLeft: =5
                                             PaddingRight: =5
@@ -4857,7 +4847,7 @@
         Color: =RGBA(0, 0, 0, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         Size: =13
-        Text: =CountRows(_Col_AllSKUs)
+        Text: =CountRows(col_allSKUs_duplicate)
         X: =171
         Y: =12
         ZIndex: =3

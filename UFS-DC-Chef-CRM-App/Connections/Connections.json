@@ -54,5 +54,19 @@
     "dependencies": {},
     "dependents": [],
     "id": "436add2e-69d1-4e29-b3b9-2f1b66af01ad"
+  },
+  "908ea2ec-b926-4fb9-828e-5adf57982ff4": {
+    "connectionRef": {
+      "displayName": "Power BI",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1674/1.0.1674.3602/powerbi/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerbi"
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerBI"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "908ea2ec-b926-4fb9-828e-5adf57982ff4"
   }
 }
