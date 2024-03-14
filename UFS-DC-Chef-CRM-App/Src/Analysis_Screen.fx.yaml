@@ -537,9 +537,19 @@
                                     LayoutMinHeight: =0
                                     LayoutMinWidth: =0
                                     LoadingSpinner: =LoadingSpinner.Data
-                                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                                    TemplateSize: =Parent.Height
+                                    Visible: =false
                                     Width: =Parent.Width
                                     ZIndex: =1
+
+                                PowerBI1 As powerbi:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(131, 24, 75, 1)
+                                    DashboardId: ="0bc4a0c6-1296-4570-917c-31c8543e26e2"
+                                    FillPortions: =1
+                                    LayoutMinHeight: =0
+                                    WorkspaceId: ="__my-workspace"
+                                    ZIndex: =2
 
                         Container36_8 As groupContainer.horizontalAutoLayoutContainer:
                             AlignInContainer: =AlignInContainer.SetByContainer
@@ -719,8 +729,11 @@
                             PowerBI2 As powerbi:
                                 AlignInContainer: =AlignInContainer.Stretch
                                 BorderColor: =RGBA(131, 24, 75, 1)
+                                DashboardId: ="0bc4a0c6-1296-4570-917c-31c8543e26e2"
                                 FillPortions: =1
                                 LayoutMinHeight: =0
+                                TileUrl: |-
+                                    ="https://app.powerbi.com/embed?dashboardId=0bc4a0c6-1296-4570-917c-31c8543e26e2&tileId=8fbf197f-de29-4e5f-8c3a-c621dc643f24&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLU5PUlRILUVVUk9QRS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldCIsImVtYmVkRmVhdHVyZXMiOnsidXNhZ2VNZXRyaWNzVk5leHQiOnRydWV9fQ%3d%3d"
                                 WorkspaceId: ="__my-workspace"
                                 ZIndex: =1
 
